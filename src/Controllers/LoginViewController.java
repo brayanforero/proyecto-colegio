@@ -19,6 +19,10 @@ public class LoginViewController implements Initializable {
     @FXML
     private Button btnLogin;
 
+    Alert alert;
+    Users method = new Users();
+    Users user;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -27,22 +31,23 @@ public class LoginViewController implements Initializable {
     @FXML
     private void login(ActionEvent event) {
         this.btnLogin.setDisable(true);
-        Users method = new Users();
-        Users user;
+
         String nameUser = this.txtUsername.getText().toUpperCase().trim();
         String passUser = this.txtPassword.getText().toUpperCase().trim();
 
-        user = method.login(nameUser, passUser);
-        
-        if(user.getId() != 0){
+        this.user = method.login(nameUser, passUser);
+
+        if (this.user.getId() != 0) {
             System.out.println("Usuario ok");
-            System.out.println("Id: " + user.getId());
-            System.out.println("Usuario: " + user.getName());
-            System.out.println("Password: " + user.getPassword());
-            System.out.println("Rol: " + user.getRole());
-            System.out.println("Persona: " + user.getWorkers());
+            System.out.println("Id: " + this.user.getId());
+            System.out.println("Usuario: " + this.user.getName());
+            System.out.println("Password: " + this.user.getPassword());
+            System.out.println("Rol: " + this.user.getRole());
+            System.out.println("Persona: " + this.user.getWorkers());
+
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+
+            alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setContentText("Los Datos Ingresados son Incorrectos");
             alert.showAndWait();
