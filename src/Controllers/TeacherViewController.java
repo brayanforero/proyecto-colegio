@@ -7,7 +7,11 @@ package Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -16,6 +20,11 @@ import javafx.fxml.Initializable;
  */
 public class TeacherViewController implements Initializable {
 
+    @FXML
+    private MenuItem btnStudents;
+    @FXML
+    private Pane PaneStudents;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +32,10 @@ public class TeacherViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void display(ActionEvent event) {
+        
+    }
     
 }

@@ -22,7 +22,7 @@ public class App extends Application{
         Scene scene = new Scene(root);
         
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Iinscripcion");
         primaryStage.show();
     }
     
