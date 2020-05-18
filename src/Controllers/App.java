@@ -17,12 +17,18 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/LoginView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/TeacherView.fxml"));
         
         Scene scene = new Scene(root);
         
         primaryStage.setScene(scene);
         primaryStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Iinscripcion");
+        primaryStage.setMinWidth(1024);
+        primaryStage.setMinHeight(720);
+        primaryStage.setMaxWidth(1024);
+        primaryStage.setMaxHeight(720);
+               
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
     

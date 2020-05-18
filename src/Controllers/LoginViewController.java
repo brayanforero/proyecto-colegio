@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,7 +19,8 @@ public class LoginViewController implements Initializable {
     @FXML
     private TextField txtUsername;
     @FXML
-    private TextField txtPassword;
+    private PasswordField txtPassword;
+    
     @FXML
     private Button btnLogin;
 
@@ -42,13 +44,7 @@ public class LoginViewController implements Initializable {
         this.user = method.login(nameUser, passUser);
 
         if (this.user.getId() != 0) {
-            System.out.println("Usuario ok");
-            System.out.println("Id: " + this.user.getId());
-            System.out.println("Usuario: " + this.user.getName());
-            System.out.println("Password: " + this.user.getPassword());
-            System.out.println("Rol: " + this.user.getRole());
-            System.out.println("Persona: " + this.user.getWorkers());
-
+            
             Node src = (Node) event.getSource();
             Stage stage = (Stage) src.getScene().getWindow();
             stage.close();
@@ -60,7 +56,7 @@ public class LoginViewController implements Initializable {
 
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
-            alert.setContentText("Los Datos Ingresados son Incorrectos");
+            alert.setContentText("Estimado Usuario los Datos son Incorrectos");
             alert.showAndWait();
             this.btnLogin.setDisable(false);
         }
