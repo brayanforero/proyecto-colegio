@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="600.0" maxWidth="1024.0" minHeight="600.0" minWidth="1024.0" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="600.0" maxWidth="1024.0" minHeight="600.0" minWidth="1024.0" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TeacherViewController">
    <children>
       <Pane prefHeight="50.0" prefWidth="1024.0" style="-fx-background-color: none;">
          <children>
@@ -48,7 +48,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="5TO" textFill="#434141">
+                  <Label fx:id="lblDegress" alignment="CENTER" style="-fx-font-weight: bold;" text="5TO" textFill="#434141">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
@@ -62,13 +62,13 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="A" textFill="#434141">
+                  <Label fx:id="lblSeccion" alignment="CENTER" style="-fx-font-weight: bold;" text="A" textFill="#434141">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label text="Fecha Actual" textFill="#434141">
+                  <Label text="Fecha" textFill="#434141">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
@@ -76,7 +76,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
+                  <Label fx:id="lblDate" alignment="CENTER" style="-fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
@@ -128,9 +128,9 @@
             </HBox>
          </children></Pane>
       <Separator layoutY="110.0" prefHeight="0.0" prefWidth="1024.0" />
-      <HBox layoutX="6.0" layoutY="50.0" prefHeight="60.0" prefWidth="1024.0" spacing="12.0" style="-fx-background-color: transparent;">
+      <HBox layoutX="6.0" layoutY="50.0" prefHeight="60.0" prefWidth="660.0" spacing="12.0" style="-fx-background-color: transparent;">
          <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 16;" text="Estudiantes" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Estudiantes" textFill="#434141">
               <items>
                 <MenuItem mnemonicParsing="false" style="-fx-font-size: 16; -fx-padding: 4;" text="Consulta de Información" />
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -143,7 +143,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent;" text="Planillas" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Planillas" textFill="#434141">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -155,7 +155,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent;" text="Actividades Escolares" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Actividades Escolares" textFill="#434141">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -167,7 +167,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: green;" text="Inscripción" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14; -fx-font-weight: bold;" text="Inscripción" textFill="#434141">
                <items>
                   <MenuItem mnemonicParsing="false" text="Nuevo Ingreso" />
                   <MenuItem mnemonicParsing="false" text="Regular" />
@@ -184,5 +184,8 @@
             <Insets bottom="12.0" left="12.0" right="12.0" top="16.0" />
          </padding>
       </HBox>
+      <Label layoutX="769.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" />
+      <Label fx:id="lblidUser" layoutX="743.0" layoutY="73.0" prefHeight="17.0" prefWidth="15.0" />
+      <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="867.0" layoutY="68.0" prefHeight="25.0" prefWidth="156.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" />
    </children>
 </AnchorPane>

@@ -7,11 +7,10 @@ package Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -21,21 +20,26 @@ import javafx.scene.layout.Pane;
 public class TeacherViewController implements Initializable {
 
     @FXML
-    private MenuItem btnStudents;
+    private Label lblDegress;
     @FXML
-    private Pane PaneStudents;
+    private Label lblSeccion;
+    @FXML
+    private Label lblDate;
+    @FXML
+    private Label lblNameUser;
+    @FXML
+    private Label lblidUser;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
-    @FXML
-    private void display(ActionEvent event) {
-        
     }
-    
+
+    public void initAtribute(int id, String nameUser) {
+
+        this.lblNameUser.setText(nameUser);
+        this.lblidUser.setText(id + "");
+
+    }
+
 }
