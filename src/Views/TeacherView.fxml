@@ -31,7 +31,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label style="-fx-font-weight: bold;" text="2020-2021" textFill="#434141">
+                  <Label fx:id="lblPeriodo" style="-fx-font-weight: bold;" text="2020-2021" textFill="#434141">
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
@@ -52,6 +52,9 @@
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <Label text="Sección:" textFill="#434141">
@@ -66,6 +69,26 @@
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <Label text="Turno:" textFill="#434141">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTurno" prefHeight="25.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="5TO" textFill="#434141">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="1.0" />
+                     </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <Label text="Fecha" textFill="#434141">
@@ -80,6 +103,9 @@
                      <padding>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </padding>
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
                   </Label>
                </children>
                <padding>
