@@ -74,7 +74,8 @@ public class LoginViewController implements Initializable {
                     Parent root = loader.load();
 
                     TeacherViewController controller = loader.getController();
-                    controller.initAtribute( this.user.getId(), this.user.getWorkers() );
+                    controller.initAtributeUser( this.user.getId(), this.user.getWorkers() );
+                    controller.initDegressAsigned( this.user.getId() );
                      
                     Scene scene = new Scene(root);
 

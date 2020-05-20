@@ -5,7 +5,12 @@
  */
 package Controllers;
 
+import Config.Base;
+import com.mysql.jdbc.Connection;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,11 +40,40 @@ public class TeacherViewController implements Initializable {
 
     }
 
-    public void initAtribute(int id, String nameUser) {
+    public void initAtributeUser(int id, String nameUser) {
 
-        this.lblNameUser.setText(nameUser);
-        this.lblidUser.setText(id + "");
+        if (id > 0 && nameUser.length() > 0) {
+            this.lblNameUser.setText(nameUser);
+            this.lblidUser.setText(id + "");
+        } else {
 
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(null);
+            alert.setHeaderText(null);
+            alert.setContentText("Estimado Usuario los Datos son Incorrectos");
+            alert.showAndWait();
+
+        }
+
+    }
+
+    public void initDegressAsigned(int id) {
+
+        try {
+            Base base = new Base();
+            Connection con = base.getConnectionStatic();
+            PreparedStatement ps = con.prepareCall("call sp_grado_asignado(?)");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                this.lblDegress.setText( rs.getString("nivel") );
+                this.lblSeccion.setText( rs.getString("seccion") );
+            }
+            ps.close();
+        } catch (SQLException e) {
+            System.err.println("Error en traer los datos:" + e);
+        }
     }
 
 }
