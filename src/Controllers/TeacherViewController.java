@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import Config.Base;
@@ -15,10 +10,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
 
 public class TeacherViewController implements Initializable {
 
@@ -36,11 +34,17 @@ public class TeacherViewController implements Initializable {
     private Label lblPeriodo;
     @FXML
     private Label lblTurno;
+    @FXML
+    private MenuItem itemPlanillaDownload;
+    @FXML
+    private MenuItem itemList;
+    @FXML
+    private TableView<?> tableList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Date date = new Date();SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        this.lblDate.setText(format.format(date) + "");
+        systemDate();
+        
     }
 
     public void initAtributeUser(int id, String nameUser) {
@@ -82,7 +86,7 @@ public class TeacherViewController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
-                alert.setContentText("Error: Solitud de datos no puedo ser procesada");
+                alert.setContentText("Error: Solicitud de datos no completada");
                 alert.showAndWait();
                 Platform.exit();
             }
@@ -92,9 +96,32 @@ public class TeacherViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
-            alert.setContentText("Error: Solitud de datos no puedo ser procesada");
+            alert.setContentText("Error: Solicitud de datos no completada");
             alert.showAndWait();
             Platform.exit();
+            
+        }
+    }
+    
+    public void systemDate(){
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        this.lblDate.setText(format.format(date) + "");
+    }
+    @FXML
+    private void showPanePlanillas(ActionEvent event) {
+
+        if (!this.tableList.isVisible()) {
+
+            this.tableList.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void showPaneList(ActionEvent event) {
+        
+        if (!this.tableList.isVisible()) {
+            this.tableList.setVisible(true);
         }
     }
 
