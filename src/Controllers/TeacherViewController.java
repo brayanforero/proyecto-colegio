@@ -10,13 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableView;
 
 public class TeacherViewController implements Initializable {
 
@@ -34,12 +31,7 @@ public class TeacherViewController implements Initializable {
     private Label lblPeriodo;
     @FXML
     private Label lblTurno;
-    @FXML
-    private MenuItem itemPlanillaDownload;
-    @FXML
-    private MenuItem itemList;
-    @FXML
-    private TableView<?> tableList;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -108,21 +100,9 @@ public class TeacherViewController implements Initializable {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         this.lblDate.setText(format.format(date) + "");
     }
-    @FXML
-    private void showPanePlanillas(ActionEvent event) {
 
-        if (!this.tableList.isVisible()) {
+    
 
-            this.tableList.setVisible(true);
-        }
-    }
-
-    @FXML
-    private void showPaneList(ActionEvent event) {
-        
-        if (!this.tableList.isVisible()) {
-            this.tableList.setVisible(true);
-        }
-    }
+    
 
 }

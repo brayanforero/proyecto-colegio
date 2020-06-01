@@ -5,10 +5,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="600.0" maxWidth="1024.0" minHeight="600.0" minWidth="1024.0" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TeacherViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TeacherViewController">
    <children>
       <Pane prefHeight="50.0" prefWidth="1024.0" style="-fx-background-color: none;">
          <children>
@@ -162,7 +162,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" style="-fx-font-size: 14; -fx-padding: 4;" text="Consulta de Información" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                <MenuItem fx:id="itemList" mnemonicParsing="false" onAction="#showPaneList" style="-fx-font-size: 14; -fx-padding: 4;" text="Lista de Matricula" />
+                <MenuItem mnemonicParsing="false" style="-fx-font-size: 14; -fx-padding: 4;" text="Lista de Matricula" />
               </items>
                <font>
                   <Font size="16.0" />
@@ -173,7 +173,7 @@
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Planillas" textFill="#434141">
               <items>
-                <MenuItem fx:id="itemPlanillaDownload" mnemonicParsing="false" onAction="#showPanePlanillas" text="Descargar" />
+                <MenuItem mnemonicParsing="false" text="Descargar" />
               </items>
                <font>
                   <Font size="16.0" />
@@ -211,14 +211,13 @@
             <Insets bottom="12.0" left="12.0" right="12.0" top="16.0" />
          </padding>
       </HBox>
-      <Label layoutX="417.0" layoutY="126.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
-      <Label fx:id="lblidUser" layoutX="391.0" layoutY="127.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
-      <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="512.0" layoutY="123.0" prefHeight="25.0" prefWidth="250.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
-      <TableView fx:id="tableList" layoutX="51.0" layoutY="158.0" prefHeight="374.0" prefWidth="900.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <Label layoutX="679.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
+      <Label fx:id="lblidUser" layoutX="653.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
+      <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="774.0" layoutY="68.0" prefHeight="25.0" prefWidth="250.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="125.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minViewportHeight="2000.0" minViewportWidth="2000.0" minWidth="-Infinity" prefHeight="480.0" prefViewportHeight="2000.0" prefViewportWidth="1440.0" prefWidth="1024.0">
+         <content>
+            <ScrollBar />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
