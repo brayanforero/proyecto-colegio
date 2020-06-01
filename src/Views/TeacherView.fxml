@@ -4,11 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -114,14 +110,14 @@
                   <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                </padding>
             </HBox>
-            <HBox layoutX="868.0" maxWidth="432.0" minHeight="50.0" prefHeight="50.0" prefWidth="156.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
+            <HBox layoutX="867.0" maxWidth="432.0" minHeight="50.0" prefHeight="50.0" prefWidth="157.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <image>
-                        <Image url="@../../../../../Downloads/social.png" />
+                        <Image url="@../images/social.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="6.0" />
@@ -132,38 +128,33 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <image>
-                        <Image url="@../../../../../Downloads/symbol.png" />
+                        <Image url="@../images/symbol.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="6.0" />
                      </HBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnLogout" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
-                     <image>
-                        <Image url="@../../../../../Downloads/signs.png" />
-                     </image>
                      <HBox.margin>
                         <Insets top="6.0" />
                      </HBox.margin>
+                     <image>
+                        <Image url="@../images/signs.png" />
+                     </image>
                   </ImageView>
                </children>
                <padding>
-                  <Insets bottom="4.0" left="16.0" right="4.0" top="4.0" />
+                  <Insets bottom="4.0" left="14.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
          </children></Pane>
       <Separator layoutY="110.0" prefHeight="0.0" prefWidth="1024.0" />
       <HBox layoutX="6.0" layoutY="50.0" prefHeight="60.0" prefWidth="660.0" spacing="12.0" style="-fx-background-color: transparent;">
          <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Estudiantes" textFill="#434141">
-              <items>
-                <MenuItem mnemonicParsing="false" style="-fx-font-size: 14; -fx-padding: 4;" text="Consulta de Información" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                <MenuItem mnemonicParsing="false" style="-fx-font-size: 14; -fx-padding: 4;" text="Lista de Matricula" />
-              </items>
+            <MenuButton fx:id="ctaEstudiante" mnemonicParsing="false" onMouseClicked="#openModuleStundent" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Estudiantes" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
@@ -172,9 +163,6 @@
                </cursor>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Planillas" textFill="#434141">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Descargar" />
-              </items>
                <font>
                   <Font size="16.0" />
                </font>
@@ -183,10 +171,6 @@
                </cursor>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Actividades Escolares" textFill="#434141">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
                <font>
                   <Font size="16.0" />
                </font>
@@ -195,10 +179,6 @@
                </cursor>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-color: green;" text="Inscripción" textFill="WHITE">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Nuevo Ingreso" />
-                  <MenuItem mnemonicParsing="false" text="Regular" />
-               </items>
                <font>
                   <Font size="16.0" />
                </font>
@@ -211,13 +191,9 @@
             <Insets bottom="12.0" left="12.0" right="12.0" top="16.0" />
          </padding>
       </HBox>
-      <Label layoutX="679.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
-      <Label fx:id="lblidUser" layoutX="653.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
-      <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="774.0" layoutY="68.0" prefHeight="25.0" prefWidth="250.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="125.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minViewportHeight="2000.0" minViewportWidth="2000.0" minWidth="-Infinity" prefHeight="480.0" prefViewportHeight="2000.0" prefViewportWidth="1440.0" prefWidth="1024.0">
-         <content>
-            <ScrollBar />
-         </content>
-      </ScrollPane>
+      <Label layoutX="649.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
+      <Label fx:id="lblidUser" layoutX="633.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
+      <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="754.0" layoutY="68.0" prefHeight="25.0" prefWidth="267.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
+      <Pane fx:id="moduleContainer" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="1024.0" />
    </children>
 </AnchorPane>

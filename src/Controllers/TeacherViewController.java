@@ -2,6 +2,7 @@ package Controllers;
 
 import Config.Base;
 import com.mysql.jdbc.Connection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class TeacherViewController implements Initializable {
 
@@ -31,12 +45,17 @@ public class TeacherViewController implements Initializable {
     private Label lblPeriodo;
     @FXML
     private Label lblTurno;
-    
+    @FXML
+    private ImageView btnLogout;
+    @FXML
+    private Pane moduleContainer;
+    @FXML
+    private MenuButton ctaEstudiante;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         systemDate();
-        
+
     }
 
     public void initAtributeUser(int id, String nameUser) {
@@ -91,18 +110,48 @@ public class TeacherViewController implements Initializable {
             alert.setContentText("Error: Solicitud de datos no completada");
             alert.showAndWait();
             Platform.exit();
-            
+
         }
     }
-    
-    public void systemDate(){
+
+    public void systemDate() {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         this.lblDate.setText(format.format(date) + "");
     }
 
-    
+    @FXML
+    private void logOut(MouseEvent event) throws IOException {
+        Node src = (Node) event.getSource();
+        Stage stage = (Stage) src.getScene().getWindow();
+        stage.close();
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/LoginView.fxml"));
+        
+        Scene scene = new Scene(root);
+        Stage newStage = new Stage();
+        newStage.setScene(scene);
+        newStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Inscripcion");
+        newStage.setMinWidth(1024);
+        newStage.setMinHeight(600);
+        newStage.setMaxWidth(1024);
+        newStage.setMaxHeight(600);
+               
+        newStage.setMaximized(true);
+        newStage.show();
+    }
 
-    
+
+    @FXML
+    private void openModuleStundent(MouseEvent event) {
+        
+        ObservableList<Node> listNode; 
+        listNode = this.moduleContainer.getChildren();
+        this.moduleContainer.getChildren().addAll(listNode);
+        
+        Label lbl = new Label("Hello From Module Students");
+        
+        this.moduleContainer.getChildren().addAll(lbl);
+    }
 
 }
