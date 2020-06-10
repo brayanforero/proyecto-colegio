@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +19,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class TeacherViewController implements Initializable {
@@ -48,9 +45,13 @@ public class TeacherViewController implements Initializable {
     @FXML
     private ImageView btnLogout;
     @FXML
-    private Pane moduleContainer;
+    private ImageView btnConfig;
     @FXML
-    private MenuButton ctaEstudiante;
+    private MenuItem openSearchStudents;
+    @FXML
+    private MenuItem openListStudents;
+    @FXML
+    private AnchorPane containerModule;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,7 +69,7 @@ public class TeacherViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
-            alert.setContentText("Estimado Usuario los Datos son Incorrectos");
+            alert.setContentText("Error: No se Pudo Extraer sus Datos");
             alert.showAndWait();
             Platform.exit();
 
@@ -125,33 +126,36 @@ public class TeacherViewController implements Initializable {
         Node src = (Node) event.getSource();
         Stage stage = (Stage) src.getScene().getWindow();
         stage.close();
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("/Views/LoginView.fxml"));
-        
+
         Scene scene = new Scene(root);
         Stage newStage = new Stage();
         newStage.setScene(scene);
         newStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Inscripcion");
         newStage.setMinWidth(1024);
-        newStage.setMinHeight(600);
+        newStage.setMinHeight(500);
         newStage.setMaxWidth(1024);
-        newStage.setMaxHeight(600);
-               
-        newStage.setMaximized(true);
+        newStage.setMaxHeight(500);
+        newStage.setResizable(false);
         newStage.show();
     }
 
-
     @FXML
-    private void openModuleStundent(MouseEvent event) {
+    private void openModuleList(ActionEvent event) {
         
-        ObservableList<Node> listNode; 
-        listNode = this.moduleContainer.getChildren();
-        this.moduleContainer.getChildren().addAll(listNode);
-        
-        Label lbl = new Label("Hello From Module Students");
-        
-        this.moduleContainer.getChildren().addAll(lbl);
+        try {
+            this.containerModule.getChildren().removeAll();
+            Node root = FXMLLoader.load(getClass().getResource("/Views/ListStudentsWiew.fxml"));
+            this.containerModule.getChildren().add(root);
+            
+        } catch (IOException ex) {
+            System.err.println("Error al cargar la ventana:" + ex);
+        }
     }
+
+
+
+    
 
 }

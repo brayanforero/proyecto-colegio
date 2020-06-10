@@ -82,10 +82,10 @@ public class LoginViewController implements Initializable {
                     Stage primaryStage = new Stage();
                     primaryStage.setScene(scene);
                     primaryStage.setMinWidth(1024);
-                    primaryStage.setMinHeight(600);
+                    primaryStage.setMinHeight(500);
                     primaryStage.setMaxWidth(1024);
-                    primaryStage.setMaxHeight(600);
-                    primaryStage.setMaximized(true);
+                    primaryStage.setMaxHeight(500);
+                    primaryStage.setResizable(false);
                     primaryStage.show();
 
                 } catch (IOException ex) {

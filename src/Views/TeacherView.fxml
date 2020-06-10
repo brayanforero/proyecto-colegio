@@ -4,7 +4,10 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,9 +15,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TeacherViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TeacherViewController">
    <children>
-      <Pane prefHeight="50.0" prefWidth="1024.0" style="-fx-background-color: none;">
+      <Pane prefHeight="500.0" prefWidth="1024.0" style="-fx-background-color: none;">
          <children>
             <HBox minHeight="50.0" prefHeight="50.0" prefWidth="840.0" spacing="12.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 0 8 8 0;">
                <children>
@@ -110,25 +113,14 @@
                   <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                </padding>
             </HBox>
-            <HBox layoutX="867.0" maxWidth="432.0" minHeight="50.0" prefHeight="50.0" prefWidth="157.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
+            <HBox layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnConfig" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <image>
                         <Image url="@../images/social.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets top="6.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@../images/symbol.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="6.0" />
@@ -147,20 +139,25 @@
                   </ImageView>
                </children>
                <padding>
-                  <Insets bottom="4.0" left="14.0" right="4.0" top="4.0" />
+                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
          </children></Pane>
       <Separator layoutY="110.0" prefHeight="0.0" prefWidth="1024.0" />
-      <HBox layoutX="6.0" layoutY="50.0" prefHeight="60.0" prefWidth="660.0" spacing="12.0" style="-fx-background-color: transparent;">
+      <HBox layoutY="50.0" prefHeight="60.0" prefWidth="640.0" spacing="12.0" style="-fx-background-color: transparent;">
          <children>
-            <MenuButton fx:id="ctaEstudiante" mnemonicParsing="false" onMouseClicked="#openModuleStundent" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Estudiantes" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Estudiantes" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <items>
+                  <MenuItem fx:id="openListStudents" mnemonicParsing="false" onAction="#openModuleList" text="Lista" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="openSearchStudents" mnemonicParsing="false" text="Consulta Información" />
+               </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Planillas" textFill="#434141">
                <font>
@@ -194,6 +191,10 @@
       <Label layoutX="649.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
       <Label fx:id="lblidUser" layoutX="633.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
       <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="754.0" layoutY="68.0" prefHeight="25.0" prefWidth="267.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
-      <Pane fx:id="moduleContainer" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="1024.0" />
+      <ScrollPane focusTraversable="false" hvalue="1.0" layoutY="120.0" prefHeight="350.0" prefWidth="1020.0" vvalue="1.0">
+        <content>
+          <AnchorPane fx:id="containerModule" minHeight="0.0" minWidth="0.0" prefHeight="482.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
