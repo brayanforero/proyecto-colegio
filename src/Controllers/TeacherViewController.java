@@ -23,7 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class TeacherViewController implements Initializable {
@@ -45,13 +45,10 @@ public class TeacherViewController implements Initializable {
     @FXML
     private ImageView btnLogout;
     @FXML
-    private ImageView btnConfig;
+    private MenuItem openListStudent;
     @FXML
-    private MenuItem openSearchStudents;
-    @FXML
-    private MenuItem openListStudents;
-    @FXML
-    private AnchorPane containerModule;
+    private Pane container;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -145,14 +142,15 @@ public class TeacherViewController implements Initializable {
     private void openModuleList(ActionEvent event) {
         
         try {
-            this.containerModule.getChildren().removeAll();
-            Node root = FXMLLoader.load(getClass().getResource("/Views/ListStudentsWiew.fxml"));
-            this.containerModule.getChildren().add(root);
-            
-        } catch (IOException ex) {
-            System.err.println("Error al cargar la ventana:" + ex);
+           this.container.getChildren().removeAll();
+           Node list = FXMLLoader.load(getClass().getResource("/Views/ListStudentsView.fxml"));
+           this.container.getChildren().add(list);
+        } catch (IOException e) {
+            System.err.println("Error al cargar la vista de la lista" + e);
         }
     }
+
+    
 
 
 

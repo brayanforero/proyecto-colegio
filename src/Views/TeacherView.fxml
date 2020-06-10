@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
@@ -115,7 +114,7 @@
             </HBox>
             <HBox layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
                <children>
-                  <ImageView fx:id="btnConfig" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -154,9 +153,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <items>
-                  <MenuItem fx:id="openListStudents" mnemonicParsing="false" onAction="#openModuleList" text="Lista" />
+                  <MenuItem fx:id="openListStudent" mnemonicParsing="false" onAction="#openModuleList" text="Lista" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="openSearchStudents" mnemonicParsing="false" text="Consulta Información" />
+                  <MenuItem mnemonicParsing="false" text="Consulta Información" />
                </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 14;" text="Planillas" textFill="#434141">
@@ -191,10 +190,6 @@
       <Label layoutX="649.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
       <Label fx:id="lblidUser" layoutX="633.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
       <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="754.0" layoutY="68.0" prefHeight="25.0" prefWidth="267.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
-      <ScrollPane focusTraversable="false" hvalue="1.0" layoutY="120.0" prefHeight="350.0" prefWidth="1020.0" vvalue="1.0">
-        <content>
-          <AnchorPane fx:id="containerModule" minHeight="0.0" minWidth="0.0" prefHeight="482.0" />
-        </content>
-      </ScrollPane>
+      <Pane fx:id="container" layoutY="130.0" prefHeight="370.0" prefWidth="1024.0" style="-fx-background-color: gray;" />
    </children>
 </AnchorPane>
