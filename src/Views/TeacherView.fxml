@@ -193,6 +193,6 @@
       <Label layoutX="649.0" layoutY="71.0" style="-fx-font-size: 14;" text="Bienvenido(a):" textAlignment="CENTER" />
       <Label fx:id="lblidUser" layoutX="633.0" layoutY="72.0" prefHeight="17.0" prefWidth="15.0" textAlignment="CENTER" />
       <Label fx:id="lblNameUser" contentDisplay="TOP" layoutX="754.0" layoutY="68.0" prefHeight="25.0" prefWidth="267.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
-      <Pane fx:id="container" layoutY="130.0" prefHeight="370.0" prefWidth="1024.0" style="-fx-background-color: #fff;" />
+      <Pane fx:id="container" layoutY="112.0" prefHeight="388.0" prefWidth="1024.0" style="-fx-background-color: #fff;" />
    </children>
 </AnchorPane>
