@@ -27,7 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class TeacherViewController implements Initializable {
-
+    
     @FXML
     private Label lblDegress;
     @FXML
@@ -48,47 +48,48 @@ public class TeacherViewController implements Initializable {
     private MenuItem openListStudent;
     @FXML
     private Pane container;
+    @FXML
+    private MenuItem openRegisterStudent;
     
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         systemDate();
-
+        
     }
-
+    
     public void initAtributeUser(int id, String nameUser) {
-
+        
         if (id > 0 && nameUser.length() > 0) {
             this.lblNameUser.setText(nameUser);
             this.lblidUser.setText(id + "");
         } else {
-
+            
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
             alert.setContentText("Error: No se Pudo Extraer sus Datos");
             alert.showAndWait();
             Platform.exit();
-
+            
         }
-
+        
     }
-
+    
     public void initDegressAsigned(int id) {
-
+        
         try {
             Base base = new Base();
             Connection con = base.getConnectionStatic();
             PreparedStatement ps = con.prepareCall("call sp_grado_asignado(?)");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-
+            
             if (rs.next()) {
                 this.lblDegress.setText(rs.getString("nivel"));
                 this.lblSeccion.setText(rs.getString("seccion"));
                 this.lblTurno.setText(rs.getString("turno"));
                 this.lblPeriodo.setText(rs.getString("periodo"));
-
+                
                 ps.close();
             } else {
                 ps.close();
@@ -99,7 +100,7 @@ public class TeacherViewController implements Initializable {
                 alert.showAndWait();
                 Platform.exit();
             }
-
+            
         } catch (SQLException e) {
             System.err.println("Error en traer los datos:" + e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -108,24 +109,24 @@ public class TeacherViewController implements Initializable {
             alert.setContentText("Error: Solicitud de datos no completada");
             alert.showAndWait();
             Platform.exit();
-
+            
         }
     }
-
+    
     public void systemDate() {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         this.lblDate.setText(format.format(date) + "");
     }
-
+    
     @FXML
     private void logOut(MouseEvent event) throws IOException {
         Node src = (Node) event.getSource();
         Stage stage = (Stage) src.getScene().getWindow();
         stage.close();
-
+        
         Parent root = FXMLLoader.load(getClass().getResource("/Views/LoginView.fxml"));
-
+        
         Scene scene = new Scene(root);
         Stage newStage = new Stage();
         newStage.setScene(scene);
@@ -137,23 +138,27 @@ public class TeacherViewController implements Initializable {
         newStage.setResizable(false);
         newStage.show();
     }
-
+    
     @FXML
     private void openModuleList(ActionEvent event) {
         
+        openModuleContainer("ListStudentsView");
+    }
+    
+    @FXML
+    private void openModuleNewStudent(ActionEvent event) {
+        openModuleContainer("RegisterStudentView");
+    }
+    
+    public void openModuleContainer(String nameModule) {
+        
         try {
-           this.container.getChildren().removeAll();
-           Node list = FXMLLoader.load(getClass().getResource("/Views/ListStudentsView.fxml"));
-           this.container.getChildren().add(list);
+            this.container.getChildren().removeAll();
+            Node module = FXMLLoader.load(getClass().getResource("/Views/" + nameModule + ".fxml"));
+            this.container.getChildren().add(module);
         } catch (IOException e) {
             System.err.println("Error al cargar la vista de la lista" + e);
         }
     }
-
     
-
-
-
-    
-
 }
