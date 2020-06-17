@@ -70,7 +70,6 @@ public class TeacherViewController implements Initializable {
             alert.setContentText("Error: No se Pudo Extraer sus Datos");
             alert.showAndWait();
             Platform.exit();
-
         }
 
     }
@@ -89,14 +88,13 @@ public class TeacherViewController implements Initializable {
                 this.lblSeccion.setText(rs.getString("seccion"));
                 this.lblTurno.setText(rs.getString("turno"));
                 this.lblPeriodo.setText(rs.getString("periodo"));
-
                 ps.close();
             } else {
                 ps.close();
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
-                alert.setContentText("Error: Solicitud de datos no completada");
+                alert.setContentText("Error: Solicitud de datos no completada, no se le ha asignado un grado aun.");
                 alert.showAndWait();
                 Platform.exit();
             }
