@@ -1,4 +1,3 @@
-
 package Models;
 
 import Config.Base;
@@ -8,10 +7,8 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 
+public class Students extends Person {
 
-
-public class Students extends Person{
-    
     private String dateOfBirth;
     private String gender;
     private int addressOfEstate;
@@ -21,6 +18,8 @@ public class Students extends Person{
     private boolean beca;
     private String salud;
     private String desSalud;
+
+    private Connection link;
 
     public Students(String dateOfBirth, String gender, int addressOfEstate, int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca, String salud, String desSalud, String names, String lastNames, String identification) {
         super(names, lastNames, identification);
@@ -34,13 +33,11 @@ public class Students extends Person{
         this.salud = salud;
         this.desSalud = desSalud;
     }
-    
-    
-    
-    public void newStudent(){
-        
+
+    public void newStudent() {
+
         try {
-            Connection link = Base.getConnectionStatic();
+            this.link = Base.getConnectionStatic();
             PreparedStatement ps = link.prepareCall("call sp_registrar_estudiante"
                     + "(?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, this.getIdentification());
@@ -56,48 +53,17 @@ public class Students extends Person{
             ps.setString(11, this.getSalud());
             ps.setString(12, this.getDesSalud());
             ResultSet rs = ps.executeQuery();
-            
+
             if (rs.next()) {
-                System.out.println("ID: " + rs.getString("id"));
+                System.out.println("ID: " + rs.getInt("id"));
             }
-            
+
+            this.link.close();
+
         } catch (SQLException e) {
             System.err.println("Error: " + e);
             System.err.println("Message: " + e.getMessage());
         }
-    }
-    
-
-    
-
-    @Override
-    public void getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getById() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getByIdentication() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean newInsert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean updateById() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean deleteById() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getDateOfBirth() {
@@ -204,11 +170,4 @@ public class Students extends Person{
         this.identification = identification;
     }
 
-    
-    
-    
-    
-    
-    
-    
 }

@@ -13,11 +13,6 @@ public abstract class Person{
         this.identification = identification;
     }
     
-    public abstract void getAll();
-    public abstract void getById();
-    public abstract void getByIdentication();
-    public abstract boolean newInsert();
-    public abstract boolean updateById();
-    public abstract boolean deleteById();
+    
     
 }
