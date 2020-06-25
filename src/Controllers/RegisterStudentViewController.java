@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -15,6 +14,7 @@ import javafx.scene.control.TextField;
 
 public class RegisterStudentViewController implements Initializable {
 
+    
     @FXML
     private TextField txtNames;
     @FXML
@@ -33,12 +33,8 @@ public class RegisterStudentViewController implements Initializable {
     private CheckBox checkCanaima;
     @FXML
     private CheckBox checkBeca;
-    @FXML
     private TextField txtSalud;
-    @FXML
     private TextArea txtDesSalud;
-    @FXML
-    private Button btnSend;
     
     private Connection link;
 
@@ -47,7 +43,6 @@ public class RegisterStudentViewController implements Initializable {
         // TODO
     }
 
-    @FXML
     private void saveData(ActionEvent event) {
 
         String doc = this.txtDocument.getText().toUpperCase();
