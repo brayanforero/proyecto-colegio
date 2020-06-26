@@ -18,93 +18,78 @@
    <children>
       <Pane prefHeight="500.0" prefWidth="1024.0" style="-fx-background-color: none;">
          <children>
-            <HBox minHeight="50.0" prefHeight="50.0" prefWidth="840.0" spacing="12.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 0 8 8 0;">
+            <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" prefWidth="880.0" spacing="12.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 0 8 8 0;">
                <children>
-                  <Label text="Periodo en Curso:" textFill="#434141">
+                  <Label style="-fx-font-size: 16;" text="Periodo en Curso:" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPeriodo" style="-fx-font-weight: bold;" text="2020-2021" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
+                  <Label fx:id="lblPeriodo" style="-fx-font-size: 16; -fx-text-fill: #434141; -fx-font-weight: bold;" text="2020-2021" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label text="Grado:" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblDegress" alignment="CENTER" style="-fx-font-weight: bold;" text="5TO" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
                      <HBox.margin>
-                        <Insets top="2.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label text="Sección:" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
+                  <Label style="-fx-font-size: 16;" text="Grado:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="lblSeccion" alignment="CENTER" style="-fx-font-weight: bold;" text="A" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
                      <HBox.margin>
-                        <Insets top="2.0" />
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblDegress" style="-fx-font-size: 16; -fx-text-fill: #434141; -fx-font-weight: bold;" text="5TO" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label text="Turno:" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
+                  <Label style="-fx-font-size: 16;" text="Sección:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="lblTurno" prefHeight="25.0" prefWidth="86.0" style="-fx-font-weight: bold;" text="5TO" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
                      <HBox.margin>
-                        <Insets top="1.0" />
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblSeccion" style="-fx-font-size: 16; -fx-text-fill: #434141; -fx-font-weight: bold;" text="A" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label text="Fecha" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
+                  <Label style="-fx-font-size: 16;" text="Turno:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="lblDate" alignment="CENTER" style="-fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
                      <HBox.margin>
-                        <Insets top="2.0" />
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblTurno" prefHeight="26.0" prefWidth="85.0" style="-fx-font-size: 16; -fx-text-fill: #434141; -fx-font-weight: bold;" text="MAÑANA" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <Label style="-fx-font-size: 16;" text="Fecha" textFill="#434141">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblDate" style="-fx-font-size: 16; -fx-text-fill: #555; -fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
                      </HBox.margin>
                   </Label>
                </children>
@@ -112,7 +97,7 @@
                   <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
                </padding>
             </HBox>
-            <HBox layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #ddd; -fx-background-radius: 8 0 0 8;">
+            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 8 0 0 8;">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
@@ -138,7 +123,7 @@
                   </ImageView>
                </children>
                <padding>
-                  <Insets bottom="4.0" left="20.0" right="4.0" top="4.0" />
+                  <Insets bottom="12.0" left="8.0" right="16.0" top="8.0" />
                </padding>
             </HBox>
          </children></Pane>

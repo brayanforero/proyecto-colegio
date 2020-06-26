@@ -15,18 +15,18 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterStudentViewController">
    <children>
-      <ScrollPane hbarPolicy="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="1020.0" vbarPolicy="ALWAYS">
+      <ScrollPane focusTraversable="false" hbarPolicy="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="1020.0" vbarPolicy="ALWAYS">
         <content>
-          <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="1020.0">
+          <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1020.0">
                <children>
-                  <Label layoutX="452.0" layoutY="16.0" style="-fx-text-fill: Gray; -fx-font-size: 16;" text="Inscripción | Nuevo Ingreso" />
-                  <TabPane layoutY="56.0" prefHeight="380.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
+                  <Label layoutX="452.0" layoutY="16.0" style="-fx-text-fill: #434141; -fx-font-size: 16; -fx-font-weight: bold;" text="Inscripción | Nuevo Ingreso" />
+                  <TabPane layoutY="56.0" prefHeight="334.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Datos del Niño(a)">
                            <content>
-                              <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="1020.0">
+                              <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label layoutX="129.0" layoutY="21.0" style="-fx-font-size: 18;" text="Datos Personales" />
+                                    <Label layoutX="129.0" layoutY="21.0" style="-fx-font-size: 18; -fx-text-fill: #434141;" text="Datos Personales" />
                                     <Label layoutX="24.0" layoutY="80.0" style="-fx-font-size: 16;" text="Nombres:" />
                                     <TextField fx:id="txtNames" layoutX="106.0" layoutY="74.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Label layoutX="24.0" layoutY="123.0" style="-fx-font-size: 16;" text="Apellidos:" />
@@ -37,42 +37,52 @@
                                     <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="217.0" prefHeight="25.0" prefWidth="140.0" style="-fx-background-radius: 4; -fx-padding: 2;" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label layoutX="380.0" layoutY="78.0" prefHeight="20.0" prefWidth="63.0" style="-fx-font-size: 16;" text="Estado:" />
-                                    <TextField fx:id="txtState" layoutX="454.0" layoutY="74.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtSelectState" layoutX="454.0" layoutY="74.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Button focusTraversable="false" layoutX="614.0" layoutY="74.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="375.0" layoutY="124.0" style="-fx-font-size: 16;" text="Municipio:" />
-                                    <TextField fx:id="txtMun" layoutX="456.0" layoutY="120.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtSelectMun" layoutX="456.0" layoutY="120.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Button focusTraversable="false" layoutX="614.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="376.0" layoutY="169.0" style="-fx-font-size: 16;" text="Localidad:" />
-                                    <TextField fx:id="txtLocal" layoutX="456.0" layoutY="165.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtSelectLocale" layoutX="456.0" layoutY="165.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Button focusTraversable="false" layoutX="614.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="395.0" layoutY="218.0" style="-fx-font-size: 18;" text="¿Posee algunos de estos Beneficios?" />
-                                    <CheckBox fx:id="checkCanaima" layoutX="432.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-font-size: 16;" text="Canaima" />
-                                    <CheckBox fx:id="checkBeca" layoutX="563.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 16;" text="Beca" />
-                                    <Label layoutX="455.0" layoutY="21.0" prefHeight="27.0" prefWidth="169.0" style="-fx-font-size: 18;" text="Datos de Nacimiento" />
+                                    <CheckBox fx:id="checkHaveCanaima" layoutX="432.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-font-size: 16;" text="Canaima" />
+                                    <CheckBox fx:id="checkHaveBeca" layoutX="563.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 16;" text="Beca" />
+                                    <Label layoutX="455.0" layoutY="21.0" prefHeight="27.0" prefWidth="182.0" style="-fx-font-size: 18; -fx-text-fill: #434141;" text="Datos de Nacimiento" />
                                     <Separator layoutX="693.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="185.0" style="-fx-font-size: 18;" text="Telefonos de Contacto" />
+                                    <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="196.0" style="-fx-font-size: 18; -fx-text-fill: #434141;" text="Telefonos de Contacto" />
                                     <Label layoutX="713.0" layoutY="82.0" style="-fx-font-size: 16;" text="Telefono de Mamá" />
-                                    <TextField layoutX="857.0" layoutY="78.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtPhoneMon" layoutX="857.0" layoutY="78.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Label layoutX="712.0" layoutY="136.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Telefono de Papá" />
-                                    <TextField layoutX="856.0" layoutY="132.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtPhoneDad" layoutX="856.0" layoutY="132.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                  </children>
                               </Pane>
                            </content></Tab>
                       <Tab text="Informacion de Salud">
                            <content>
-                              <Pane prefHeight="200.0" prefWidth="200.0">
+                              <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="176.0" layoutY="20.0" prefHeight="17.0" prefWidth="150.0" style="-fx-font-size: 18;" text="Mi Salud" />
-                                    <Separator layoutX="493.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="350.0" prefWidth="0.0" />
-                                    <TextField layoutX="238.0" layoutY="68.0" prefHeight="33.0" prefWidth="232.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <Label alignment="CENTER" layoutX="228.0" layoutY="24.0" prefHeight="17.0" prefWidth="150.0" style="-fx-font-size: 18; -fx-text-fill: #434141; -fx-font-weight: bold;" text="Mi Salud" />
+                                    <TextField fx:id="txtHealth" layoutX="238.0" layoutY="68.0" prefHeight="33.0" prefWidth="255.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Label layoutX="18.0" layoutY="72.0" prefHeight="25.0" prefWidth="210.0" style="-fx-font-size: 16;" text="Describa alguna Enfermedad:" />
                                     <Label layoutX="18.0" layoutY="121.0" prefHeight="25.0" prefWidth="210.0" style="-fx-font-size: 16;" text="Recomendaciones de Mamá:" />
-                                    <TextArea layoutX="238.0" layoutY="121.0" prefHeight="200.0" prefWidth="231.0" style="-fx-background-radius: 4;" />
+                                    <TextArea fx:id="txtRecomendations" layoutX="238.0" layoutY="121.0" prefHeight="176.0" prefWidth="255.0" style="-fx-background-radius: 4;" />
+                                    <Separator layoutX="516.0" maxWidth="400.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="4.0" />
                                  </children>
                               </Pane>
                            </content></Tab>
                         <Tab text="Datos de Mamá" />
                         <Tab text="Datos de Papá" />
+                        <Tab text="Registrar">
+                           <content>
+                              <Pane prefHeight="300.0" prefWidth="1020.0">
+                                 <children>
+                                    <Label layoutX="286.0" layoutY="40.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #434141;" text="He confirmado las informacion y deseo guardar" />
+                                    <Button fx:id="btnSaveData" layoutX="410.0" layoutY="96.0" mnemonicParsing="false" onAction="#saveData" prefWidth="200.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" text="Guardar" />
+                                 </children>
+                              </Pane>
+                           </content>
+                        </Tab>
                     </tabs>
                   </TabPane>
                </children></AnchorPane>

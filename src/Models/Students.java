@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import java.sql.SQLException;
+import javafx.scene.control.Alert;
 
 public class Students extends Person {
 
@@ -21,7 +22,12 @@ public class Students extends Person {
 
     private Connection link;
 
-    public Students(String dateOfBirth, String gender, int addressOfEstate, int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca, String salud, String desSalud, String names, String lastNames, String identification) {
+    public Students(
+            String identification,String names, String lastNames,
+            String dateOfBirth, String gender, int addressOfEstate, 
+            int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca, 
+            String salud, String desSalud) {
+        
         super(names, lastNames, identification);
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -34,12 +40,12 @@ public class Students extends Person {
         this.desSalud = desSalud;
     }
 
-    public void newStudent() {
-
+    public Alert newStudent(String phoneMom, String phoneDad) {
+        Alert message = null;
         try {
             this.link = Base.getConnectionStatic();
             PreparedStatement ps = link.prepareCall("call sp_registrar_estudiante"
-                    + "(?,?,?,?,?,?,?,?,?,?,?,?)");
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, this.getIdentification());
             ps.setString(2, this.getNames());
             ps.setString(3, this.getLastNames());
@@ -52,18 +58,27 @@ public class Students extends Person {
             ps.setBoolean(10, this.isBeca());
             ps.setString(11, this.getSalud());
             ps.setString(12, this.getDesSalud());
+            ps.setString(13, phoneMom);
+            ps.setString(14, phoneDad);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 System.out.println("ID: " + rs.getInt("id"));
+                message = new Alert(Alert.AlertType.INFORMATION);
+                message.setHeaderText(null);
+                message.setContentText("Resgistro Completado con Exito!");
             }
 
             this.link.close();
 
         } catch (SQLException e) {
             System.err.println("Error: " + e);
-            System.err.println("Message: " + e.getMessage());
+            message = new Alert(Alert.AlertType.ERROR);
+                message.setHeaderText(null);
+                message.setContentText("Error: No se pudo completar su Operación");
         }
+        
+        return message;
     }
 
     public String getDateOfBirth() {

@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -15,6 +17,12 @@ import javafx.scene.control.TextField;
 public class RegisterStudentViewController implements Initializable {
 
     
+    
+    
+    private Connection link;
+    
+    @FXML
+    private Button btnSaveData;
     @FXML
     private TextField txtNames;
     @FXML
@@ -24,42 +32,57 @@ public class RegisterStudentViewController implements Initializable {
     @FXML
     private DatePicker txtDateOfBirth;
     @FXML
-    private TextField txtState;
+    private TextField txtSelectState;
     @FXML
-    private TextField txtMun;
+    private TextField txtSelectMun;
     @FXML
-    private TextField txtLocal;
+    private TextField txtSelectLocale;
     @FXML
-    private CheckBox checkCanaima;
+    private CheckBox checkHaveCanaima;
     @FXML
-    private CheckBox checkBeca;
-    private TextField txtSalud;
-    private TextArea txtDesSalud;
-    
-    private Connection link;
+    private CheckBox checkHaveBeca;
+    @FXML
+    private TextField txtPhoneMon;
+    @FXML
+    private TextField txtPhoneDad;
+    @FXML
+    private TextField txtHealth;
+    @FXML
+    private TextArea txtRecomendations;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
+    @FXML
     private void saveData(ActionEvent event) {
-
-        String doc = this.txtDocument.getText().toUpperCase();
-        String names = this.txtNames.getText().toUpperCase();
-        String lastNames = this.txtLastNames.getText().toUpperCase();
-        String dateOfBirth = this.txtDateOfBirth.getValue().toString();
-        String gender = "M";
-        int state = Integer.parseInt(this.txtState.getText());
-        int mun = Integer.parseInt(this.txtMun.getText());
-        int local = Integer.parseInt(this.txtLocal.getText());
-        boolean canaima = this.checkCanaima.isSelected();
-        boolean beca = this.checkBeca.isSelected();
-        String salud = this.txtSalud.getText().toUpperCase();
-        String desSalud = this.txtDesSalud.getText().toUpperCase();
         
-        Students boy = new Students(dateOfBirth, gender, state, mun, local, canaima, beca, salud, desSalud, names, lastNames, doc);
-        boy.newStudent();
+        String identification = this.txtDocument.getText().toUpperCase();
+        String boyNames = this.txtNames.getText().toUpperCase();
+        String dateOfBirth = this.txtDateOfBirth.getValue().toString();
+        String boyLastNames = this.txtLastNames.getText().toUpperCase();
+        String boyGender = "M";
+        
+        int state = Integer.parseInt( this.txtSelectState.getText() ) ;
+        int mun = Integer.parseInt( this.txtSelectMun.getText() ) ;
+        int locale = Integer.parseInt( this.txtSelectLocale.getText() ) ;
+        
+        boolean ifHaveCanaima = this.checkHaveCanaima.isSelected();
+        boolean ifHaveBeca = this.checkHaveBeca.isSelected();
+        
+        String health = this.txtHealth.getText().toUpperCase();
+        String recomendations = this.txtRecomendations.getText().toUpperCase();
+        
+        String phoneMon = this.txtPhoneMon.getText().toUpperCase();
+        String phoneDad = this.txtPhoneDad.getText().toUpperCase();
+        
+        Students boy = new Students(
+            identification, boyNames, boyLastNames, dateOfBirth, boyGender, 
+            state, mun, locale, ifHaveCanaima, ifHaveBeca, health, recomendations);
+        
+        Alert message = boy.newStudent(phoneMon, phoneDad);
+        message.showAndWait();
     }
 
 }
