@@ -23,11 +23,11 @@ public class Students extends Person {
     private Connection link;
 
     public Students(
-            String identification,String names, String lastNames,
-            String dateOfBirth, String gender, int addressOfEstate, 
-            int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca, 
+            String identification, String names, String lastNames,
+            String dateOfBirth, String gender, int addressOfEstate,
+            int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca,
             String salud, String desSalud) {
-        
+
         super(names, lastNames, identification);
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -40,44 +40,80 @@ public class Students extends Person {
         this.desSalud = desSalud;
     }
 
-    public Alert newStudent(String phoneMom, String phoneDad) {
+    public Alert newStudent(String phoneMom, String phoneDad, Parents mom) {
         Alert message = null;
+        
+        int idBoy = 0;
+        int idMom = 0;
+        ResultSet rs;
         try {
-            this.link = Base.getConnectionStatic();
-            PreparedStatement ps = link.prepareCall("call sp_registrar_estudiante"
+            
+            link = Base.getConnectionStatic();
+            link.setAutoCommit(false);
+            
+            PreparedStatement psBoy = this.link.prepareCall("call sp_registrar_estudiante"
                     + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            ps.setString(1, this.getIdentification());
-            ps.setString(2, this.getNames());
-            ps.setString(3, this.getLastNames());
-            ps.setString(4, this.getDateOfBirth());
-            ps.setString(5, this.getGender());
-            ps.setInt(6, this.getAddressOfEstate());
-            ps.setInt(7, this.getAddressOfMucipality());
-            ps.setInt(8, this.getAdressOfLocality());
-            ps.setBoolean(9, this.isCanaima());
-            ps.setBoolean(10, this.isBeca());
-            ps.setString(11, this.getSalud());
-            ps.setString(12, this.getDesSalud());
-            ps.setString(13, phoneMom);
-            ps.setString(14, phoneDad);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                System.out.println("ID: " + rs.getInt("id"));
-                message = new Alert(Alert.AlertType.INFORMATION);
-                message.setHeaderText(null);
-                message.setContentText("Resgistro Completado con Exito!");
-            }
+            psBoy.setString(1, this.getIdentification());
+            psBoy.setString(2, this.getNames());
+            psBoy.setString(3, this.getLastNames());
+            psBoy.setString(4, this.getDateOfBirth());
+            psBoy.setString(5, this.getGender());
+            psBoy.setInt(6, this.getAddressOfEstate());
+            psBoy.setInt(7, this.getAddressOfMucipality());
+            psBoy.setInt(8, this.getAdressOfLocality());
+            psBoy.setBoolean(9, this.isCanaima());
+            psBoy.setBoolean(10, this.isBeca());
+            psBoy.setString(11, this.getSalud());
+            psBoy.setString(12, this.getDesSalud());
+            psBoy.setString(13, phoneMom);
+            psBoy.setString(14, phoneDad);
+            rs = psBoy.executeQuery();
+            rs.next();
+            idBoy = rs.getInt("id");
+            
+            PreparedStatement psMom = link.prepareCall("call sp_registrar_familiar(?,?,?,?,?,?,?,?,?,?)");
+            psMom.setString(1, mom.getIdentification());
+            psMom.setString(2, mom.getNames());
+            psMom.setString(3, mom.getLastNames());
+            psMom.setString(4, mom.getDateOfbirth());
+            psMom.setBoolean(5, mom.isIfLiveWhitBoy());
+            psMom.setString(6, mom.getTypeHouse());
+            psMom.setString(7, mom.getTypeFamily());
+            psMom.setString(8, mom.getOcupation());
+            psMom.setString(9, mom.getRelige());
+            psMom.setString(10, mom.getEmail());
+            rs = psMom.executeQuery();
+            rs.next();
+            idMom = rs.getInt("id");
+            
+            PreparedStatement psMomBoy = link.prepareCall("call sp_registrar_est_fami(?,?)");
+            psMomBoy.setInt(1, idBoy);
+            psMomBoy.setInt(2, idMom);
+            psMomBoy.executeQuery();
+            link.commit();
+            
+            message = new Alert(Alert.AlertType.INFORMATION);
+            message.setHeaderText(null);
+            message.setContentText("Registro Completado");
 
             this.link.close();
-
         } catch (SQLException e) {
-            System.err.println("Error: " + e);
-            message = new Alert(Alert.AlertType.ERROR);
+
+            try {
+                this.link.rollback();
+            } catch (SQLException ex) {
+                System.err.println("Error rollback: " + ex);
+                message = new Alert(Alert.AlertType.ERROR);
                 message.setHeaderText(null);
                 message.setContentText("Error: No se pudo completar su Operación");
+            }
+            
+            System.err.println("Error: " + e);
+            message = new Alert(Alert.AlertType.ERROR);
+            message.setHeaderText(null);
+            message.setContentText("Error: No se pudo completar su Operación");
         }
-        
+
         return message;
     }
 
