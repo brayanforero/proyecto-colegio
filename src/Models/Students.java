@@ -96,11 +96,11 @@ public class Students extends Person {
             message.setHeaderText(null);
             message.setContentText("Registro Completado");
 
-            this.link.close();
+            link.close();
         } catch (SQLException e) {
 
             try {
-                this.link.rollback();
+                link.rollback();
             } catch (SQLException ex) {
                 System.err.println("Error rollback: " + ex);
                 message = new Alert(Alert.AlertType.ERROR);
