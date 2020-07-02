@@ -17,7 +17,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterStudentViewController">
    <children>
-      <ScrollPane focusTraversable="false" hbarPolicy="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1020.0" vbarPolicy="ALWAYS">
+      <ScrollPane focusTraversable="false" hbarPolicy="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="1020.0" vbarPolicy="ALWAYS">
         <content>
           <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1020.0">
                <children>
@@ -128,7 +128,7 @@
                                     <Separator layoutX="653.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="196.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Adicionales" />
                                     <Label layoutX="673.0" layoutY="82.0" style="-fx-font-size: 16;" text="Profesión u Oficio:" />
-                                    <TextField fx:id="txtDadOcupation" layoutX="817.0" layoutY="78.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
+                                    <TextField fx:id="txtOcupationDad" layoutX="817.0" layoutY="78.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Label alignment="CENTER" layoutX="672.0" layoutY="136.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Religión:" />
                                     <TextField fx:id="txtReligeDad" layoutX="816.0" layoutY="132.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <RadioButton fx:id="rdbYes1" layoutX="376.0" layoutY="93.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />

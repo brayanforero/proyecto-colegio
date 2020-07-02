@@ -4,6 +4,7 @@ import Models.Parents;
 import Models.Students;
 import com.mysql.jdbc.Connection;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -53,7 +54,7 @@ public class RegisterStudentViewController implements Initializable {
     private TextArea txtRecomendations;
     @FXML
     private ComboBox<String> cboSelectGender;
-    private ObservableList<String> itemsGender = FXCollections.observableArrayList();
+    private final ObservableList<String> itemsGender = FXCollections.observableArrayList();
     @FXML
     private TextField txtMonNames;
     @FXML
@@ -71,7 +72,7 @@ public class RegisterStudentViewController implements Initializable {
     @FXML
     private RadioButton rdbNo;
     private ComboBox<String> cboSelectHouse;
-    private ObservableList<String> itemsHouse = FXCollections.observableArrayList();
+    private final ObservableList<String> itemsHouse = FXCollections.observableArrayList();
     @FXML
     private TextField txtEmailMon;
     @FXML
@@ -89,8 +90,6 @@ public class RegisterStudentViewController implements Initializable {
     @FXML
     private DatePicker txtDadDateOfBirth;
     @FXML
-    private TextField txtDadOcupation;
-    @FXML
     private TextField txtReligeDad;
     @FXML
     private RadioButton rdbYes1;
@@ -98,6 +97,8 @@ public class RegisterStudentViewController implements Initializable {
     private RadioButton rdbNo1;
     @FXML
     private TextField txtEmailDad;
+    @FXML
+    private TextField txtOcupationDad;
     @FXML
     private RadioButton isAutorized1;
     @FXML
@@ -117,49 +118,60 @@ public class RegisterStudentViewController implements Initializable {
     }
 
     @FXML
-    private void saveData(ActionEvent event) {
-
-        String identification = this.txtDocument.getText().toUpperCase();
-        String boyNames = this.txtNames.getText().toUpperCase();
-        String dateOfBirth = this.txtDateOfBirth.getValue().toString();
-        String boyLastNames = this.txtLastNames.getText().toUpperCase();
-        String boyGender = this.cboSelectGender.getValue();
-
-        int state = Integer.parseInt(this.txtSelectState.getText());
-        int mun = Integer.parseInt(this.txtSelectMun.getText());
-        int locale = Integer.parseInt(this.txtSelectLocale.getText());
-
-        boolean ifHaveCanaima = this.checkHaveCanaima.isSelected();
-        boolean ifHaveBeca = this.checkHaveBeca.isSelected();
-
-        String health = this.txtHealth.getText().toUpperCase();
-        String recomendations = this.txtRecomendations.getText().toUpperCase();
-
-        String phoneMon = this.txtPhoneMon.getText().toUpperCase();
-        String phoneDad = this.txtPhoneDad.getText().toUpperCase();
+    private void saveData(ActionEvent event) throws SQLException {
+        
+        Students boy;
+        Parents mom,dad;
         
         
-        String momDoc = this.txtMonDocument.getText().toUpperCase();
-        String momNames = this.txtMonNames.getText().toUpperCase();
-        String momLastNames = this.txtMonLastNames.getText().toUpperCase();
-        String momDateOfbirth = this.txtMonDateOfBirth.getValue().toString();
-        boolean momifLifeBoy = this.rdbYes.isSelected();
-        String momTypeHouse = this.cboMonHouse.getValue();
-        String momTypeFamily = "MAMÁ";
-        String momOcupation = this.txtOcupationMon.getText().toUpperCase();
-        String momRelige = this.txtReligemMon.getText().toUpperCase();
-        String momEmail = this.txtEmailMon.getText().toUpperCase();
+        // CAPTURANDO DATOS DEL NIÑO DE LA VISTA
+        String doc = this.txtDocument.getText().toUpperCase();
+        String name = this.txtNames.getText().toUpperCase();
+        String last_names = this.txtLastNames.getText().toUpperCase();
+        String dateOfBith = this.txtDateOfBirth.getValue().toString();
+        String gender = this.cboSelectGender.getValue().toUpperCase();
+        int id_state = Integer.parseInt( this.txtSelectState.getText() );
+        int id_mun = Integer.parseInt( this.txtSelectMun.getText() );
+        int id_loc = Integer.parseInt( this.txtSelectLocale.getText() );
+        boolean have_Canaima = this.checkHaveCanaima.isSelected();
+        boolean have_Beca = this.checkHaveBeca.isSelected();
+        String health = this.txtNames.getText().toUpperCase();
+        String des_health = this.txtNames.getText().toUpperCase();
+        String phone_mom = this.txtPhoneMon.getText();
+        String phone_dad = this.txtPhoneDad.getText();
+        boy = new Students(doc, name, last_names, dateOfBith, gender, 
+                id_state, id_mun, id_loc, have_Canaima, have_Beca, health, des_health);
         
-        Parents mom = new Parents(momDoc , momNames, momLastNames, momDateOfbirth,
-                momifLifeBoy, momTypeHouse,momTypeFamily, momOcupation, momRelige, momEmail
-        );
-
-       Students boy = new Students(
-                identification, boyNames, boyLastNames, dateOfBirth, boyGender,
-                state, mun, locale, ifHaveCanaima, ifHaveBeca, health, recomendations);
-
-        Alert message = boy.newStudent(phoneMon, phoneDad, mom);
-        message.showAndWait();
+        // CAPTURANDO DATOS DE La MAMÁ DE LA VISTA
+        String doc_mom = this.txtMonDocument.getText().toUpperCase();
+        String name_mom = this.txtMonNames.getText().toUpperCase();
+        String last_names_mom = this.txtMonLastNames.getText().toUpperCase();
+        String dateOfBith_mom = this.txtMonDateOfBirth.getValue().toString();
+        boolean ifLiveBoy_mom = this.rdbYes.isSelected() ? true : false;
+        String type_house_mom = this.cboMonHouse.getValue().toUpperCase();
+        String type_family_mom = "MAMÁ";
+        String ocp_mom = this.txtOcupationMon.getText().toUpperCase();
+        String rel_mom = this.txtReligemMon.getText().toUpperCase();
+        String email_mom = this.txtEmailMon.getText().toUpperCase();
+        mom = new Parents(doc_mom, name_mom, last_names_mom, dateOfBith_mom, 
+                ifLiveBoy_mom, type_house_mom, type_family_mom, ocp_mom, rel_mom,email_mom);
+        
+        // CAPTURANDO DATOS DE La MAMÁ DE LA VISTA
+        String doc_dad = this.txtDadDocument.getText().toUpperCase();
+        String name_dad = this.txtDadNames.getText().toUpperCase();
+        String last_names_dad = this.txtDadLastNames.getText().toUpperCase();
+        String dateOfBith_dad = this.txtDadDateOfBirth.getValue().toString();
+        boolean ifLiveBoy_dad = this.rdbYes1.isSelected() ? true : false;
+        String type_house_dad = this.cboDadHouse.getValue().toUpperCase();
+        String type_family_dad = "PAPÁ";
+        String ocp_dad = this.txtOcupationDad.getText().toUpperCase();
+        String rel_dad = this.txtReligeDad.getText().toUpperCase();
+        String email_dad = this.txtEmailDad.getText().toUpperCase();
+        dad = new Parents(doc_dad, name_dad, last_names_dad, dateOfBith_dad, 
+                ifLiveBoy_dad, type_house_dad, type_family_dad, ocp_dad, rel_dad,email_dad);
+        
+        Alert msg = boy.newStudent(phone_mom, phone_dad, mom, dad);
+        msg.showAndWait();
     }
 
 }
