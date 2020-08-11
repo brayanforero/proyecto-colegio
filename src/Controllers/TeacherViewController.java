@@ -146,7 +146,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private void openModuleList(ActionEvent event) {
 
-        openModuleContainer("ListStudentsView");
+        openModuleContainer("ListStudentView");
     }
 
     @FXML

@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public class ListStudentsWiewController implements Initializable {
+public class ListStudentViewController implements Initializable {
 
     /**
      * Initializes the controller class.
