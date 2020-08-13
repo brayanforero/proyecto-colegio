@@ -50,7 +50,9 @@ public class TeacherViewController implements Initializable {
     private Pane container;
     @FXML
     private MenuItem openRegisterStudent;
-
+    private int idUser;
+    private int idDegress;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         systemDate();
@@ -60,6 +62,7 @@ public class TeacherViewController implements Initializable {
     public void initAtributeUser(int id, String nameUser) {
 
         if (id > 0 && nameUser.length() > 0) {
+            this.idUser = id;
             this.lblNameUser.setText(nameUser);
             this.lblidUser.setText(id + "");
         } else {
@@ -67,7 +70,7 @@ public class TeacherViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
-            alert.setContentText("Error: No se Pudo Extraer sus Datos");
+            alert.setContentText("Error: No se pudo cargar sus datos");
             alert.showAndWait();
             Platform.exit();
         }
@@ -88,6 +91,7 @@ public class TeacherViewController implements Initializable {
                 this.lblSeccion.setText(rs.getString("seccion"));
                 this.lblTurno.setText(rs.getString("turno"));
                 this.lblPeriodo.setText(rs.getString("periodo"));
+                this.idDegress = rs.getInt("id_grado");
                 ps.close();
             } else {
                 ps.close();
@@ -147,6 +151,7 @@ public class TeacherViewController implements Initializable {
     private void openModuleList(ActionEvent event) {
 
         openModuleContainer("ListStudentView");
+        System.out.println("ID de grado " + this.idDegress + " y id de usuario" + this.idUser);
     }
 
     @FXML

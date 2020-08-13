@@ -5,12 +5,15 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Students extends Person {
 
+    private int idStudent;
     private String dateOfBirth;
     private String gender;
+    private int age;
     private int addressOfEstate;
     private int addressOfMucipality;
     private int adressOfLocality;
@@ -18,6 +21,11 @@ public class Students extends Person {
     private boolean beca;
     private String salud;
     private String desSalud;
+    private String nameParent;
+    private String docParent;
+    private String ifCanaima;
+    private String ifBeca;
+    private String ifRepeat;
 
     public Students(
             String identification, String names, String lastNames,
@@ -35,6 +43,20 @@ public class Students extends Person {
         this.beca = beca;
         this.salud = salud;
         this.desSalud = desSalud;
+    }
+
+    public Students(int idStudent, String dateOfBirth, String gender, int age, String ifCanaima, String ifBeca, String nameParent, String docParent, String names, String lastNames, String identification, String ifRepeat) {
+        super(names, lastNames, identification);
+        this.idStudent = idStudent;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.age = age;
+        this.ifCanaima = ifCanaima;
+        this.ifBeca = ifBeca;
+        this.nameParent = nameParent;
+        this.docParent = docParent;
+        this.ifRepeat = ifRepeat;
+
     }
 
     public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad) throws SQLException {
@@ -135,7 +157,7 @@ public class Students extends Person {
             message.setContentText("Resgistro completado con exito");
             link.close();
         } catch (SQLException ex) {
-            
+
             link.rollback();
             System.err.println("Error en la inscripcion: " + ex);
             message = new Alert(Alert.AlertType.ERROR);
@@ -144,6 +166,43 @@ public class Students extends Person {
         }
 
         return message;
+    }
+
+    public static void getListStudenByDegress(int idDegress, ObservableList<Students> list) {
+
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareCall("call sp_lista_estudiante_grado(?)");
+            ps.setInt(1, idDegress);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Students(
+                        rs.getInt("id_estudiante"),
+                        rs.getString("nacimiento"),
+                        rs.getString("genero"),
+                        rs.getInt("edad"),
+                        rs.getString("canaima"),
+                        rs.getString("beca"),
+                        rs.getString("nombres_mama"),
+                        rs.getString("cedula_mama"),
+                        rs.getString("nombres"),
+                        rs.getString("nombres"),
+                        rs.getString("cedula"),
+                        rs.getString("repitiente")
+                ));
+               
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al traer los datos: " + e);
+        }
+    }
+
+    public int getIdStudent() {
+        return idStudent;
+    }
+
+    public void setIdStudent(int idStudent) {
+        this.idStudent = idStudent;
     }
 
     public String getDateOfBirth() {
@@ -160,6 +219,14 @@ public class Students extends Person {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getAddressOfEstate() {
@@ -218,6 +285,14 @@ public class Students extends Person {
         this.desSalud = desSalud;
     }
 
+    public String getNameParent() {
+        return nameParent;
+    }
+
+    public void setNameParent(String nameParent) {
+        this.nameParent = nameParent;
+    }
+
     public int getId() {
         return id;
     }
@@ -249,5 +324,9 @@ public class Students extends Person {
     public void setIdentification(String identification) {
         this.identification = identification;
     }
+
+    
+    
+    
 
 }
