@@ -12,11 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * FXML Controller class
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
+
 public class ListStudentViewController implements Initializable {
 
     @FXML
@@ -40,8 +36,6 @@ public class ListStudentViewController implements Initializable {
     @FXML
     private TableColumn colIfBeca;
     @FXML
-    private TableColumn colIdFamily;
-    @FXML
     private TableColumn colNamesFamily;
     @FXML
     private TableColumn colDocFamily;
@@ -56,15 +50,15 @@ public class ListStudentViewController implements Initializable {
         this.listStudent = FXCollections.observableArrayList();
         this.colIdUser.setCellValueFactory(new PropertyValueFactory("idStudent"));
         this.colDocBoy.setCellValueFactory(new PropertyValueFactory("identification"));
-        this.colNamesBoy.setCellValueFactory(new PropertyValueFactory("names"));
+        this.colNamesBoy.setCellValueFactory(new PropertyValueFactory("fullname"));
         this.colDateOfBirth.setCellValueFactory(new PropertyValueFactory("dateOfBirth"));
         this.colAge.setCellValueFactory(new PropertyValueFactory("age"));
-        this.colGender.setCellValueFactory(new PropertyValueFactory("gender"));
-        this.colRepeat.setCellFactory(new PropertyValueFactory("ifRepeat"));
-        this.colIfCanaima.setCellValueFactory(new PropertyValueFactory("ifCanaima"));
-        this.colIfBeca.setCellValueFactory(new PropertyValueFactory("ifBeca"));
-        this.colNamesFamily.setCellValueFactory(new PropertyValueFactory("nameParent"));
-        this.colDocFamily.setCellValueFactory(new PropertyValueFactory("docParent"));
+        this.colRepeat.setCellValueFactory(new PropertyValueFactory("currentRepeat"));
+        this.colIfCanaima.setCellValueFactory(new PropertyValueFactory("currentCanaima"));
+        this.colIfBeca.setCellValueFactory(new PropertyValueFactory("currentBeca"));
+        
+        this.colNamesFamily.setCellValueFactory(new PropertyValueFactory("fullNameParent"));
+        this.colDocFamily.setCellValueFactory(new PropertyValueFactory("documentParent"));
         
         Students.getListStudenByDegress(1, listStudent);
         this.tblListStudent.setItems(listStudent);

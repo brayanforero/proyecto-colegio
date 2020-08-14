@@ -9,11 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Students extends Person {
-
-    private int idStudent;
+    
     private String dateOfBirth;
     private String gender;
-    private int age;
     private int addressOfEstate;
     private int addressOfMucipality;
     private int adressOfLocality;
@@ -21,11 +19,17 @@ public class Students extends Person {
     private boolean beca;
     private String salud;
     private String desSalud;
-    private String nameParent;
-    private String docParent;
-    private String ifCanaima;
-    private String ifBeca;
-    private String ifRepeat;
+    
+    /* DATOS PARA PINTAR EN TABLA*/
+    private int idStudent;
+    private String fullname;
+    private String currentCanaima;
+    private String currentBeca;
+    private String currentRepeat;
+    private int age;
+    private String fullNameParent;
+    private String documentParent;
+    
 
     public Students(
             String identification, String names, String lastNames,
@@ -45,19 +49,12 @@ public class Students extends Person {
         this.desSalud = desSalud;
     }
 
-    public Students(int idStudent, String dateOfBirth, String gender, int age, String ifCanaima, String ifBeca, String nameParent, String docParent, String names, String lastNames, String identification, String ifRepeat) {
+    public Students(String names, String lastNames, String identification) {
         super(names, lastNames, identification);
-        this.idStudent = idStudent;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-        this.age = age;
-        this.ifCanaima = ifCanaima;
-        this.ifBeca = ifBeca;
-        this.nameParent = nameParent;
-        this.docParent = docParent;
-        this.ifRepeat = ifRepeat;
-
     }
+    
+
+    
 
     public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad) throws SQLException {
         Alert message = null;
@@ -171,38 +168,27 @@ public class Students extends Person {
     public static void getListStudenByDegress(int idDegress, ObservableList<Students> list) {
 
         try {
-            Connection link = Base.getConnectionStatic();
-            PreparedStatement ps = (PreparedStatement) link.prepareCall("call sp_lista_estudiante_grado(?)");
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_lista_estudiante_grado(?)");
             ps.setInt(1, idDegress);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Students(
-                        rs.getInt("id_estudiante"),
-                        rs.getString("nacimiento"),
-                        rs.getString("genero"),
-                        rs.getInt("edad"),
-                        rs.getString("canaima"),
-                        rs.getString("beca"),
-                        rs.getString("nombres_mama"),
-                        rs.getString("cedula_mama"),
-                        rs.getString("nombres"),
-                        rs.getString("nombres"),
-                        rs.getString("cedula"),
-                        rs.getString("repitiente")
-                ));
-               
+            while (rs.next()) {                
+                Students student = new Students(rs.getString("nombres"), rs.getString("nombres"), rs.getString("cedula"));
+                student.setIdStudent(rs.getInt("id_estudiante"));
+                student.setFullname(student.getNames());
+                student.setDateOfBirth(rs.getString("nacimiento"));
+                student.setAge(rs.getInt("edad"));
+                student.setGender(rs.getString("genero"));
+                student.setCurrentRepeat(rs.getString("repitiente"));
+                student.setCurrentCanaima(rs.getString("canaima"));
+                student.setCurrentBeca(rs.getString("beca"));
+                student.setFullNameParent(rs.getString("nombres_mama"));
+                student.setDocumentParent(rs.getString("cedula_mama"));
+                list.add(student);
             }
         } catch (SQLException e) {
-            System.err.println("Error al traer los datos: " + e);
+            System.err.println("Error: " + e);
         }
-    }
-
-    public int getIdStudent() {
-        return idStudent;
-    }
-
-    public void setIdStudent(int idStudent) {
-        this.idStudent = idStudent;
     }
 
     public String getDateOfBirth() {
@@ -219,14 +205,6 @@ public class Students extends Person {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public int getAddressOfEstate() {
@@ -285,12 +263,68 @@ public class Students extends Person {
         this.desSalud = desSalud;
     }
 
-    public String getNameParent() {
-        return nameParent;
+    public int getIdStudent() {
+        return idStudent;
     }
 
-    public void setNameParent(String nameParent) {
-        this.nameParent = nameParent;
+    public void setIdStudent(int idStudent) {
+        this.idStudent = idStudent;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getCurrentCanaima() {
+        return currentCanaima;
+    }
+
+    public void setCurrentCanaima(String currentCanaima) {
+        this.currentCanaima = currentCanaima;
+    }
+
+    public String getCurrentBeca() {
+        return currentBeca;
+    }
+
+    public void setCurrentBeca(String currentBeca) {
+        this.currentBeca = currentBeca;
+    }
+
+    public String getCurrentRepeat() {
+        return currentRepeat;
+    }
+
+    public void setCurrentRepeat(String currentRepeat) {
+        this.currentRepeat = currentRepeat;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getFullNameParent() {
+        return fullNameParent;
+    }
+
+    public void setFullNameParent(String fullNameParent) {
+        this.fullNameParent = fullNameParent;
+    }
+
+    public String getDocumentParent() {
+        return documentParent;
+    }
+
+    public void setDocumentParent(String documentParent) {
+        this.documentParent = documentParent;
     }
 
     public int getId() {
@@ -324,6 +358,16 @@ public class Students extends Person {
     public void setIdentification(String identification) {
         this.identification = identification;
     }
+
+    
+
+    
+
+    
+    
+    
+
+    
 
     
     

@@ -13,22 +13,21 @@
          <content>
             <Pane prefHeight="437.0" prefWidth="1260.0">
                <children>
-                  <Label layoutX="442.0" layoutY="24.0" style="-fx-font-size: 16;" text="Lista de estudiantes" />
-                  <TableView fx:id="tblListStudent" layoutX="10.0" layoutY="60.0" prefHeight="345.0" prefWidth="1248.0">
+                  <Label layoutX="560.0" layoutY="2.0" style="-fx-font-size: 16;" text="Lista de estudiantes" />
+                  <TableView fx:id="tblListStudent" layoutX="5.0" layoutY="40.0" prefHeight="390.0" prefWidth="1248.0">
                     <columns>
-                      <TableColumn fx:id="colIdUser" editable="false" minWidth="-Infinity" prefWidth="100.0" resizable="false" style="-fx-padding: 8;" text="id_estudiante" visible="false" />
-                      <TableColumn fx:id="colDocBoy" editable="false" minWidth="70.0" prefWidth="70.0" resizable="false" style="-fx-padding: 8;" text="Cedula" />
-                        <TableColumn fx:id="colNamesBoy" editable="false" minWidth="-Infinity" prefWidth="136.0" resizable="false" style="-fx-padding: 8;" text="Apellidos y Nombres" />
-                        <TableColumn fx:id="colDateOfBirth" editable="false" minWidth="-Infinity" prefWidth="135.0" resizable="false" style="-fx-padding: 8;" text="Fecha de Nacimiento" />
-                        <TableColumn fx:id="colAge" editable="false" minWidth="-Infinity" prefWidth="50.0" resizable="false" style="-fx-padding: 8;" text="Edad" />
-                        <TableColumn fx:id="colGender" editable="false" minWidth="-Infinity" prefWidth="60.0" style="-fx-padding: 8;" text="Sexo" />
-                        <TableColumn editable="false" minWidth="-Infinity" prefWidth="128.0" resizable="false" style="-fx-padding: 8;" text="Centro Hospitalario" visible="false" />
-                        <TableColumn fx:id="colRepeat" editable="false" minWidth="-Infinity" style="-fx-padding: 8;" text="Repitiente" />
-                        <TableColumn fx:id="colIfCanaima" editable="false" minWidth="-Infinity" prefWidth="104.0" style="-fx-padding: 8;" text="Posee Canaima" />
-                        <TableColumn fx:id="colIfBeca" editable="false" minWidth="-Infinity" style="-fx-padding: 8;" text="Posee Beca" />
-                        <TableColumn fx:id="colIdFamily" editable="false" minWidth="100.0" prefWidth="120.0" style="-fx-padding: 8;" text="id_representante" visible="false" />
-                        <TableColumn fx:id="colNamesFamily" editable="false" minWidth="-Infinity" prefWidth="240.0" style="-fx-padding: 8;" text="Apellidos y Nombres del Representante" />
-                        <TableColumn fx:id="colDocFamily" editable="false" minWidth="-Infinity" prefWidth="164.0" resizable="false" style="-fx-padding: 8;" text="Cedula del Representante" />
+                      <TableColumn fx:id="colIdUser" editable="false" minWidth="-Infinity" prefWidth="100.0" text="id_estudiante" visible="false" />
+                      <TableColumn fx:id="colDocBoy" editable="false" minWidth="70.0" prefWidth="70.0" text="Cedula" />
+                        <TableColumn fx:id="colNamesBoy" editable="false" minWidth="-Infinity" prefWidth="136.0" text="Apellidos y Nombres" />
+                        <TableColumn fx:id="colDateOfBirth" editable="false" minWidth="-Infinity" prefWidth="135.0" text="Fecha de Nacimiento" />
+                        <TableColumn fx:id="colAge" editable="false" minWidth="-Infinity" prefWidth="50.0" text="Edad" />
+                        <TableColumn fx:id="colGender" editable="false" minWidth="-Infinity" prefWidth="60.0" text="Sexo" />
+                        <TableColumn editable="false" minWidth="-Infinity" prefWidth="128.0" text="Centro Hospitalario" visible="false" />
+                        <TableColumn fx:id="colRepeat" editable="false" minWidth="-Infinity" text="Repitiente" />
+                        <TableColumn fx:id="colIfCanaima" editable="false" minWidth="-Infinity" prefWidth="104.0" text="Posee Canaima" />
+                        <TableColumn fx:id="colIfBeca" editable="false" minWidth="-Infinity" text="Posee Beca" />
+                        <TableColumn fx:id="colNamesFamily" editable="false" minWidth="-Infinity" prefWidth="240.0" text="Apellidos y Nombres del Representante" />
+                        <TableColumn fx:id="colDocFamily" editable="false" minWidth="-Infinity" prefWidth="164.0" text="Cedula del Representante" />
                     </columns>
                   </TableView>
                </children>
