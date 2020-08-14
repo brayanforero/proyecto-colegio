@@ -1,4 +1,3 @@
-
 package Controllers;
 
 import Models.Students;
@@ -8,10 +7,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 
 public class ListStudentViewController implements Initializable {
 
@@ -40,13 +39,14 @@ public class ListStudentViewController implements Initializable {
     @FXML
     private TableColumn colDocFamily;
     private ObservableList<Students> listStudent;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        initTable();
+
     }
 
-    public void initTable(){
+    public void initTable(int idDesgress) {
+
         this.listStudent = FXCollections.observableArrayList();
         this.colIdUser.setCellValueFactory(new PropertyValueFactory("idStudent"));
         this.colDocBoy.setCellValueFactory(new PropertyValueFactory("identification"));
@@ -57,12 +57,21 @@ public class ListStudentViewController implements Initializable {
         this.colRepeat.setCellValueFactory(new PropertyValueFactory("currentRepeat"));
         this.colIfCanaima.setCellValueFactory(new PropertyValueFactory("currentCanaima"));
         this.colIfBeca.setCellValueFactory(new PropertyValueFactory("currentBeca"));
-        
+
         this.colNamesFamily.setCellValueFactory(new PropertyValueFactory("fullNameParent"));
         this.colDocFamily.setCellValueFactory(new PropertyValueFactory("documentParent"));
-        
-        Students.getListStudenByDegress(1, listStudent);
-        this.tblListStudent.setItems(listStudent);
+
+        Students.getListStudenByDegress(idDesgress, listStudent);
+        if (listStudent.size() > 0) {
+            this.tblListStudent.setItems(listStudent);
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(null);
+        alert.setHeaderText(null);
+        alert.setContentText("Estimado usuario no hay estudiantes inscritos");
+        alert.showAndWait();
     }
-    
+
 }

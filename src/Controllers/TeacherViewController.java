@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,7 +54,7 @@ public class TeacherViewController implements Initializable {
     private MenuItem openRegisterStudent;
     private int idUser;
     private int idDegress;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         systemDate();
@@ -142,16 +144,27 @@ public class TeacherViewController implements Initializable {
             newStage.setResizable(false);
             newStage.show();
         } catch (IOException e) {
-            
+
             System.err.println("Error al abrir las ventana: " + e);
         }
     }
 
     @FXML
     private void openModuleList(ActionEvent event) {
+        try {
+            this.container.getChildren().removeAll();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ListStudentView.fxml"));
+            Node module = loader.load();
+            
+            ListStudentViewController controller = loader.getController();
+            controller.initTable(this.idDegress);
+            
+            this.container.getChildren().add(module); 
+                    
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        openModuleContainer("ListStudentView");
-        System.out.println("ID de grado " + this.idDegress + " y id de usuario" + this.idUser);
     }
 
     @FXML
@@ -161,13 +174,6 @@ public class TeacherViewController implements Initializable {
 
     public void openModuleContainer(String nameModule) {
 
-        try {
-            this.container.getChildren().removeAll();
-            Node module = FXMLLoader.load(getClass().getResource("/Views/" + nameModule + ".fxml"));
-            this.container.getChildren().add(module);
-        } catch (IOException e) {
-            System.err.println("Error al cargar la vista de la lista" + e);
-        }
     }
 
 }

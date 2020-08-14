@@ -13,7 +13,7 @@
          <content>
             <Pane prefHeight="437.0" prefWidth="1260.0">
                <children>
-                  <Label layoutX="560.0" layoutY="2.0" style="-fx-font-size: 16;" text="Lista de estudiantes" />
+                  <Label layoutX="560.0" layoutY="10.0" style="-fx-font-size: 16;" text="Lista de estudiantes" />
                   <TableView fx:id="tblListStudent" layoutX="5.0" layoutY="40.0" prefHeight="390.0" prefWidth="1248.0">
                     <columns>
                       <TableColumn fx:id="colIdUser" editable="false" minWidth="-Infinity" prefWidth="100.0" text="id_estudiante" visible="false" />
