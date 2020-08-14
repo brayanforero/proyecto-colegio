@@ -53,6 +53,7 @@ public class ListStudentViewController implements Initializable {
         this.colNamesBoy.setCellValueFactory(new PropertyValueFactory("fullname"));
         this.colDateOfBirth.setCellValueFactory(new PropertyValueFactory("dateOfBirth"));
         this.colAge.setCellValueFactory(new PropertyValueFactory("age"));
+        this.colGender.setCellValueFactory(new PropertyValueFactory("gender"));
         this.colRepeat.setCellValueFactory(new PropertyValueFactory("currentRepeat"));
         this.colIfCanaima.setCellValueFactory(new PropertyValueFactory("currentCanaima"));
         this.colIfBeca.setCellValueFactory(new PropertyValueFactory("currentBeca"));
