@@ -39,8 +39,6 @@ public class TeacherViewController implements Initializable {
     @FXML
     private Label lblNameUser;
     @FXML
-    private Label lblidUser;
-    @FXML
     private Label lblPeriodo;
     @FXML
     private Label lblTurno;
@@ -66,7 +64,6 @@ public class TeacherViewController implements Initializable {
         if (id > 0 && nameUser.length() > 0) {
             this.idUser = id;
             this.lblNameUser.setText(nameUser);
-            this.lblidUser.setText(id + "");
         } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -173,7 +170,15 @@ public class TeacherViewController implements Initializable {
     }
 
     public void openModuleContainer(String nameModule) {
-
+        try {
+            this.container.getChildren().removeAll();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/"+ nameModule +".fxml"));
+            Node module = loader.load();
+            this.container.getChildren().add(module); 
+                    
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
