@@ -1,11 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.AdminViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1024.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminViewController">
    <children>
-      <Label layoutX="138.0" layoutY="95.0" text="Admin" />
+      <Pane prefHeight="112.0" prefWidth="1024.0" style="-fx-background-color: none;">
+         <children>
+            <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" prefWidth="880.0" spacing="12.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 0 12 12 0;">
+               <children>
+                  <Label style="-fx-font-size: 12;" text="Periodo en Curso:" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPeriodo" style="-fx-font-size: 12; -fx-text-fill: #434141; -fx-font-weight: bold;" textFill="#434141">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <Label style="-fx-font-size: 12;" text="Fecha" textFill="#434141">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="lblDate" style="-fx-font-size: 12; -fx-text-fill: #555; -fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Separator layoutX="555.0" layoutY="18.0" orientation="VERTICAL" prefHeight="200.0" />
+                  <Label style="-fx-font-size: 14;" text="Hola:" textAlignment="CENTER" />
+                  <Label fx:id="lblNameUser" contentDisplay="TOP" prefHeight="25.0" prefWidth="132.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 12 0 0 12;">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../images/social.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="6.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="btnLogout" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets top="6.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../images/signs.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="8.0" right="12.0" top="8.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+      <Separator layoutY="99.0" prefHeight="0.0" prefWidth="1024.0" />
+      <HBox alignment="CENTER_LEFT" layoutY="50.0" prefHeight="50.0" prefWidth="640.0" spacing="12.0" style="-fx-background-color: transparent;">
+         <children>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Planillas" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Actividades Escolares" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MenuButton>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </HBox>
+      <Pane fx:id="container" layoutY="101.0" prefHeight="450.0" prefWidth="1024.0" style="-fx-background-color: #fff;" />
    </children>
 </AnchorPane>

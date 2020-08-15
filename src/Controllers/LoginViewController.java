@@ -74,9 +74,9 @@ public class LoginViewController implements Initializable {
                     Parent root = loader.load();
 
                     TeacherViewController controller = loader.getController();
-                    controller.initAtributeUser( this.user.getId(), this.user.getWorkers() );
-                    controller.initDegressAsigned( this.user.getId() );
-                     
+                    controller.initAtributeUser(this.user.getId(), this.user.getWorkers());
+                    controller.initDegressAsigned(this.user.getId());
+
                     Scene scene = new Scene(root);
 
                     Stage primaryStage = new Stage();
@@ -92,6 +92,28 @@ public class LoginViewController implements Initializable {
                     System.err.println("Error al cargar la ventana: " + ex);
                 }
                 break;
+            default:
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/AdminView.fxml"));
+                    Parent root = loader.load();
+                    
+                    AdminViewController controller = loader.getController();
+                    controller.initAtributeUser(this.user.getId(), this.user.getWorkers());
+                    Scene scene = new Scene(root);
+                    Stage primaryStage = new Stage();
+                    primaryStage.setScene(scene);
+                    primaryStage.setMinWidth(1024);
+                    primaryStage.setMinHeight(500);
+                    primaryStage.setMaxWidth(1024);
+                    primaryStage.setMaxHeight(500);
+                    primaryStage.setResizable(false);
+                    primaryStage.show();
+
+                } catch (IOException ex) {
+                    System.err.println("Error al cargar la ventana: " + ex);
+                }
+                break;
+
         }
     }
 
