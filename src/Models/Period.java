@@ -1,6 +1,12 @@
 package Models;
 
-public class Period {
+import Config.Base;
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
+
+public class Period extends Base{
 
     private int id;
     private String codePeriod;
@@ -26,8 +32,30 @@ public class Period {
     }
 
     public Period() {
+        
     }
     
+    public Alert addPeriod(){
+        Alert message = null;
+        try {
+            Connection con = this.getConnection();
+            PreparedStatement ps = con.prepareCall("call sp_registro_periodo(?,?)");
+            ps.setString(1, this.getStarDate());
+            ps.setString(2, this.getEndDate());
+            ps.executeUpdate();
+            
+            message = new Alert(Alert.AlertType.INFORMATION);
+            message.setContentText("Periodo Registrado con exito");
+            message.setHeaderText(null);
+        } catch (SQLException ex) {
+            System.err.println("Error al registrar el periodo: " + ex );
+            message = new Alert(Alert.AlertType.ERROR);
+            message.setContentText("Error: No se pudo completar su operacion");
+            message.setHeaderText(null);
+        }
+        
+        return message;
+    }
 
     public int getId() {
         return id;

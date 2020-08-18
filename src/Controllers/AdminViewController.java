@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,6 +27,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -51,6 +53,8 @@ public class AdminViewController implements Initializable {
     
     private int idUser;
     private int idPeriod;
+    @FXML
+    private MenuItem itemOpenNewPeriod;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -121,6 +125,26 @@ public class AdminViewController implements Initializable {
         } catch (IOException e) {
 
             System.err.println("Error al abrir las ventana: " + e);
+        }
+    }
+
+    @FXML
+    private void newPeriod(ActionEvent event) {
+        try {
+            
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/ViewNewPeriod.fxml"));
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("Agregar Periodo");
+            newStage.setMinWidth(720);
+            newStage.setMinHeight(440);
+            newStage.setMaxWidth(720);
+            newStage.setMaxHeight(440);
+            newStage.setResizable(false);
+            newStage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

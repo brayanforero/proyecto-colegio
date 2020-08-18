@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -90,7 +91,18 @@
       <Separator layoutY="99.0" prefHeight="0.0" prefWidth="1024.0" />
       <HBox alignment="CENTER_LEFT" layoutY="50.0" prefHeight="50.0" prefWidth="640.0" spacing="12.0" style="-fx-background-color: transparent;">
          <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Periodos" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <items>
+                  <MenuItem fx:id="itemOpenNewPeriod" mnemonicParsing="false" onAction="#newPeriod" style="-fx-font-weight: bold;" text="Nuevo Periodo" />
+               </items>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Grados" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
@@ -98,7 +110,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Planillas" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Personal" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
@@ -106,7 +118,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Actividades Escolares" textFill="#434141">
+            <MenuButton layoutX="191.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
