@@ -117,6 +117,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <items>
+                  <MenuItem fx:id="itemNewWorker" mnemonicParsing="false" onAction="#openNewWorker" text="Agregar Nuevo" />
+               </items>
             </MenuButton>
             <MenuButton layoutX="191.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">
                <font>

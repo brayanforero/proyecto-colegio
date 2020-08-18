@@ -55,6 +55,8 @@ public class AdminViewController implements Initializable {
     private int idPeriod;
     @FXML
     private MenuItem itemOpenNewPeriod;
+    @FXML
+    private MenuItem itemNewWorker;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -141,6 +143,25 @@ public class AdminViewController implements Initializable {
             newStage.setMinHeight(440);
             newStage.setMaxWidth(720);
             newStage.setMaxHeight(440);
+            newStage.setResizable(false);
+            newStage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void openNewWorker(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewWorkerView.fxml"));
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("Agregar Personal");
+            /*newStage.setMinWidth(720);
+            newStage.setMinHeight(440);
+            newStage.setMaxWidth(720);
+            newStage.setMaxHeight(440);*/
             newStage.setResizable(false);
             newStage.showAndWait();
         } catch (IOException ex) {
