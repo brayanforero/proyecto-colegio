@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -119,6 +120,8 @@
                </cursor>
                <items>
                   <MenuItem fx:id="itemNewWorker" mnemonicParsing="false" onAction="#openNewWorker" text="Agregar Nuevo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Agregar Usuario" />
                </items>
             </MenuButton>
             <MenuButton layoutX="191.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">

@@ -57,6 +57,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemOpenNewPeriod;
     @FXML
     private MenuItem itemNewWorker;
+    @FXML
+    private MenuItem itemNewUser;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -139,10 +141,6 @@ public class AdminViewController implements Initializable {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setTitle("Agregar Periodo");
-            newStage.setMinWidth(720);
-            newStage.setMinHeight(440);
-            newStage.setMaxWidth(720);
-            newStage.setMaxHeight(440);
             newStage.setResizable(false);
             newStage.showAndWait();
         } catch (IOException ex) {
@@ -158,10 +156,21 @@ public class AdminViewController implements Initializable {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setTitle("Agregar Personal");
-            /*newStage.setMinWidth(720);
-            newStage.setMinHeight(440);
-            newStage.setMaxWidth(720);
-            newStage.setMaxHeight(440);*/
+            newStage.setResizable(false);
+            newStage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void openNewUser(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewUserView.fxml"));
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("Agregar Personal");
             newStage.setResizable(false);
             newStage.showAndWait();
         } catch (IOException ex) {

@@ -94,10 +94,10 @@ public class TeacherViewController implements Initializable {
                 ps.close();
             } else {
                 ps.close();
-                Alert alert = new Alert(Alert.AlertType.WARNING);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
-                alert.setContentText("Error: Solicitud de datos no completada, no se le ha asignado un grado aun.");
+                alert.setContentText("Error: La solictud de sus datos no se completo con exito. Por seguridad su acceso al sistema se cerrará.");
                 alert.showAndWait();
                 Platform.exit();
             }

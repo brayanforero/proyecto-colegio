@@ -2,7 +2,9 @@ package Models;
 
 import Config.Base;
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 public class Users extends Base {
@@ -22,6 +24,12 @@ public class Users extends Base {
         this.password = password;
         this.role = role;
         this.estate = estate;
+    }
+    public Users(int idWorkers, String name, String password, String role) {
+        this.idWorkers = idWorkers;
+        this.name = name;
+        this.password = password;
+        this.role = role;
     }
 
     public Users() {
@@ -51,6 +59,33 @@ public class Users extends Base {
             System.err.println("No se pudo completar el Login: " + ex);
         }
         return user;
+    }
+    
+    public Alert newUser(){
+        
+        Alert msg = null;
+        try {
+            Connection con = this.getConnection();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_registro_usuario(?,?,?,?)");
+            ps.setInt(1, this.getIdWorkers());
+            ps.setString(2, this.getName());
+            ps.setString(3, this.getPassword());
+            ps.setString(4, this.getRole());
+            ps.executeUpdate();
+            
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setTitle(null);
+            msg.setHeaderText(null);
+            msg.setContentText("Registro Exitoso");
+        } catch (SQLException e) {
+            System.err.println("Error al registar el ususario: " + e);
+            msg = new Alert(Alert.AlertType.ERROR);
+            msg.setTitle(null);
+            msg.setHeaderText(null);
+            msg.setContentText("Error: No se pudo completar su operacion");
+        }
+        
+        return msg;
     }
 
     public int getId() {
