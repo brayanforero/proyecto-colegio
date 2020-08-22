@@ -110,6 +110,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <items>
+                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar Nuevo" />
+               </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Personal" textFill="#434141">
                <font>

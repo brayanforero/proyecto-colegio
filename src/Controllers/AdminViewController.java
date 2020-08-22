@@ -59,6 +59,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemNewWorker;
     @FXML
     private MenuItem itemNewUser;
+    @FXML
+    private MenuItem itemNewDegress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -171,6 +173,21 @@ public class AdminViewController implements Initializable {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setTitle("Agregar Personal");
+            newStage.setResizable(false);
+            newStage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void openNewDegress(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewDegressView.fxml"));
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("Agregar Grados");
             newStage.setResizable(false);
             newStage.showAndWait();
         } catch (IOException ex) {
