@@ -56,7 +56,7 @@ public class Students extends Person {
 
     
 
-    public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad) throws SQLException {
+    public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad, int idDegress) throws SQLException {
         Alert message = null;
         PreparedStatement ps_boy, ps_mom, ps_dad;
         ResultSet rs;
@@ -146,7 +146,16 @@ public class Students extends Person {
             relation_sun.setInt(3, idBoy);
             relation_sun.setInt(4, idDad);
             relation_sun.executeUpdate();
-
+            
+            // INSCRIPCION EN EL GRADO RECIBIDO
+            PreparedStatement inscription = (PreparedStatement) link.prepareStatement("INSERT INTO inscripciones (id_estudiante, id_grado, repitiente)"
+                    + "VALUES (?,?,?)");
+            
+            inscription.setInt(1, idBoy);
+            inscription.setInt(2, idDegress);
+            inscription.setBoolean(3, false);
+            inscription.executeUpdate();
+            
             link.commit();
 
             message = new Alert(Alert.AlertType.INFORMATION);

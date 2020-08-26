@@ -84,12 +84,11 @@ public class TeacherViewController implements Initializable {
             PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_grado_asignado(?)");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-
             if (!rs.next()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
-                alert.setContentText("Error: La solictud de sus datos no se completo con exito. Por seguridad su acceso al sistema se cerrará.");
+                alert.setContentText("Error: Estimado usuario(a) no se le asignado una grado. Por seguridad su acceso se cerrará");
                 alert.showAndWait();
                 Platform.exit();
                 return;
@@ -173,6 +172,9 @@ public class TeacherViewController implements Initializable {
             this.container.getChildren().removeAll();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
             Node module = loader.load();
+            
+            RegisterStudentViewController controller = loader.getController();
+            controller.setIdDegressForRegister(this.idDegress);
             this.container.getChildren().add(module);
 
         } catch (IOException ex) {

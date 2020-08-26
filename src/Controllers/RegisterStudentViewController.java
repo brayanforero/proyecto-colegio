@@ -105,6 +105,7 @@ public class RegisterStudentViewController implements Initializable {
     private RadioButton isNotAutoraized1;
     @FXML
     private ComboBox<String> cboDadHouse;
+    private int idDegress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -170,8 +171,12 @@ public class RegisterStudentViewController implements Initializable {
         dad = new Parents(doc_dad, name_dad, last_names_dad, dateOfBith_dad, 
                 ifLiveBoy_dad, type_house_dad, type_family_dad, ocp_dad, rel_dad,email_dad);
         
-        Alert msg = boy.newStudent(phone_mom, phone_dad, mom, dad);
+        Alert msg = boy.newStudent(phone_mom, phone_dad, mom, dad, this.idDegress);
         msg.showAndWait();
+    }
+    
+    public void setIdDegressForRegister(int idDegress){
+        this.idDegress = idDegress;
     }
 
 }
