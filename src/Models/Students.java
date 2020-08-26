@@ -161,7 +161,6 @@ public class Students extends Person {
             message.setHeaderText(null);
             message.setContentText("No se pudo copletar su operación");
         }
-
         return message;
     }
 
@@ -186,6 +185,7 @@ public class Students extends Person {
                 student.setDocumentParent(rs.getString("cedula_mama"));
                 list.add(student);
             }
+            ps.close();
         } catch (SQLException e) {
             System.err.println("Error: " + e);
         }

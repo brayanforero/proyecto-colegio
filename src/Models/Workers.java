@@ -33,6 +33,7 @@ public class Workers extends Person {
             msg.setTitle(null);
             msg.setHeaderText(null);
             msg.setContentText("Registro Exitoso");
+            ps.close();
         } catch (SQLException e) {
             System.err.println("Error al registrar el personal: " + e);
             msg = new Alert(Alert.AlertType.ERROR);

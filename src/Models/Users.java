@@ -77,6 +77,7 @@ public class Users extends Base {
             msg.setTitle(null);
             msg.setHeaderText(null);
             msg.setContentText("Registro Exitoso");
+            ps.close();
         } catch (SQLException e) {
             System.err.println("Error al registar el ususario: " + e);
             msg = new Alert(Alert.AlertType.ERROR);

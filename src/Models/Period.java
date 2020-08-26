@@ -47,6 +47,7 @@ public class Period extends Base{
             message = new Alert(Alert.AlertType.INFORMATION);
             message.setContentText("Periodo Registrado con exito");
             message.setHeaderText(null);
+            ps.close();
         } catch (SQLException ex) {
             System.err.println("Error al registrar el periodo: " + ex );
             message = new Alert(Alert.AlertType.ERROR);
