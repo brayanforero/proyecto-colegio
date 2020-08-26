@@ -45,22 +45,20 @@ public class LoginViewController implements Initializable {
 
         this.user = method.login(nameUser, passUser);
 
-        if (this.user.getId() != 0) {
-
-            Node src = (Node) event.getSource();
-            Stage stage = (Stage) src.getScene().getWindow();
-            stage.close();
-
-            this.openWindow(this.user.getRole());
-        } else {
-
+        if (this.user.getId() == 0) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
             alert.setContentText("Estimado Usuario los Datos son Incorrectos");
             alert.showAndWait();
             this.btnLogin.setDisable(false);
+            return;
         }
+
+        Node src = (Node) event.getSource();
+        Stage stage = (Stage) src.getScene().getWindow();
+        stage.close();
+        this.openWindow(this.user.getRole());
     }
 
     public void openWindow(String rol) {
@@ -75,7 +73,7 @@ public class LoginViewController implements Initializable {
 
                     TeacherViewController controller = loader.getController();
                     controller.initAtributeUser(this.user.getId(), this.user.getWorkers());
-                    controller.initDegressAsigned(this.user.getId());
+                    controller.initDegressAsigned(this.user.getIdWorker());
 
                     Scene scene = new Scene(root);
 
@@ -96,7 +94,7 @@ public class LoginViewController implements Initializable {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/AdminView.fxml"));
                     Parent root = loader.load();
-                    
+
                     AdminViewController controller = loader.getController();
                     controller.initAtributeUser(this.user.getId(), this.user.getWorkers());
                     Scene scene = new Scene(root);

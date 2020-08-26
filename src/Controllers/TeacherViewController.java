@@ -2,9 +2,9 @@ package Controllers;
 
 import Config.Base;
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -61,47 +61,47 @@ public class TeacherViewController implements Initializable {
 
     public void initAtributeUser(int id, String nameUser) {
 
-        if (id > 0 && nameUser.length() > 0) {
-            this.idUser = id;
-            this.lblNameUser.setText(nameUser);
-        } else {
+        if (id == 0 && nameUser.length() == 0) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
-            alert.setContentText("Error: No se pudo cargar sus datos");
+            alert.setContentText("Error: No se pudo cargar sus datos. Por seguridad sera cerrado el sistema");
             alert.showAndWait();
             Platform.exit();
+            return;
         }
 
+        this.idUser = id;
+        this.lblNameUser.setText(nameUser);
     }
 
     public void initDegressAsigned(int id) {
 
         try {
-            Base base = new Base();
-            Connection con = base.getConnectionStatic();
-            PreparedStatement ps = con.prepareCall("call sp_grado_asignado(?)");
+
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_grado_asignado(?)");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                this.lblDegress.setText(rs.getString("nivel"));
-                this.lblSeccion.setText(rs.getString("seccion"));
-                this.lblTurno.setText(rs.getString("turno"));
-                this.lblPeriodo.setText(rs.getString("periodo"));
-                this.idDegress = rs.getInt("id_grado");
-                ps.close();
-            } else {
-                ps.close();
+            if (!rs.next()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
                 alert.setContentText("Error: La solictud de sus datos no se completo con exito. Por seguridad su acceso al sistema se cerrará.");
                 alert.showAndWait();
                 Platform.exit();
+                return;
             }
 
+            this.lblDegress.setText(rs.getString("nivel"));
+            this.lblSeccion.setText(rs.getString("seccion"));
+            this.lblTurno.setText(rs.getString("turno"));
+            this.lblPeriodo.setText(rs.getString("periodo"));
+            this.idDegress = rs.getInt("id_grado");
+            ps.close();
+            
         } catch (SQLException e) {
             System.err.println("Error en traer los datos:" + e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -110,7 +110,6 @@ public class TeacherViewController implements Initializable {
             alert.setContentText("Error: Solicitud de datos no completada");
             alert.showAndWait();
             Platform.exit();
-
         }
     }
 
@@ -152,12 +151,12 @@ public class TeacherViewController implements Initializable {
             this.container.getChildren().removeAll();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ListStudentView.fxml"));
             Node module = loader.load();
-            
+
             ListStudentViewController controller = loader.getController();
             controller.initTable(this.idDegress);
-            
-            this.container.getChildren().add(module); 
-                    
+
+            this.container.getChildren().add(module);
+
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -172,10 +171,10 @@ public class TeacherViewController implements Initializable {
     public void openModuleContainer(String nameModule) {
         try {
             this.container.getChildren().removeAll();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/"+ nameModule +".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
             Node module = loader.load();
-            this.container.getChildren().add(module); 
-                    
+            this.container.getChildren().add(module);
+
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }

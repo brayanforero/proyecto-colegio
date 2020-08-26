@@ -5,7 +5,6 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 
 public class Users extends Base {
 
@@ -15,6 +14,7 @@ public class Users extends Base {
     private String password;
     private String role;
     private boolean estate;
+    private int idWorker;
     private String workers;
 
     public Users(int id, int idWorkers, String name, String password, String role, boolean estate) {
@@ -43,14 +43,14 @@ public class Users extends Base {
             ps.setString(1, nameUser);
             ps.setString(2, passUser);
             this.rs = ps.executeQuery();
-            
-
+ 
             if (rs.next()) {
                 user.setId(rs.getInt("id_usuario"));
                 user.setName(rs.getString("nombre"));
                 user.setPassword(rs.getString("contrasena"));
                 user.setRole(rs.getString("rol"));
                 user.setWorkers(rs.getString("personal"));
+                user.setIdWorker(rs.getInt("id_personal"));
             }
             
             ps.close();
@@ -144,8 +144,14 @@ public class Users extends Base {
         this.workers = workers;
     }
 
-    public Users login(TextField txtUsername, TextField txtPassword) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getIdWorker() {
+        return idWorker;
     }
+
+    public void setIdWorker(int idWorker) {
+        this.idWorker = idWorker;
+    }
+    
+    
 
 }
