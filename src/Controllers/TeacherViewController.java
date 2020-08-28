@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -100,7 +101,7 @@ public class TeacherViewController implements Initializable {
             this.lblPeriodo.setText(rs.getString("periodo"));
             this.idDegress = rs.getInt("id_grado");
             ps.close();
-            
+
         } catch (SQLException e) {
             System.err.println("Error en traer los datos:" + e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -146,8 +147,10 @@ public class TeacherViewController implements Initializable {
 
     @FXML
     private void openModuleList(ActionEvent event) {
+        ObservableList<Node> nodes = this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
         try {
-            this.container.getChildren().removeAll();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ListStudentView.fxml"));
             Node module = loader.load();
 
@@ -168,11 +171,12 @@ public class TeacherViewController implements Initializable {
     }
 
     public void openModuleContainer(String nameModule) {
+        ObservableList<Node> nodes = this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
         try {
-            this.container.getChildren().removeAll();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
             Node module = loader.load();
-            
+
             RegisterStudentViewController controller = loader.getController();
             controller.setIdDegressForRegister(this.idDegress);
             this.container.getChildren().add(module);

@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,7 +51,7 @@ public class AdminViewController implements Initializable {
     private ImageView btnLogout;
     @FXML
     private Pane container;
-    
+
     private int idUser;
     private int idPeriod;
     @FXML
@@ -100,8 +101,8 @@ public class AdminViewController implements Initializable {
                 this.lblPeriodo.setText(rs.getString("codigo"));
                 this.idPeriod = rs.getInt("id_periodo");
             } else {
-               this.lblPeriodo.setText("N/A");
-                this.idPeriod = 0; 
+                this.lblPeriodo.setText("N/A");
+                this.idPeriod = 0;
             }
         } catch (SQLException ex) {
             System.err.println("Error al traer el periodo");
@@ -136,62 +137,34 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private void newPeriod(ActionEvent event) {
-        try {
-            
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/ViewNewPeriod.fxml"));
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Agregar Periodo");
-            newStage.setResizable(false);
-            newStage.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        openModuleContainer("ViewNewPeriod");
     }
 
     @FXML
     private void openNewWorker(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewWorkerView.fxml"));
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Agregar Personal");
-            newStage.setResizable(false);
-            newStage.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        openModuleContainer("NewWorkerView");
     }
 
     @FXML
     private void openNewUser(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewUserView.fxml"));
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Agregar Personal");
-            newStage.setResizable(false);
-            newStage.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        openModuleContainer("NewUserView");
     }
 
     @FXML
     private void openNewDegress(ActionEvent event) {
+        openModuleContainer("NewDegressView");
+    }
+
+    public void openModuleContainer(String nameModule) {
+        ObservableList<Node> nodes =  this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/NewDegressView.fxml"));
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Agregar Grados");
-            newStage.setResizable(false);
-            newStage.showAndWait();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
+            Node module = loader.load();
+            this.container.getChildren().add(module);
         } catch (IOException ex) {
-            Logger.getLogger(AdminViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
