@@ -7,18 +7,18 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewWorkerViewController">
    <children>
-      <TextField fx:id="txtDocWorker" layoutX="230.0" layoutY="67.0" prefHeight="30.0" prefWidth="200.0" />
-      <TextField fx:id="txtNameWorker" layoutX="230.0" layoutY="112.0" prefHeight="30.0" prefWidth="200.0" />
-      <TextField fx:id="txtLastNameWorker" layoutX="230.0" layoutY="158.0" prefHeight="30.0" prefWidth="200.0" />
-      <TextField fx:id="txtEmailWorker" layoutX="230.0" layoutY="204.0" prefHeight="30.0" prefWidth="200.0" />
-      <TextField fx:id="txtCargoWorker" layoutX="230.0" layoutY="249.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label layoutX="75.0" layoutY="74.0" style="-fx-font-size: 14;" text="Ingrese el n° de cedula" />
-      <Label layoutX="75.0" layoutY="117.0" style="-fx-font-size: 14;" text="Nombre" />
-      <Label layoutX="75.0" layoutY="163.0" style="-fx-font-size: 14;" text="Apellido" />
-      <Label layoutX="75.0" layoutY="209.0" style="-fx-font-size: 14;" text="Email" />
-      <Label layoutX="75.0" layoutY="254.0" style="-fx-font-size: 14;" text="Cargo" />
-      <Button fx:id="btnSaveWorker" layoutX="230.0" layoutY="348.0" mnemonicParsing="false" onAction="#savedWorker" prefHeight="30.0" prefWidth="200.0" text="Agregar" />
-      <TextField fx:id="txtPhoneTelefono" layoutX="230.0" layoutY="299.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label layoutX="75.0" layoutY="304.0" style="-fx-font-size: 14;" text="N° de telefono" />
+      <Label layoutX="75.0" layoutY="54.0" style="-fx-font-size: 14;" text="Ingrese el n° de cedula" />
+      <TextField fx:id="txtDocWorker" layoutX="230.0" layoutY="47.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="75.0" layoutY="97.0" style="-fx-font-size: 14;" text="Nombre" />
+      <TextField fx:id="txtNameWorker" layoutX="230.0" layoutY="92.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="75.0" layoutY="143.0" style="-fx-font-size: 14;" text="Apellido" />
+      <TextField fx:id="txtLastNameWorker" layoutX="230.0" layoutY="138.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="75.0" layoutY="189.0" style="-fx-font-size: 14;" text="Email" />
+      <TextField fx:id="txtEmailWorker" layoutX="230.0" layoutY="184.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="75.0" layoutY="234.0" style="-fx-font-size: 14;" text="Cargo" />
+      <TextField fx:id="txtCargoWorker" layoutX="230.0" layoutY="229.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="75.0" layoutY="284.0" style="-fx-font-size: 14;" text="N° de telefono" />
+      <TextField fx:id="txtPhoneTelefono" layoutX="230.0" layoutY="279.0" prefHeight="30.0" prefWidth="200.0" />
+      <Button fx:id="btnSaveWorker" layoutX="230.0" layoutY="328.0" mnemonicParsing="false" onAction="#savedWorker" prefHeight="30.0" prefWidth="200.0" text="Agregar" />
    </children>
 </AnchorPane>
