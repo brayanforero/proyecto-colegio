@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewDegressViewController">
    <children>
@@ -13,22 +14,26 @@
       <Label layoutX="268.0" layoutY="62.0" text="Ingresa el n° de cedula" />
       <TextField fx:id="txtSearchDoc" layoutX="402.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" />
       <Button fx:id="btnSearchWorker" layoutX="619.0" layoutY="55.0" mnemonicParsing="false" onAction="#searchWorker" prefHeight="30.0" prefWidth="60.0" text="Buscar" />
-      <Label layoutX="254.0" layoutY="110.0" text="Nombre" />
-      <TextField fx:id="txtPlaceNameWorker" editable="false" layoutX="323.0" layoutY="106.0" />
-      <Label layoutX="254.0" layoutY="150.0" text="Apellido" />
-      <TextField fx:id="txtPlaceLastNameWorker" editable="false" layoutX="323.0" layoutY="146.0" />
-      <TextField fx:id="txtIdWorker" editable="false" layoutX="323.0" layoutY="190.0" />
-      <Button fx:id="buttonSavedDegress" layoutX="422.0" layoutY="319.0" mnemonicParsing="false" onAction="#newDegress" prefHeight="30.0" prefWidth="162.0" text="Guardar" />
-      <Separator layoutX="499.0" layoutY="96.0" orientation="VERTICAL" prefHeight="209.0" prefWidth="7.0" />
-      <Label layoutX="543.0" layoutY="108.0" text="Matricula" />
-      <TextField fx:id="txtIdMatricula" layoutX="614.0" layoutY="106.0" />
-      <Label layoutX="555.0" layoutY="148.0" text="Aula" />
-      <TextField fx:id="txtIdAula" layoutX="614.0" layoutY="144.0" />
-      <Label layoutX="548.0" layoutY="197.0" text="Seccion" />
-      <TextField fx:id="txtIdSeccion" layoutX="614.0" layoutY="190.0" />
-      <Label layoutX="555.0" layoutY="236.0" text="Grado" />
-      <ComboBox fx:id="cboDegress" layoutX="620.0" layoutY="232.0" prefHeight="25.0" prefWidth="89.0" />
-      <Label layoutX="555.0" layoutY="279.0" text="Turno" />
-      <ComboBox fx:id="cboTurno" layoutX="619.0" layoutY="275.0" prefHeight="25.0" prefWidth="89.0" />
+      <Pane fx:id="paneShowRegisterDegress" layoutY="95.0" prefHeight="304.0" prefWidth="1024.0" visible="false">
+         <children>
+            <Label layoutX="268.0" layoutY="24.0" text="Nombre" />
+            <TextField fx:id="txtPlaceNameWorker" editable="false" layoutX="328.0" layoutY="20.0" />
+            <Label layoutX="268.0" layoutY="67.0" text="Apellido" />
+            <TextField fx:id="txtPlaceLastNameWorker" editable="false" layoutX="328.0" layoutY="63.0" />
+            <TextField fx:id="txtIdWorker" editable="false" layoutX="328.0" layoutY="97.0" />
+            <Button fx:id="buttonSavedDegress" layoutX="416.0" layoutY="229.0" mnemonicParsing="false" onAction="#newDegress" prefHeight="30.0" prefWidth="162.0" text="Guardar" />
+            <Separator layoutX="497.0" layoutY="2.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="5.0" />
+            <Label layoutX="534.0" layoutY="24.0" text="Matricula" />
+            <TextField fx:id="txtIdMatricula" layoutX="607.0" layoutY="20.0" />
+            <Label layoutX="547.0" layoutY="71.0" text="Aula" />
+            <TextField fx:id="txtIdAula" layoutX="607.0" layoutY="67.0" />
+            <Label layoutX="538.0" layoutY="122.0" text="Seccion" />
+            <TextField fx:id="txtIdSeccion" layoutX="607.0" layoutY="118.0" />
+            <Label layoutX="542.0" layoutY="202.0" text="Grado" />
+            <ComboBox fx:id="cboDegress" layoutX="607.0" layoutY="198.0" prefHeight="25.0" prefWidth="89.0" />
+            <Label layoutX="543.0" layoutY="160.0" text="Turno" />
+            <ComboBox fx:id="cboTurno" layoutX="607.0" layoutY="156.0" prefHeight="25.0" prefWidth="89.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

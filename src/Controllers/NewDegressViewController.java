@@ -22,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -55,6 +56,8 @@ public class NewDegressViewController implements Initializable {
     private TextField txtSearchDoc;
     @FXML
     private TextField txtIdSeccion;
+    @FXML
+    private Pane paneShowRegisterDegress;
 
     /**
      * Initializes the controller class.
@@ -78,6 +81,7 @@ public class NewDegressViewController implements Initializable {
                 this.txtPlaceNameWorker.setText(rs.getString("nombre").toUpperCase());
                 this.txtPlaceLastNameWorker.setText(rs.getString("apellido").toUpperCase());
                 con.close();
+                this.paneShowRegisterDegress.setVisible(true);
                 return;
             }
             
