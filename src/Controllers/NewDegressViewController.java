@@ -39,7 +39,6 @@ public class NewDegressViewController implements Initializable {
     private TextField txtPlaceLastNameWorker;
     @FXML
     private Button buttonSavedDegress;
-    @FXML
     private TextField txtIdMatricula;
     @FXML
     private TextField txtIdAula;
@@ -58,6 +57,8 @@ public class NewDegressViewController implements Initializable {
     private TextField txtIdSeccion;
     @FXML
     private Pane paneShowRegisterDegress;
+    @FXML
+    private TextField txtIdPeriodo;
 
     /**
      * Initializes the controller class.
@@ -108,14 +109,14 @@ public class NewDegressViewController implements Initializable {
     @FXML
     private void newDegress(ActionEvent event) {
         
-       int matricula = Integer.parseInt(this.txtIdMatricula.getText());
+       int period = Integer.parseInt(this.txtIdPeriodo.getText());
        int worker = Integer.parseInt(this.txtIdWorker.getText());
        int aula = Integer.parseInt(this.txtIdAula.getText());
        int seccion =  Integer.parseInt(this.txtIdSeccion.getText());
        String grado = this.cboDegress.getValue();
        String turno = this.cboTurno.getValue();
        
-       Degress newDegress = new Degress(matricula, worker, aula, seccion, grado, turno);
+       Degress newDegress = new Degress(period, worker, aula, seccion, grado, turno);
        
        Alert msg = newDegress.degressAsigned();
        msg.showAndWait();

@@ -14,7 +14,7 @@
       <Label layoutX="268.0" layoutY="62.0" text="Ingresa el n° de cedula" />
       <TextField fx:id="txtSearchDoc" layoutX="402.0" layoutY="55.0" prefHeight="30.0" prefWidth="200.0" />
       <Button fx:id="btnSearchWorker" layoutX="619.0" layoutY="55.0" mnemonicParsing="false" onAction="#searchWorker" prefHeight="30.0" prefWidth="60.0" text="Buscar" />
-      <Pane fx:id="paneShowRegisterDegress" layoutY="95.0" prefHeight="304.0" prefWidth="1024.0" visible="false">
+      <Pane fx:id="paneShowRegisterDegress" layoutY="95.0" prefHeight="304.0" prefWidth="1024.0">
          <children>
             <Label layoutX="268.0" layoutY="24.0" text="Nombre" />
             <TextField fx:id="txtPlaceNameWorker" editable="false" layoutX="328.0" layoutY="20.0" />
@@ -23,8 +23,8 @@
             <TextField fx:id="txtIdWorker" editable="false" layoutX="328.0" layoutY="97.0" />
             <Button fx:id="buttonSavedDegress" layoutX="416.0" layoutY="229.0" mnemonicParsing="false" onAction="#newDegress" prefHeight="30.0" prefWidth="162.0" text="Guardar" />
             <Separator layoutX="497.0" layoutY="2.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="5.0" />
-            <Label layoutX="534.0" layoutY="24.0" text="Matricula" />
-            <TextField fx:id="txtIdMatricula" layoutX="607.0" layoutY="20.0" />
+            <Label layoutX="534.0" layoutY="24.0" text="Periodo" />
+            <TextField fx:id="txtIdPeriodo" layoutX="607.0" layoutY="20.0" />
             <Label layoutX="547.0" layoutY="71.0" text="Aula" />
             <TextField fx:id="txtIdAula" layoutX="607.0" layoutY="67.0" />
             <Label layoutX="538.0" layoutY="122.0" text="Seccion" />
