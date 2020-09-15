@@ -43,7 +43,7 @@ public class Degress extends Base {
         try {
             Connection con = this.getConnection();
             PreparedStatement ps = (PreparedStatement) 
-                    con.prepareCall("INSERT INTO grados (id_matricula, id_personal, id_aula,id_seccion, nivel,turno)"
+                    con.prepareCall("INSERT INTO grados (id_periodo, id_personal, id_aula,id_seccion, nivel,turno)"
                     + "VALUES (?,?,?,?,?,?)");
             ps.setInt(1, this.getIdEnrollmnet());
             ps.setInt(2, this.getIdWorkers());
