@@ -39,14 +39,8 @@
                                     <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="217.0" prefHeight="25.0" prefWidth="140.0" style="-fx-background-radius: 4; -fx-padding: 2;" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label layoutX="380.0" layoutY="78.0" prefHeight="20.0" prefWidth="63.0" style="-fx-font-size: 16;" text="Estado:" />
-                                    <TextField fx:id="txtSelectState" layoutX="454.0" layoutY="74.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Button focusTraversable="false" layoutX="614.0" layoutY="74.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="375.0" layoutY="124.0" style="-fx-font-size: 16;" text="Municipio:" />
-                                    <TextField fx:id="txtSelectMun" layoutX="456.0" layoutY="120.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Button focusTraversable="false" layoutX="614.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="376.0" layoutY="169.0" style="-fx-font-size: 16;" text="Localidad:" />
-                                    <TextField fx:id="txtSelectLocale" layoutX="456.0" layoutY="165.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Button focusTraversable="false" layoutX="614.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-radius: 4; -fx-padding: 8;" text="..." />
                                     <Label layoutX="395.0" layoutY="218.0" style="-fx-font-size: 18;" text="¿Posee algunos de estos Beneficios?" />
                                     <CheckBox fx:id="checkHaveCanaima" layoutX="432.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-font-size: 16;" text="Canaima" />
                                     <CheckBox fx:id="checkHaveBeca" layoutX="563.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 16;" text="Beca" />
@@ -59,6 +53,9 @@
                                     <TextField fx:id="txtPhoneDad" layoutX="856.0" layoutY="132.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
                                     <Label layoutX="24.0" layoutY="254.0" prefHeight="20.0" prefWidth="55.0" style="-fx-font-size: 16;" text="Genero" />
                                     <ComboBox fx:id="cboSelectGender" layoutX="106.0" layoutY="256.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelectState" layoutX="456.0" layoutY="78.0" onAction="#getMunById" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelectMun" layoutX="456.0" layoutY="123.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelecLocale" layoutX="456.0" layoutY="169.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                  </children>
                               </Pane>
                            </content></Tab>
