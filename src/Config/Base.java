@@ -43,8 +43,11 @@ public class Base {
             case 1644:
                 message = ex.getMessage();
                 break;
+            case 1062:
+                message = "Error: Ingresaste datos que estan registrados";
+                break;
             default:
-                message = "Error: No se pudo completar su operacion";
+                message = "No se pudo completar su operacion";
                 break;
         }
         

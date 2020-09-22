@@ -168,7 +168,7 @@ public class Students extends Person {
             System.err.println("Error en la inscripcion: " + ex);
             message = new Alert(Alert.AlertType.ERROR);
             message.setHeaderText(null);
-            message.setContentText("No se pudo copletar su operación");
+            message.setContentText(Base.getMessage(ex));
         }
         return message;
     }
