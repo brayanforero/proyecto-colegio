@@ -35,4 +35,19 @@ public class Base {
 
         return con;
     }
+    
+    public static String getMessage(SQLException ex){
+        String message;
+        switch(ex.getErrorCode()){
+            
+            case 1644:
+                message = ex.getMessage();
+                break;
+            default:
+                message = "Error: No se pudo completar su operacion";
+                break;
+        }
+        
+        return message;
+    }
 }
