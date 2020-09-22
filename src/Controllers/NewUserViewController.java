@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
 import Models.Users;
+import Models.Workers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -19,11 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class NewUserViewController implements Initializable {
     
     @FXML
@@ -33,35 +25,40 @@ public class NewUserViewController implements Initializable {
     @FXML
     private Button btnNewUser;
     @FXML
-    private TextField txtIdUser;
-    @FXML
     private ComboBox<String> cboRolUser;
     ObservableList<String> option;
+    @FXML
+    private ComboBox<Workers> cboWorkers;
+    private ObservableList<Workers> itemsWorkers = FXCollections.observableArrayList();
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         this.option = FXCollections.observableArrayList();
         this.option.addAll("ADMINSTRADOR", "DOCENTE");
         this.cboRolUser.setItems(this.option);
+        this.setWorkersCombo();
     }    
     
     @FXML
     private void newUser(ActionEvent event) {
-        
-        int idWorker = Integer.parseInt(this.txtIdUser.getText());
+        Workers worker = this.cboWorkers.getValue();
         String userName = this.txtNameUser.getText().toUpperCase();
         String userPass = this.txtPassUser.getText().toUpperCase();
         String userRol = this.cboRolUser.getValue();
         
-        Users user = new Users(idWorker, userName, userRol, userRol);
+        Users user = new Users(worker.getId(), userName, userPass, userRol);
         
         Alert msg = user.newUser();
         
         msg.showAndWait();
+    }
+    
+    public void setWorkersCombo(){
+        
+        Workers.setWorkerCombo(this.itemsWorkers);
+        this.cboWorkers.setItems(this.itemsWorkers);
     }
     
 }

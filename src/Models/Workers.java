@@ -2,25 +2,34 @@ package Models;
 
 import Config.Base;
 import com.mysql.jdbc.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Workers extends Person {
+
+    private int id;
     private String cargo;
     private String email;
     private String phone;
+
     public Workers(String names, String lastNames, String identification) {
         super(names, lastNames, identification);
     }
-    
-    
-    public Alert saveWorker(){
+
+    public Workers(int id, String names, String lastNames, String identification) {
+        super(names, lastNames, identification);
+        this.id = id;
+    }
+
+    public Alert saveWorker() {
         Alert msg;
-        
+
         try {
             Connection con = Base.getConnectionStatic();
-            PreparedStatement ps = con.prepareCall("call sp_registro_personal(?,?,?,?,?,?)");
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_registro_personal(?,?,?,?,?,?)");
             ps.setString(1, this.getIdentification());
             ps.setString(2, this.getNames());
             ps.setString(3, this.getLastNames());
@@ -28,7 +37,7 @@ public class Workers extends Person {
             ps.setString(5, this.getCargo());
             ps.setString(6, this.getPhone());
             ps.executeUpdate();
-            
+
             msg = new Alert(Alert.AlertType.INFORMATION);
             msg.setTitle(null);
             msg.setHeaderText(null);
@@ -41,9 +50,32 @@ public class Workers extends Person {
             msg.setHeaderText(null);
             msg.setContentText("Error: No se pudo completar la operacion");
         }
-        
+
         return msg;
     }
+
+    public static void setWorkerCombo(ObservableList<Workers> list) {
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("Select id_personal AS id, nombre, apellido FROM personal");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(
+                    new Workers(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("id"))
+                );
+            }
+            link.close();
+        } catch (SQLException e) {
+            System.err.println("Error al cargar el personal" + e);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return names+ " " + lastNames;
+    }
+    
+    
 
     public String getCargo() {
         return cargo;
@@ -100,11 +132,5 @@ public class Workers extends Person {
     public void setIdentification(String identification) {
         this.identification = identification;
     }
-    
-    
-
-    
-    
-    
 
 }

@@ -10,12 +10,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewUserViewController">
    <children>
+      <Label layoutX="62.0" layoutY="72.0" style="-fx-font-size: 14;" text="Seleccina una Persona:" />
+      <ComboBox fx:id="cboWorkers" layoutX="208.0" layoutY="69.0" prefHeight="25.0" prefWidth="200.0" />
       <Label layoutX="232.0" layoutY="22.0" text="Agregar Usuarios">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtIdUser" layoutX="207.0" layoutY="69.0" prefHeight="25.0" prefWidth="35.0" />
       <Label layoutX="62.0" layoutY="126.0" style="-fx-font-size: 14;" text="Nombre de usuario:" />
       <TextField fx:id="txtNameUser" layoutX="207.0" layoutY="117.0" prefHeight="35.0" prefWidth="200.0" />
       <Label layoutX="62.0" layoutY="185.0" prefHeight="20.0" prefWidth="90.0" style="-fx-font-size: 14;" text="Constraseña:" />
