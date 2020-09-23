@@ -2,8 +2,10 @@ package Models;
 
 import Config.Base;
 import com.mysql.jdbc.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Period extends Base{
@@ -31,15 +33,37 @@ public class Period extends Base{
         this.state = state;
     }
 
+    public Period(int id, String codePeriod) {
+        this.id = id;
+        this.codePeriod = codePeriod;
+    }
+    
     public Period() {
         
+    }
+    
+    public static void getPeridCombo(ObservableList<Period> list){
+        
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT id_periodo, codigo FROM periodos WHERE vigencia = 1");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(
+                    new Period(rs.getInt("id_periodo"), rs.getString("codigo"))
+                );
+            }
+            link.close();
+        } catch (SQLException e) {
+            System.err.println("Error al llenar los periodos: " + e);
+        }
     }
     
     public Alert addPeriod(){
         Alert message = null;
         try {
             Connection con = this.getConnection();
-            PreparedStatement ps = con.prepareCall("call sp_registro_periodo(?,?)");
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_registro_periodo(?,?)");
             ps.setString(1, this.getStarDate());
             ps.setString(2, this.getEndDate());
             ps.executeUpdate();
@@ -51,7 +75,7 @@ public class Period extends Base{
         } catch (SQLException ex) {
             System.err.println("Error al registrar el periodo: " + ex );
             message = new Alert(Alert.AlertType.ERROR);
-            message.setContentText("Error: No se pudo completar su operacion");
+            message.setContentText(Base.getMessage(ex));
             message.setHeaderText(null);
         }
         
@@ -104,6 +128,11 @@ public class Period extends Base{
 
     public void setState(boolean state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return codePeriod;
     }
     
     

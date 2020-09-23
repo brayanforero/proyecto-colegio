@@ -1,12 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import Config.Base;
+import Models.ClassRoom;
 import Models.Degress;
+import Models.Period;
+import Models.Section;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.net.URL;
@@ -24,11 +22,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class NewDegressViewController implements Initializable {
 
     @FXML
@@ -59,10 +52,16 @@ public class NewDegressViewController implements Initializable {
     private Pane paneShowRegisterDegress;
     @FXML
     private TextField txtIdPeriodo;
+    @FXML
+    private ComboBox<Period> cboPeriod;
+    private ObservableList<Period> itemsPeriod = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<ClassRoom> cboClassRoom;
+    private ObservableList<ClassRoom> itemsRoom = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<Section> cboSection;
+    private ObservableList<Section> itemsSection = FXCollections.observableArrayList();
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initComboBox();
@@ -85,7 +84,7 @@ public class NewDegressViewController implements Initializable {
                 this.paneShowRegisterDegress.setVisible(true);
                 return;
             }
-            
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Persona no encontrada");
@@ -95,6 +94,24 @@ public class NewDegressViewController implements Initializable {
         }
     }
 
+    
+
+    @FXML
+    private void newDegress(ActionEvent event) {
+
+        Period period = this.cboPeriod.getValue();
+        int worker = Integer.parseInt(this.txtIdWorker.getText());
+        ClassRoom aula = this.cboClassRoom.getValue();
+        Section seccion = this.cboSection.getValue();
+        String grado = this.cboDegress.getValue();
+        String turno = this.cboTurno.getValue();
+
+        Degress newDegress = new Degress(period.getId(), worker, aula.getId(), seccion.getId(), grado, turno);
+
+        Alert msg = newDegress.degressAsigned();
+        msg.showAndWait();
+    }
+    
     public void initComboBox() {
         /*INIT GRADOS*/
         this.degress = FXCollections.observableArrayList();
@@ -104,22 +121,15 @@ public class NewDegressViewController implements Initializable {
         this.turnos = FXCollections.observableArrayList();
         this.turnos.addAll("MAÑANA", "TARDE", "NOCHE");
         this.cboTurno.setItems(this.turnos);
-    }
-
-    @FXML
-    private void newDegress(ActionEvent event) {
         
-       int period = Integer.parseInt(this.txtIdPeriodo.getText());
-       int worker = Integer.parseInt(this.txtIdWorker.getText());
-       int aula = Integer.parseInt(this.txtIdAula.getText());
-       int seccion =  Integer.parseInt(this.txtIdSeccion.getText());
-       String grado = this.cboDegress.getValue();
-       String turno = this.cboTurno.getValue();
-       
-       Degress newDegress = new Degress(period, worker, aula, seccion, grado, turno);
-       
-       Alert msg = newDegress.degressAsigned();
-       msg.showAndWait();
+        Period.getPeridCombo(this.itemsPeriod);
+        this.cboPeriod.setItems(this.itemsPeriod);
+        
+        Section.getComboSection(this.itemsSection);
+        this.cboSection.setItems(this.itemsSection);
+        
+        ClassRoom.getClassRoomCombo(this.itemsRoom);
+        this.cboClassRoom.setItems(this.itemsRoom);
     }
 
 }
