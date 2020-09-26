@@ -62,6 +62,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemNewUser;
     @FXML
     private MenuItem itemNewDegress;
+    @FXML
+    private MenuItem itemListWorkers;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -155,6 +157,11 @@ public class AdminViewController implements Initializable {
     private void openNewDegress(ActionEvent event) {
         openModuleContainer("NewDegressView");
     }
+    @FXML
+    private void openLIstWorkers(ActionEvent event) {
+        
+        openModuleContainer("ListWorkersView");
+    }
 
     public void openModuleContainer(String nameModule) {
         ObservableList<Node> nodes =  this.container.getChildren();
@@ -167,5 +174,6 @@ public class AdminViewController implements Initializable {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
 }

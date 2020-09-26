@@ -24,6 +24,14 @@ public class Workers extends Person {
         this.id = id;
     }
 
+    public Workers(int id, String cargo, String email, String phone, String names, String lastNames, String identification) {
+        super(names, lastNames, identification);
+        this.id = id;
+        this.cargo = cargo;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Alert saveWorker() {
         Alert msg;
 
@@ -61,7 +69,7 @@ public class Workers extends Person {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(
-                    new Workers(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("id"))
+                        new Workers(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("id"))
                 );
             }
             link.close();
@@ -70,12 +78,28 @@ public class Workers extends Person {
         }
     }
 
+    public static void getWorkerAll(ObservableList<Workers> list) {
+
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT * FROM personal");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(
+                    new Workers(rs.getInt("id_personal"), rs.getString("cargo"), rs.getString("email"), rs.getString("telefono"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("cedula"))
+                );
+            }
+
+            link.close();
+        } catch (SQLException e) {
+            System.err.println("Error al setear la tabla de personal: " + e);
+        }
+    }
+
     @Override
     public String toString() {
-        return names+ " " + lastNames;
+        return names + " " + lastNames;
     }
-    
-    
 
     public String getCargo() {
         return cargo;

@@ -153,14 +153,11 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Actividades Escolares" textFill="#434141">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Lista de Niños" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Informacion del Niño" />
+               </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #000;" text="Inscripción" textFill="WHITE">
                <font>
