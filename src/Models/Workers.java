@@ -56,7 +56,7 @@ public class Workers extends Person {
             msg = new Alert(Alert.AlertType.ERROR);
             msg.setTitle(null);
             msg.setHeaderText(null);
-            msg.setContentText("Error: No se pudo completar la operacion");
+            msg.setContentText(Base.getMessage(e));
         }
 
         return msg;
@@ -94,6 +94,56 @@ public class Workers extends Person {
         } catch (SQLException e) {
             System.err.println("Error al setear la tabla de personal: " + e);
         }
+    }
+    
+    public static Workers getWorkerByDoc(String doc) {
+        Workers worker = null;
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT * FROM personal WHERE cedula = ? LIMIT 1");
+            ps.setString(1, doc);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                worker = new Workers(rs.getInt("id_personal"), rs.getString("cargo"), rs.getString("email"), 
+                        rs.getString("telefono"), rs.getString("nombre"), rs.getString("apellido"), 
+                        rs.getString("cedula").substring(2));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al buscar la cedula:" + e);
+        }
+        return worker;
+    }
+    
+    public Alert UpdateWorker(){
+        Alert msg;
+
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("UPDATE personal SET cedula = ?, nombre = ?, apellido = ?, email = ?, "
+                    + "cargo = ?, telefono = ? WHERE id_personal = ? LIMIT 1");
+            ps.setString(1, this.getIdentification());
+            ps.setString(2, this.getNames());
+            ps.setString(3, this.getLastNames());
+            ps.setString(4, this.getEmail());
+            ps.setString(5, this.getCargo());
+            ps.setString(6, this.getPhone());
+            ps.setInt(7, this.getId());
+            ps.executeUpdate();
+
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setTitle(null);
+            msg.setHeaderText(null);
+            msg.setContentText("Actualzacion de datos Exitosa");
+            ps.close();
+        } catch (SQLException e) {
+            System.err.println("Error al actualar el personal: " + e);
+            msg = new Alert(Alert.AlertType.ERROR);
+            msg.setTitle(null);
+            msg.setHeaderText(null);
+            msg.setContentText(Base.getMessage(e));
+        }
+
+        return msg;
     }
 
     @Override

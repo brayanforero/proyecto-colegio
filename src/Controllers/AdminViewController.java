@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
 import Config.Base;
@@ -64,6 +60,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemNewDegress;
     @FXML
     private MenuItem itemListWorkers;
+    @FXML
+    private MenuItem itemUpdateWorker;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -173,6 +171,11 @@ public class AdminViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void openUpdateWorker(ActionEvent event) {
+        this.openModuleContainer("UpdateWorkerView");
     }
 
 
