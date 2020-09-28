@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,13 +31,11 @@ public class ListWorkersViewController implements Initializable {
     private TableColumn colCargoWorker;
     @FXML
     private TableColumn colPhoneWorker;
-    @FXML
-    private Button btngetWorker;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.setTableWorker();
     }
 
 
@@ -57,10 +54,6 @@ public class ListWorkersViewController implements Initializable {
         this.tableWorkers.setItems(this.itemsWorkers);
     }
 
-    @FXML
-    private void ListingWorker(ActionEvent event) {
-        
-        this.setTableWorker();
-    }
+    
     
 }
