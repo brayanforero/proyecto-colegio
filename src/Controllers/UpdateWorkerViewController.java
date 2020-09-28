@@ -91,7 +91,7 @@ public class UpdateWorkerViewController implements Initializable {
 
     @FXML
     private void setNewValueCombo(ActionEvent event) {
-        this.cboDocWorker.setSelectionModel(this.cboSearchWorker.getSelectionModel());
+        this.cboDocWorker.getSelectionModel().select(this.cboSearchWorker.getSelectionModel().getSelectedIndex());
     }
 
 }
