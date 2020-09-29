@@ -62,6 +62,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemListWorkers;
     @FXML
     private MenuItem itemUpdateWorker;
+    @FXML
+    private MenuItem itemListDegress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -176,6 +178,21 @@ public class AdminViewController implements Initializable {
     @FXML
     private void openUpdateWorker(ActionEvent event) {
         this.openModuleContainer("UpdateWorkerView");
+    }
+
+    @FXML
+    private void openListDegress(ActionEvent event) {
+        ObservableList<Node> nodes =  this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ListDegressView.fxml"));
+            Node module = loader.load();
+            ListDegressViewController controller = loader.getController();
+            controller.setPeriod(this.lblPeriodo.getText());
+            this.container.getChildren().add(module);
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 

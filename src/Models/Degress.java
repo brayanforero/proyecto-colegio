@@ -3,7 +3,9 @@ package Models;
 import Config.Base;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Degress extends Base {
@@ -15,6 +17,10 @@ public class Degress extends Base {
     private int idSection;
     private String level;
     private String turn;
+    private String classRoomString;
+    private String workerString;
+    private String periodCode;
+    private String sectionString;
 
     public Degress(int id, int idEnrollmnet, int idWorkers, int idClassroom, int idSection, String level, String turn) {
         this.id = id;
@@ -35,6 +41,17 @@ public class Degress extends Base {
         this.turn = turn;
     }
 
+    public Degress(int id, String level, String section,String turn,String workerString, String classRoomString,  String periodCode) {
+        this.id = id;
+        this.level = level;
+        this.turn = turn;
+        this.classRoomString = classRoomString;
+        this.workerString = workerString;
+        this.periodCode = periodCode;
+        this.sectionString = section;
+    }
+    
+    
     public Degress() {
     }
 
@@ -65,6 +82,25 @@ public class Degress extends Base {
         }
 
         return msg;
+    }
+    
+    public static void getDegressForTable(ObservableList<Degress> list){
+        
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_consulta_grados()");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                list.add(
+                    new Degress(rs.getInt("id_grado"), rs.getString("nivel"), rs.getString("letra"),
+                            rs.getString("turno"), rs.getString("docente"), rs.getString("aula"),
+                            rs.getString("periodo"))
+                );
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.err.println("Error al setear la tabla grados: " + e);
+        }
     }
 
     public int getId() {
@@ -123,4 +159,38 @@ public class Degress extends Base {
         this.turn = turn;
     }
 
+    public String getClassRoomString() {
+        return classRoomString;
+    }
+
+    public void setClassRoomString(String classRoomString) {
+        this.classRoomString = classRoomString;
+    }
+
+    public String getWorkerString() {
+        return workerString;
+    }
+
+    public void setWorkerString(String workerString) {
+        this.workerString = workerString;
+    }
+
+    public String getPeriodCode() {
+        return periodCode;
+    }
+
+    public void setPeriodCode(String periodCode) {
+        this.periodCode = periodCode;
+    }
+
+    public String getSectionString() {
+        return sectionString;
+    }
+
+    public void setSectionString(String sectionString) {
+        this.sectionString = sectionString;
+    }
+    
+    
+    
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListDegressViewController">
+   <children>
+      <Label fx:id="lblCodPeriod" alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1024.0" style="-fx-font-size: 16;" text="Grados en curso | Periodo Academico" />
+      <TableView fx:id="tblDegress" layoutX="10.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
+        <columns>
+          <TableColumn fx:id="colIdDegress" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="ID" visible="false" />
+          <TableColumn fx:id="colDegress" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Grado" />
+            <TableColumn fx:id="colSection" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Seccion" />
+            <TableColumn fx:id="colTurno" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Turno" />
+            <TableColumn fx:id="colClassRoom" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Aula" />
+            <TableColumn fx:id="colTeacher" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Docente" />
+            <TableColumn fx:id="colPeriod" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Periodo" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
