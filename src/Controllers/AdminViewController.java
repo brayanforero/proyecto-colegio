@@ -24,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -68,6 +69,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemListUser;
     @FXML
     private MenuItem itemListUserDesactived;
+    @FXML
+    private Label itemClassRooms;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -207,5 +210,10 @@ public class AdminViewController implements Initializable {
     @FXML
     private void openListUsersNotHabilited(ActionEvent event) {
         this.openModuleContainer("ListUserNotHabilitedView");
+    }
+
+    @FXML
+    private void openListClassRooms(MouseEvent event) {
+        this.openModuleContainer("ClassRoomView");
     }
 }

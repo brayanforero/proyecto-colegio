@@ -115,6 +115,11 @@
                   <MenuItem fx:id="itemListUserDesactived" mnemonicParsing="false" onAction="#openListUsersNotHabilited" text="Usuarios Desactivados" />
                </items>
             </MenuButton>
+            <Label fx:id="itemClassRooms" onMouseClicked="#openListClassRooms" text="Centros de Estudios">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Grados" textFill="#434141">
                <font>
                   <Font size="16.0" />
