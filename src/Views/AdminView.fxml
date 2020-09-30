@@ -102,6 +102,19 @@
                   <MenuItem fx:id="itemOpenNewPeriod" mnemonicParsing="false" onAction="#newPeriod" style="-fx-font-weight: bold;" text="Nuevo Periodo" />
                </items>
             </MenuButton>
+            <MenuButton layoutX="18.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Sistema" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <items>
+                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar Usuario" />
+                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Usuarios Autorizados" />
+                  <MenuItem fx:id="itemListUserDesactived" mnemonicParsing="false" onAction="#openListUsersNotHabilited" text="Usuarios Desactivados" />
+               </items>
+            </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Grados" textFill="#434141">
                <font>
                   <Font size="16.0" />
@@ -124,7 +137,6 @@
                <items>
                   <MenuItem fx:id="itemListWorkers" mnemonicParsing="false" onAction="#openLIstWorkers" text="Listado" />
                   <MenuItem fx:id="itemNewWorker" mnemonicParsing="false" onAction="#openNewWorker" text="Agregar Nuevo" />
-                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar Usuario" />
                   <MenuItem fx:id="itemUpdateWorker" mnemonicParsing="false" onAction="#openUpdateWorker" text="Actualizacion de Datos" />
                </items>
             </MenuButton>

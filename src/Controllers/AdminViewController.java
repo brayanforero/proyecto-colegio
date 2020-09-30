@@ -64,6 +64,10 @@ public class AdminViewController implements Initializable {
     private MenuItem itemUpdateWorker;
     @FXML
     private MenuItem itemListDegress;
+    @FXML
+    private MenuItem itemListUser;
+    @FXML
+    private MenuItem itemListUserDesactived;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -195,5 +199,13 @@ public class AdminViewController implements Initializable {
         }
     }
 
+    @FXML
+    private void openListUsersHabilited(ActionEvent event) {
+        this.openModuleContainer("ListUsersView");
+    }
 
+    @FXML
+    private void openListUsersNotHabilited(ActionEvent event) {
+        this.openModuleContainer("ListUserNotHabilitedView");
+    }
 }

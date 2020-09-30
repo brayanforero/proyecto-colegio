@@ -3,7 +3,9 @@ package Models;
 import Config.Base;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Users extends Base {
@@ -88,7 +90,39 @@ public class Users extends Base {
         
         return msg;
     }
-
+    
+    public static void getUserHabilited(ObservableList<Users> list){
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_usuarios_activos()");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                Users user = new Users();
+                user.setId(rs.getInt("id_usuario"));
+                user.setName(rs.getString("nombre"));
+                user.setWorkers(rs.getString("persona"));
+                list.add(user);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al llenar los usuarios: " + e);
+        }
+    }
+    public static void getUserNotHabilited(ObservableList<Users> list){
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_usuarios_desactivos()");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                Users user = new Users();
+                user.setId(rs.getInt("id_usuario"));
+                user.setName(rs.getString("nombre"));
+                user.setWorkers(rs.getString("persona"));
+                list.add(user);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al llenar los usuarios: " + e);
+        }
+    }
     public int getId() {
         return id;
     }
