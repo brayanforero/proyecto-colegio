@@ -78,7 +78,7 @@ public class Degress extends Base {
             msg = new Alert(Alert.AlertType.ERROR);
             System.err.println("Error al asignar el grado: " + e);
             msg.setHeaderText(null);
-            msg.setContentText("No se pudo completar la operacion");
+            msg.setContentText(Base.getMessage(e));
         }
 
         return msg;
