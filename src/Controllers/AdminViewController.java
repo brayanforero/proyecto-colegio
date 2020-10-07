@@ -24,18 +24,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Brayan
- */
+
 public class AdminViewController implements Initializable {
 
     @FXML
@@ -71,6 +66,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemListUserDesactived;
     @FXML
     private Label itemClassRooms;
+    @FXML
+    private MenuItem itemOpenClosePeriod;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -215,5 +212,21 @@ public class AdminViewController implements Initializable {
     @FXML
     private void openListClassRooms(MouseEvent event) {
         this.openModuleContainer("ClassRoomView");
+    }
+
+    @FXML
+    private void closePeriod(ActionEvent event) {
+        ObservableList<Node> nodes =  this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ClosePeriodView.fxml"));
+            Node module = loader.load();
+            ClosePeriodViewController controller = loader.getController();
+            controller.setPeriod(this.lblPeriodo.getText());
+            controller.labelnfo.setText("Manifiesto de clausura del periodo " + this.lblPeriodo.getText());
+            this.container.getChildren().add(module);
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -81,6 +81,29 @@ public class Period extends Base{
         
         return message;
     }
+    
+    public static Alert closePeriod(String codigo){
+        Alert alert = null;
+        
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("Update periodos SET vigencia = 0 WHERE codigo = ? LIMIT 1");
+            ps.setString(1, codigo);
+            ps.execute();
+            link.close();
+            
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("El periodo " + codigo + " se ha cerrado con Exito");
+        } catch (SQLException e) {
+            System.err.println("Error al cerrar periodo: " + e);
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText(Base.getMessage(e));
+        }
+        
+        return alert;
+    }
 
     public int getId() {
         return id;

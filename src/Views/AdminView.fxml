@@ -100,6 +100,7 @@
                </cursor>
                <items>
                   <MenuItem fx:id="itemOpenNewPeriod" mnemonicParsing="false" onAction="#newPeriod" style="-fx-font-weight: bold;" text="Nuevo Periodo" />
+                  <MenuItem fx:id="itemOpenClosePeriod" mnemonicParsing="false" onAction="#closePeriod" style="-fx-font-weight: bold;" text="Cerrar Periodo" />
                </items>
             </MenuButton>
             <MenuButton layoutX="18.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Sistema" textFill="#434141">
