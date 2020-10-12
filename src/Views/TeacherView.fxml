@@ -142,8 +142,7 @@
                </cursor>
                <items>
                   <MenuItem fx:id="openListStudent" mnemonicParsing="false" onAction="#openModuleList" text="Lista" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Consulta Información" />
+                  <MenuItem fx:id="itemSearchStudent" mnemonicParsing="false" onAction="#openSearchStudent" text="Consulta Información" />
                </items>
             </MenuButton>
             <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Planillas" textFill="#434141">

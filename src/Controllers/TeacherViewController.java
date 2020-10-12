@@ -53,6 +53,8 @@ public class TeacherViewController implements Initializable {
     private MenuItem openRegisterStudent;
     private int idUser;
     private int idDegress;
+    @FXML
+    private MenuItem itemSearchStudent;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -167,14 +169,10 @@ public class TeacherViewController implements Initializable {
 
     @FXML
     private void openModuleNewStudent(ActionEvent event) {
-        openModuleContainer("RegisterStudentView");
-    }
-
-    public void openModuleContainer(String nameModule) {
         ObservableList<Node> nodes = this.container.getChildren();
         this.container.getChildren().removeAll(nodes);
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/RegisterStudentView.fxml"));
             Node module = loader.load();
 
             RegisterStudentViewController controller = loader.getController();
@@ -184,6 +182,24 @@ public class TeacherViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void openModuleContainer(String nameModule) {
+        ObservableList<Node> nodes = this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/" + nameModule + ".fxml"));
+            Node module = loader.load();
+            this.container.getChildren().add(module);
+
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void openSearchStudent(ActionEvent event) {
+        openModuleContainer("SearchStudentView");
     }
 
 }

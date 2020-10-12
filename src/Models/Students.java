@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Students extends Person {
-    
+
     private String dateOfBirth;
     private String gender;
     private int addressOfEstate;
@@ -19,7 +19,7 @@ public class Students extends Person {
     private boolean beca;
     private String salud;
     private String desSalud;
-    
+
     /* DATOS PARA PINTAR EN TABLA*/
     private int idStudent;
     private String fullname;
@@ -29,7 +29,6 @@ public class Students extends Person {
     private int age;
     private String fullNameParent;
     private String documentParent;
-    
 
     public Students(
             String identification, String names, String lastNames,
@@ -52,9 +51,6 @@ public class Students extends Person {
     public Students(String names, String lastNames, String identification) {
         super(names, lastNames, identification);
     }
-    
-
-    
 
     public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad, int idDegress) throws SQLException {
         Alert message = null;
@@ -146,16 +142,16 @@ public class Students extends Person {
             relation_sun.setInt(3, idBoy);
             relation_sun.setInt(4, idDad);
             relation_sun.executeUpdate();
-            
+
             // INSCRIPCION EN EL GRADO RECIBIDO
             PreparedStatement inscription = (PreparedStatement) link.prepareStatement("INSERT INTO inscripciones (id_estudiante, id_grado, repitiente)"
                     + "VALUES (?,?,?)");
-            
+
             inscription.setInt(1, idBoy);
             inscription.setInt(2, idDegress);
             inscription.setBoolean(3, false);
             inscription.executeUpdate();
-            
+
             link.commit();
 
             message = new Alert(Alert.AlertType.INFORMATION);
@@ -180,7 +176,7 @@ public class Students extends Person {
             PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_lista_estudiante_grado(?)");
             ps.setInt(1, idDegress);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 Students student = new Students(rs.getString("nombres"), rs.getString("nombres"), rs.getString("cedula"));
                 student.setIdStudent(rs.getInt("id_estudiante"));
                 student.setFullname(student.getNames());
@@ -198,6 +194,20 @@ public class Students extends Person {
         } catch (SQLException e) {
             System.err.println("Error: " + e);
         }
+    }
+
+    public static ResultSet getStudentByDoc(String cedula) {
+        
+        ResultSet rs = null;
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("CALL sp_consulta_estudiante(?)");
+            ps.setString(1, cedula);
+            rs = ps.executeQuery();
+        } catch (Exception e) {
+            System.err.println("Error al buscar el estudiante: " + e);
+        }
+        return rs;
     }
 
     public String getDateOfBirth() {
@@ -367,19 +377,5 @@ public class Students extends Person {
     public void setIdentification(String identification) {
         this.identification = identification;
     }
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-    
-    
 
 }
