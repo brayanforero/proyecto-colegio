@@ -62,7 +62,7 @@ public class SearchStudentViewController implements Initializable {
     private TextField txtBeca;
     @FXML
     private TextField txtLastName;
-
+    private int idStudent;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.initCombos();
@@ -98,14 +98,14 @@ public class SearchStudentViewController implements Initializable {
 
     @FXML
     private void showParentsModal(MouseEvent event) {
-        System.out.println("Open modal");
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/ModalParentsView.fxml"));
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ModalParentsView.fxml"));
+            Parent root = loader.load();
+            ModalParentsViewController controller = loader.getController();
+            controller.initSetData(this.idStudent);
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
             newStage.setScene(scene);
-            newStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Inscripcion");
             newStage.setResizable(false);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();
@@ -117,6 +117,7 @@ public class SearchStudentViewController implements Initializable {
 
     private void setFields(ResultSet rs) {
         try {
+            this.idStudent = rs.getInt("id_estudiante");
             this.txtNames.setText(rs.getString("nombre_nombres"));
             this.txtLastName.setText(rs.getString("nombre_apellidos"));
             this.txtDoc.setText(rs.getString("cedula"));

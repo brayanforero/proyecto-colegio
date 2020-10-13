@@ -44,7 +44,7 @@
             <TextField fx:id="txtCanaima" editable="false" focusTraversable="false" layoutX="590.0" layoutY="53.0" prefHeight="25.0" prefWidth="39.0" text="SI" />
             <Label alignment="CENTER" layoutX="489.0" layoutY="102.0" prefHeight="17.0" prefWidth="89.0" text="¿Posee Beca?" />
             <TextField fx:id="txtBeca" editable="false" focusTraversable="false" layoutX="585.0" layoutY="98.0" prefHeight="25.0" prefWidth="39.0" text="SI" />
-            <Label fx:id="itemOpenParents" alignment="CENTER" ellipsisString="" layoutX="617.0" layoutY="273.0" onMouseClicked="#showParentsModal" prefHeight="17.0" prefWidth="89.0" style="-fx-font-size: 16; -fx-text-fill: darkblue;" text="Mis Papas" underline="true">
+            <Label fx:id="itemOpenParents" alignment="CENTER" ellipsisString="" layoutX="494.0" layoutY="139.0" onMouseClicked="#showParentsModal" prefHeight="17.0" prefWidth="89.0" style="-fx-font-size: 14; -fx-text-fill: skyblue;" text="Mas..." underline="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

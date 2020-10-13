@@ -1,27 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
+import Models.Phone;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * FXML Controller class
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class ModalParentsViewController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TableView<?> tableParents;
+    ObservableList<Object> itemsParents = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn<?, ?> tblDocParents;
+    @FXML
+    private TableColumn<?, ?> tblNameParents;
+    @FXML
+    private TableColumn<?, ?> tblParents;
+    @FXML
+    private TableView<Phone> tablePhone;
+    ObservableList<Phone> itemsPhones = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn tblPhone;
+    @FXML
+    private TableView<?> tableHistory;
+    ObservableList<Object> itemsHistory = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn<?, ?> tblPeriod;
+    @FXML
+    private TableColumn<?, ?> tblDegress;
+    @FXML
+    private TableColumn<?, ?> tblSection;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        
+    }
+
+    public void initSetData(int id){
+        Phone.setTablePhone(this.itemsPhones, id);
+        this.tblPhone.setCellValueFactory(new PropertyValueFactory("number"));
+        this.tablePhone.setItems(this.itemsPhones);
+    }
     
+    
+
 }
