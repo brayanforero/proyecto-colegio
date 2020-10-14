@@ -12,7 +12,7 @@
         <columns>
           <TableColumn fx:id="tblDocParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Cedula" />
           <TableColumn fx:id="tblNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Nombres" />
-            <TableColumn fx:id="tblParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Apelllidos" />
+            <TableColumn fx:id="tblLasNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Apelllidos" />
         </columns>
       </TableView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" layoutY="10.0" prefHeight="17.0" prefWidth="400.0" style="-fx-font-size: 14;" text="Historial Academico" />

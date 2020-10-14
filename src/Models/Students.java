@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class Students extends Person {
-
+    
     private String dateOfBirth;
     private String gender;
     private int addressOfEstate;
@@ -29,13 +29,13 @@ public class Students extends Person {
     private int age;
     private String fullNameParent;
     private String documentParent;
-
+    
     public Students(
             String identification, String names, String lastNames,
             String dateOfBirth, String gender, int addressOfEstate,
             int addressOfMucipality, int adressOfLocality, boolean canaima, boolean beca,
             String salud, String desSalud) {
-
+        
         super(names, lastNames, identification);
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -47,18 +47,18 @@ public class Students extends Person {
         this.salud = salud;
         this.desSalud = desSalud;
     }
-
+    
     public Students(String names, String lastNames, String identification) {
         super(names, lastNames, identification);
     }
-
+    
     public Alert newStudent(String phoneMom, String phoneDad, Parents mom, Parents dad, int idDegress) throws SQLException {
         Alert message = null;
         PreparedStatement ps_boy, ps_mom, ps_dad;
         ResultSet rs;
         int idBoy = 0, idMom = 0, idDad = 0;
         Connection link = null;
-
+        
         try {
             // INSERTANDO AL NIÑO(A)
             link = Base.getConnectionStatic();
@@ -146,20 +146,20 @@ public class Students extends Person {
             // INSCRIPCION EN EL GRADO RECIBIDO
             PreparedStatement inscription = (PreparedStatement) link.prepareStatement("INSERT INTO inscripciones (id_estudiante, id_grado, repitiente)"
                     + "VALUES (?,?,?)");
-
+            
             inscription.setInt(1, idBoy);
             inscription.setInt(2, idDegress);
             inscription.setBoolean(3, false);
             inscription.executeUpdate();
-
+            
             link.commit();
-
+            
             message = new Alert(Alert.AlertType.INFORMATION);
             message.setHeaderText(null);
             message.setContentText("Resgistro completado con exito");
             link.close();
         } catch (SQLException ex) {
-
+            
             link.rollback();
             System.err.println("Error en la inscripcion: " + ex);
             message = new Alert(Alert.AlertType.ERROR);
@@ -168,9 +168,9 @@ public class Students extends Person {
         }
         return message;
     }
-
+    
     public static void getListStudenByDegress(int idDegress, ObservableList<Students> list) {
-
+        
         try {
             Connection con = Base.getConnectionStatic();
             PreparedStatement ps = (PreparedStatement) con.prepareCall("call sp_lista_estudiante_grado(?)");
@@ -195,7 +195,7 @@ public class Students extends Person {
             System.err.println("Error: " + e);
         }
     }
-
+    
     public static ResultSet getStudentByDoc(String cedula) {
         
         ResultSet rs = null;
@@ -209,173 +209,191 @@ public class Students extends Person {
         }
         return rs;
     }
-
+    
+    public static void getParents(ObservableList<Parents> list, int idStudent) {
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT fam.cedula, fam.nombre_nombres AS nombres, fam.nombre_apellidos AS apellidos FROM estudiante_y_familia AS rpr INNER JOIN familiares AS fam ON fam.id_familiar = rpr.id_familiar WHERE rpr.id_estudiante = ?");
+            ps.setInt(1, idStudent);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+                
+                list.add(
+                  new Parents(rs.getString("cedula"), rs.getString("nombres"), rs.getString("apellidos"), "", false, "", "", "", "", "")
+                );
+            }
+        } catch (Exception e) {
+            System.err.println("Error al setear a los padres: " + e);
+        }
+    }
+    
     public String getDateOfBirth() {
         return dateOfBirth;
     }
-
+    
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
+    
     public String getGender() {
         return gender;
     }
-
+    
     public void setGender(String gender) {
         this.gender = gender;
     }
-
+    
     public int getAddressOfEstate() {
         return addressOfEstate;
     }
-
+    
     public void setAddressOfEstate(int addressOfEstate) {
         this.addressOfEstate = addressOfEstate;
     }
-
+    
     public int getAddressOfMucipality() {
         return addressOfMucipality;
     }
-
+    
     public void setAddressOfMucipality(int addressOfMucipality) {
         this.addressOfMucipality = addressOfMucipality;
     }
-
+    
     public int getAdressOfLocality() {
         return adressOfLocality;
     }
-
+    
     public void setAdressOfLocality(int adressOfLocality) {
         this.adressOfLocality = adressOfLocality;
     }
-
+    
     public boolean isCanaima() {
         return canaima;
     }
-
+    
     public void setCanaima(boolean canaima) {
         this.canaima = canaima;
     }
-
+    
     public boolean isBeca() {
         return beca;
     }
-
+    
     public void setBeca(boolean beca) {
         this.beca = beca;
     }
-
+    
     public String getSalud() {
         return salud;
     }
-
+    
     public void setSalud(String salud) {
         this.salud = salud;
     }
-
+    
     public String getDesSalud() {
         return desSalud;
     }
-
+    
     public void setDesSalud(String desSalud) {
         this.desSalud = desSalud;
     }
-
+    
     public int getIdStudent() {
         return idStudent;
     }
-
+    
     public void setIdStudent(int idStudent) {
         this.idStudent = idStudent;
     }
-
+    
     public String getFullname() {
         return fullname;
     }
-
+    
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
-
+    
     public String getCurrentCanaima() {
         return currentCanaima;
     }
-
+    
     public void setCurrentCanaima(String currentCanaima) {
         this.currentCanaima = currentCanaima;
     }
-
+    
     public String getCurrentBeca() {
         return currentBeca;
     }
-
+    
     public void setCurrentBeca(String currentBeca) {
         this.currentBeca = currentBeca;
     }
-
+    
     public String getCurrentRepeat() {
         return currentRepeat;
     }
-
+    
     public void setCurrentRepeat(String currentRepeat) {
         this.currentRepeat = currentRepeat;
     }
-
+    
     public int getAge() {
         return age;
     }
-
+    
     public void setAge(int age) {
         this.age = age;
     }
-
+    
     public String getFullNameParent() {
         return fullNameParent;
     }
-
+    
     public void setFullNameParent(String fullNameParent) {
         this.fullNameParent = fullNameParent;
     }
-
+    
     public String getDocumentParent() {
         return documentParent;
     }
-
+    
     public void setDocumentParent(String documentParent) {
         this.documentParent = documentParent;
     }
-
+    
     public int getId() {
         return id;
     }
-
+    
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public String getNames() {
         return names;
     }
-
+    
     public void setNames(String names) {
         this.names = names;
     }
-
+    
     public String getLastNames() {
         return lastNames;
     }
-
+    
     public void setLastNames(String lastNames) {
         this.lastNames = lastNames;
     }
-
+    
     public String getIdentification() {
         return identification;
     }
-
+    
     public void setIdentification(String identification) {
         this.identification = identification;
     }
-
+    
 }
