@@ -28,7 +28,7 @@ public class History {
 
         try {
             Connection con = Base.getConnectionStatic();
-            PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT h.id_historia AS id, g.nivel AS grado, s.letra AS seccion, p.codigo AS periodo FROM historial_academico AS h INNER JOIN grados AS g ON g.id_grado = h.id_grado INNER JOIN secciones AS s ON s.id_seccion = g.id_seccion INNER JOIN periodos AS p ON p.id_periodo = g.id_periodo WHERE h.id_estudiante = ?");
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_historial_academico(?)");
             ps.setInt(1, idStudent);
             ResultSet rs = ps.executeQuery();
 

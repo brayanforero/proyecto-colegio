@@ -213,7 +213,7 @@ public class Students extends Person {
     public static void getParents(ObservableList<Parents> list, int idStudent) {
         try {
             Connection con = Base.getConnectionStatic();
-            PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT fam.cedula, fam.nombre_nombres AS nombres, fam.nombre_apellidos AS apellidos FROM estudiante_y_familia AS rpr INNER JOIN familiares AS fam ON fam.id_familiar = rpr.id_familiar WHERE rpr.id_estudiante = ?");
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_padres_estudiante(?)");
             ps.setInt(1, idStudent);
             ResultSet rs = ps.executeQuery();
             
