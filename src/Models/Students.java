@@ -169,6 +169,81 @@ public class Students extends Person {
         return message;
     }
     
+    public Alert newStudent(String phoneMom, String phoneDad, int mom, int dad, int idDegress) throws SQLException {
+        Alert message = null;
+        PreparedStatement ps_boy, ps_mom, ps_dad;
+        ResultSet rs;
+        int idBoy = 0;
+        Connection link = null;
+        
+        try {
+            // INSERTANDO AL NIÑO(A)
+            link = Base.getConnectionStatic();
+            link.setAutoCommit(false);
+            ps_boy = (PreparedStatement) link.prepareStatement("INSERT INTO estudiantes (cedula,nombre_nombres,nombre_apellidos,fecha_nacimiento,genero,dir_estado,dir_municipio,dir_parroquia,posee_canaima,posee_beca,info_salud,recomendaciones)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            ps_boy.setString(1, this.getIdentification());
+            ps_boy.setString(2, this.getNames());
+            ps_boy.setString(3, this.getLastNames());
+            ps_boy.setString(4, this.getDateOfBirth());
+            ps_boy.setString(5, this.getGender());
+            ps_boy.setInt(6, this.getAddressOfEstate());
+            ps_boy.setInt(7, this.getAddressOfMucipality());
+            ps_boy.setInt(8, this.getAddressOfMucipality());
+            ps_boy.setBoolean(9, this.isCanaima());
+            ps_boy.setBoolean(10, this.isBeca());
+            ps_boy.setString(11, this.getSalud());
+            ps_boy.setString(12, this.getDesSalud());
+            ps_boy.executeUpdate();
+
+            // OBTENIENDO ID DE NIÑO(A)
+            PreparedStatement last_id_boy = (PreparedStatement) link.prepareStatement("SELECT id_estudiante FROM estudiantes ORDER BY id_estudiante DESC LIMIT 1");
+            rs = last_id_boy.executeQuery();
+            rs.next();
+            idBoy = rs.getInt("id_estudiante");
+
+            // INSERTANO TELEFONOS
+            PreparedStatement phones = (PreparedStatement) link.prepareStatement("INSERT INTO telefonos_de_estudiantes (id_estudiante, telefono) VALUES (?,?),(?,?)");
+            phones.setInt(1, idBoy);
+            phones.setString(2, phoneMom);
+            phones.setInt(3, idBoy);
+            phones.setString(4, phoneDad);
+            phones.executeUpdate();
+
+            // RELACION MADRE, PADRE E HIJO
+            PreparedStatement relation_sun = (PreparedStatement) link.prepareStatement("INSERT INTO estudiante_y_familia VALUES(?,?),(?,?)");
+            relation_sun.setInt(1, idBoy);
+            relation_sun.setInt(2, mom);
+            relation_sun.setInt(3, idBoy);
+            relation_sun.setInt(4, dad);
+            relation_sun.executeUpdate();
+
+            // INSCRIPCION EN EL GRADO RECIBIDO
+            PreparedStatement inscription = (PreparedStatement) link.prepareStatement("INSERT INTO inscripciones (id_estudiante, id_grado, repitiente)"
+                    + "VALUES (?,?,?)");
+            
+            inscription.setInt(1, idBoy);
+            inscription.setInt(2, idDegress);
+            inscription.setBoolean(3, false);
+            inscription.executeUpdate();
+            
+            link.commit();
+            
+            message = new Alert(Alert.AlertType.INFORMATION);
+            message.setHeaderText(null);
+            message.setContentText("Resgistro completado con exito");
+            link.close();
+        } catch (SQLException ex) {
+            
+            link.rollback();
+            System.err.println("Error en la inscripcion: " + ex);
+            message = new Alert(Alert.AlertType.ERROR);
+            message.setHeaderText(null);
+            message.setContentText(Base.getMessage(ex));
+        }
+        return message;
+    }
+    
     public static void getListStudenByDegress(int idDegress, ObservableList<Students> list) {
         
         try {

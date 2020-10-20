@@ -1,5 +1,11 @@
 package Models;
 
+import Config.Base;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Parents extends Person {
     
     private String dateOfbirth;
@@ -9,6 +15,7 @@ public class Parents extends Person {
     private String ocupation;
     private String email;
     private String relige;
+    private int id;
 
     public Parents(String identification , String names, String lastNames,  
             String dateOfbirth, boolean ifLiveWhitBoy, String typeHouse, 
@@ -22,6 +29,30 @@ public class Parents extends Person {
         this.ocupation = ocupation;
         this.email = email;
         this.relige = relige;
+    }
+
+    public Parents(int id, String names, String lastNames, String identification) {
+        super(names, lastNames, identification);
+        this.id = id;
+    }
+    
+    
+    
+    public static Parents getByDocument(String document){
+        
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT  id_familiar AS id ,nombre_nombres, nombre_apellidos FROM familiares WHERE cedula = ?");
+            ps.setString(1, document);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return new Parents(rs.getInt("id"), rs.getString("nombre_nombres"), rs.getString("nombre_apellidos"), "");
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al bucar los datos del familiar: " + ex);
+        }
+        return null;
     }
 
     public String getDateOfbirth() {

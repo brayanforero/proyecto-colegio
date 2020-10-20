@@ -55,6 +55,8 @@ public class TeacherViewController implements Initializable {
     private int idDegress;
     @FXML
     private MenuItem itemSearchStudent;
+    @FXML
+    private MenuItem openRegisterRegStudent;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -200,6 +202,23 @@ public class TeacherViewController implements Initializable {
     @FXML
     private void openSearchStudent(ActionEvent event) {
         openModuleContainer("SearchStudentView");
+    }
+
+    @FXML
+    private void openModuleRegStudent(ActionEvent event) {
+        ObservableList<Node> nodes = this.container.getChildren();
+        this.container.getChildren().removeAll(nodes);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/RegisterStudentRegView.fxml"));
+            Node module = loader.load();
+            
+            RegisteStudentRegViewController controller = loader.getController();
+            controller.setIdDegressForRegister(this.idDegress);
+            this.container.getChildren().add(module);
+
+        } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

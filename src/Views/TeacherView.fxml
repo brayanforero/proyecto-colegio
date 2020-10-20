@@ -166,7 +166,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <items>
-                  <MenuItem fx:id="openRegisterStudent" mnemonicParsing="false" onAction="#openModuleNewStudent" text="Nuevo !" />
+                  <MenuItem fx:id="openRegisterStudent" mnemonicParsing="false" onAction="#openModuleNewStudent" text="¡Nuevo Ingreso!" />
+                  <MenuItem fx:id="openRegisterRegStudent" mnemonicParsing="false" onAction="#openModuleRegStudent" text="Regular" />
                </items>
             </MenuButton>
          </children>
