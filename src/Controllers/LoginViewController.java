@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,28 +31,31 @@ public class LoginViewController implements Initializable {
     Alert alert;
     Users method = new Users();
     Users user;
+    @FXML
+    private Label lblAlert;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.lblAlert.setVisible(false);
     }
 
     @FXML
     private void login(ActionEvent event) {
         this.btnLogin.setDisable(true);
-
         String nameUser = this.txtUsername.getText().toUpperCase().trim();
         String passUser = this.txtPassword.getText().toUpperCase().trim();
 
         this.user = method.login(nameUser, passUser);
 
         if (this.user.getId() == 0) {
-            alert = new Alert(Alert.AlertType.ERROR);
+            /*alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(null);
             alert.setHeaderText(null);
             alert.setContentText("Estimado Usuario los Datos son Incorrectos");
-            alert.showAndWait();
+            alert.showAndWait();*/
             this.btnLogin.setDisable(false);
+            this.lblAlert.setVisible(true);
+            this.lblAlert.setText("Estimado Usuario los Datos son Incorrectos");
             return;
         }
 

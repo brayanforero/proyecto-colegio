@@ -1,0 +1,48 @@
+
+/* MAIN STYLES*/
+
+/* HELPERS*/
+.shadow {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 9,0,0,1 );
+}
+
+
+
+/*BUTTONS */
+.button-big {
+   -fx-background-radius: 4;
+   -fx-padding: 8;
+   -fx-font-size: 16;
+   -fx-font-weight: bold;
+}
+
+.button-primary {
+    -fx-background-color:  #214282;
+    -fx-text-fill: #F7F3F5;
+}
+
+.button-primary:hover {
+   -fx-background-color:  #14274E;
+}
+
+/*FORMS*/
+.form-control {
+    -fx-border-color: #51A0F5;
+    -fx-border-width: 1.2px;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+/*ALERTS*/
+
+.alert {
+    -fx-padding: 1rem;
+    -fx-background-radius: 4;
+    -fx-background-color: #C91818;
+    -fx-text-fill: #F7F3F5;
+    -fx-font-weight: bold;
+}
+
+
+
+

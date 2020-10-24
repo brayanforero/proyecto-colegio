@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -7,15 +9,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginViewController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginViewController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="571.0" style="-fx-background-color: #fff;" />
-      <Pane layoutX="571.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="380.0" style="-fx-background-color: #f2f2f2;">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="571.0" style="-fx-background-color: #FEFDFE;" />
+      <Pane layoutX="571.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="380.0" style="-fx-background-color: #F7F3F5;">
          <children>
-            <Label layoutX="116.0" layoutY="210.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Acceso al Sistema" />
-            <TextField fx:id="txtUsername" layoutX="66.0" layoutY="262.0" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Usuario" style="-fx-font-size: 16; -fx-padding: 8; -fx-background-radius: 4;" />
-            <PasswordField fx:id="txtPassword" layoutX="66.0" layoutY="323.0" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Contraseña" style="-fx-font-size: 16; -fx-padding: 8; -fx-background-radius: 4;" />
-            <Button fx:id="btnLogin" layoutX="115.0" layoutY="384.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="221.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 16;" text="Acceder" />
+            <Label alignment="CENTER" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="380.0" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #0C1830;" text="Acceso al Sistema" />
+            <TextField fx:id="txtUsername" focusTraversable="false" layoutX="40.0" layoutY="205.0" pickOnBounds="false" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Usuario" style="-fx-font-size: 16;" styleClass="form-control" stylesheets="@../css/main.css" />
+            <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="40.0" layoutY="276.0" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Contraseña" style="-fx-font-size: 16;" styleClass="form-control" stylesheets="@../css/main.css" />
+            <Button fx:id="btnLogin" layoutX="80.0" layoutY="337.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="221.0" stylesheets="@../css/main.css" text="Acceder">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="button-big" />
+                  <String fx:value="button-primary" />
+                  <String fx:value="shadow" />
+               </styleClass></Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="410.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="380.0" style="-fx-font-size: 14; -fx-text-fill: #51A0F5;" text="¿Olvido su Contraseña?">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="lblAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="360.0" style="-fx-font-size: 14;" styleClass="alert" stylesheets="@../css/main.css" />
          </children>
       </Pane>
    </children>

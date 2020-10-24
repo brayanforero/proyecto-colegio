@@ -23,10 +23,6 @@ public class App extends Application{
         
         primaryStage.setScene(scene);
         primaryStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Inscripcion");
-        primaryStage.setMinWidth(1024);
-        primaryStage.setMinHeight(500);
-        primaryStage.setMaxWidth(1024);
-        primaryStage.setMaxHeight(500);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
