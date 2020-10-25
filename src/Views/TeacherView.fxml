@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -18,9 +19,9 @@
    <children>
       <Pane prefHeight="112.0" prefWidth="1024.0" style="-fx-background-color: none;">
          <children>
-            <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" prefWidth="880.0" spacing="12.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 0 12 12 0;">
+            <HBox alignment="CENTER_LEFT" minHeight="50.0" prefHeight="50.0" prefWidth="880.0" spacing="12.0" stylesheets="@../css/main.css">
                <children>
-                  <Label style="-fx-font-size: 12;" text="Periodo en Curso:" textFill="#434141">
+                  <Label style="-fx-font-size: 12;" styleClass="text-dark" stylesheets="@../css/main.css" text="Periodo en Curso:" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -28,7 +29,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPeriodo" style="-fx-font-size: 12; -fx-text-fill: #434141; -fx-font-weight: bold;" text="2020-2021" textFill="#434141">
+                  <Label fx:id="lblPeriodo" style="-fx-font-size: 12; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="2020-2021" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -37,7 +38,7 @@
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label style="-fx-font-size: 12;" text="Grado:" textFill="#434141">
+                  <Label style="-fx-font-size: 12;" styleClass="text-dark" stylesheets="@../css/main.css" text="Grado:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -45,13 +46,13 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblDegress" style="-fx-font-size: 12; -fx-text-fill: #434141; -fx-font-weight: bold;" text="5TO" textFill="#434141">
+                  <Label fx:id="lblDegress" style="-fx-font-size: 12; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="5TO" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label style="-fx-font-size: 12;" text="Sección:" textFill="#434141">
+                  <Label style="-fx-font-size: 12;" styleClass="text-dark" stylesheets="@../css/main.css" text="Sección:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -59,13 +60,13 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblSeccion" style="-fx-font-size: 12; -fx-text-fill: #434141; -fx-font-weight: bold;" text="A" textFill="#434141">
+                  <Label fx:id="lblSeccion" style="-fx-font-size: 12; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="A" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label style="-fx-font-size: 12;" text="Turno:" textFill="#434141">
+                  <Label style="-fx-font-size: 12;" styleClass="text-dark" stylesheets="@../css/main.css" text="Turno:" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -73,13 +74,13 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblTurno" prefHeight="26.0" prefWidth="70.0" style="-fx-font-size: 12; -fx-text-fill: #434141; -fx-font-weight: bold;" text="MAÑANA" textFill="#434141">
+                  <Label fx:id="lblTurno" prefHeight="26.0" prefWidth="70.0" style="-fx-font-size: 12; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="MAÑANA" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <Label style="-fx-font-size: 12;" text="Fecha" textFill="#434141">
+                  <Label style="-fx-font-size: 12;" styleClass="text-dark" stylesheets="@../css/main.css" text="Fecha" textFill="#434141">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -87,20 +88,24 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="lblDate" style="-fx-font-size: 12; -fx-text-fill: #555; -fx-font-weight: bold;" text="15/05/2020" textFill="#434141">
+                  <Label fx:id="lblDate" style="-fx-font-size: 12; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="15/05/2020" textFill="#434141">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
                   <Separator layoutX="555.0" layoutY="18.0" orientation="VERTICAL" prefHeight="200.0" />
-                  <Label style="-fx-font-size: 14;" text="Hola:" textAlignment="CENTER" />
-                  <Label fx:id="lblNameUser" contentDisplay="TOP" prefHeight="25.0" prefWidth="132.0" style="-fx-font-size: 14; -fx-font-weight: bold;" text="Jhon Doe" textAlignment="CENTER" />
+                  <Label style="-fx-font-size: 14;" styleClass="text-dark" stylesheets="@../css/main.css" text="Hola:" textAlignment="CENTER" />
+                  <Label fx:id="lblNameUser" contentDisplay="TOP" prefHeight="25.0" prefWidth="132.0" style="-fx-font-size: 14; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="Jhon Doe" textAlignment="CENTER" />
                </children>
                <padding>
                   <Insets bottom="8.0" left="8.0" top="8.0" />
                </padding>
+               <styleClass>
+                  <String fx:value="nav" />
+                  <String fx:value="nav-lg" />
+               </styleClass>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" style="-fx-background-color: #f2f2f2; -fx-background-radius: 12 0 0 12;">
+            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" stylesheets="@../css/main.css">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
@@ -128,12 +133,16 @@
                <padding>
                   <Insets bottom="12.0" left="8.0" right="12.0" top="8.0" />
                </padding>
+               <styleClass>
+                  <String fx:value="nav" />
+                  <String fx:value="nav-sm" />
+               </styleClass>
             </HBox>
          </children></Pane>
-      <Separator layoutY="99.0" prefHeight="0.0" prefWidth="1024.0" />
+      <Separator layoutY="99.0" prefHeight="0.0" prefWidth="1024.0" visible="false" />
       <HBox alignment="CENTER_LEFT" layoutY="50.0" prefHeight="50.0" prefWidth="640.0" spacing="12.0" style="-fx-background-color: transparent;">
          <children>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Estudiantes" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" stylesheets="@../css/main.css" text="Estudiantes" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
@@ -144,8 +153,12 @@
                   <MenuItem fx:id="openListStudent" mnemonicParsing="false" onAction="#openModuleList" text="Lista" />
                   <MenuItem fx:id="itemSearchStudent" mnemonicParsing="false" onAction="#openSearchStudent" text="Consulta Información" />
                </items>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-dark" />
+               </styleClass>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" text="Planillas" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" stylesheets="@../css/main.css" text="Planillas" textFill="#434141">
                <font>
                   <Font size="16.0" />
                </font>
@@ -157,8 +170,12 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Informacion del Niño" />
                </items>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-dark" />
+               </styleClass>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #000;" text="Inscripción" textFill="WHITE">
+            <MenuButton mnemonicParsing="false" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Inscripción" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -169,6 +186,11 @@
                   <MenuItem fx:id="openRegisterStudent" mnemonicParsing="false" onAction="#openModuleNewStudent" text="¡Nuevo Ingreso!" />
                   <MenuItem fx:id="openRegisterRegStudent" mnemonicParsing="false" onAction="#openModuleRegStudent" text="Regular" />
                </items>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-info" />
+                  <String fx:value="bold" />
+               </styleClass>
             </MenuButton>
          </children>
          <padding>

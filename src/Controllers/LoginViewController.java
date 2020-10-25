@@ -41,24 +41,20 @@ public class LoginViewController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
-        this.btnLogin.setDisable(true);
         String nameUser = this.txtUsername.getText().toUpperCase().trim();
         String passUser = this.txtPassword.getText().toUpperCase().trim();
 
+        this.btnLogin.setDisable(true);
         this.user = method.login(nameUser, passUser);
 
         if (this.user.getId() == 0) {
-            /*alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle(null);
-            alert.setHeaderText(null);
-            alert.setContentText("Estimado Usuario los Datos son Incorrectos");
-            alert.showAndWait();*/
             this.btnLogin.setDisable(false);
             this.lblAlert.setVisible(true);
             this.lblAlert.setText("Estimado Usuario los Datos son Incorrectos");
             return;
         }
-
+        
+        this.lblAlert.setVisible(false);
         Node src = (Node) event.getSource();
         Stage stage = (Stage) src.getScene().getWindow();
         stage.close();
