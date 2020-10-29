@@ -49,6 +49,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
+            <Button fx:id="btnGeneratePdf" layoutX="98.0" layoutY="281.0" mnemonicParsing="false" onAction="#exportsStudent" prefHeight="25.0" prefWidth="150.0" text="Exportar" />
          </children></Pane>
    </children>
 </AnchorPane>
