@@ -129,10 +129,6 @@ public class AdminViewController implements Initializable {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setTitle("Escuela Bolivariana Santa Rita - Sistema de Inscripcion");
-            newStage.setMinWidth(1024);
-            newStage.setMinHeight(500);
-            newStage.setMaxWidth(1024);
-            newStage.setMaxHeight(500);
             newStage.setResizable(false);
             newStage.show();
         } catch (IOException e) {
