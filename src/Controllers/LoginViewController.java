@@ -44,6 +44,13 @@ public class LoginViewController implements Initializable {
         String nameUser = this.txtUsername.getText().toUpperCase().trim();
         String passUser = this.txtPassword.getText().toUpperCase().trim();
 
+        if (nameUser.isEmpty() || passUser.isEmpty()) {
+
+            this.lblAlert.setVisible(true);
+            this.lblAlert.setText("Estimado usuario completa todos los campos");
+            return;
+        }
+
         this.btnLogin.setDisable(true);
         this.user = method.login(nameUser, passUser);
 
@@ -53,7 +60,7 @@ public class LoginViewController implements Initializable {
             this.lblAlert.setText("Estimado Usuario los Datos son Incorrectos");
             return;
         }
-        
+
         this.lblAlert.setVisible(false);
         Node src = (Node) event.getSource();
         Stage stage = (Stage) src.getScene().getWindow();

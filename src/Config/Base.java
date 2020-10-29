@@ -7,9 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Base {
+
     protected PreparedStatement ps;
     protected ResultSet rs;
-    
+
     protected Connection getConnection() throws SQLException {
         Connection con = null;
 
@@ -22,7 +23,7 @@ public class Base {
 
         return con;
     }
-    
+
     public static Connection getConnectionStatic() throws SQLException {
         Connection con = null;
 
@@ -35,22 +36,25 @@ public class Base {
 
         return con;
     }
-    
-    public static String getMessage(SQLException ex){
+
+    public static String getMessage(SQLException ex) {
         String message;
-        switch(ex.getErrorCode()){
-            
+        switch (ex.getErrorCode()) {
+
             case 1644:
                 message = ex.getMessage();
                 break;
             case 1062:
                 message = "Error: Ingresaste datos que estan registrados";
                 break;
+            case 0:
+                message = "Error: Servidor no disponible";
+                break;
             default:
                 message = "No se pudo completar su operacion";
                 break;
         }
-        
+
         return message;
     }
 }

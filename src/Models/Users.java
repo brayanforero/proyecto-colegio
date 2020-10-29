@@ -57,8 +57,11 @@ public class Users extends Base {
             
             ps.close();
         } catch (SQLException ex) {
-            /*Logger.getLogger(Users.class.getName()).log(Level.SEVERE, null, ex);*/
             System.err.println("No se pudo completar el Login: " + ex);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText(Base.getMessage(ex));
+            alert.showAndWait();
         }
         return user;
     }
