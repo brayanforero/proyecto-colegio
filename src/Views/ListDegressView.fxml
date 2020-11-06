@@ -15,7 +15,7 @@
           <TableColumn fx:id="colDegress" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Grado" />
             <TableColumn fx:id="colSection" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Seccion" />
             <TableColumn fx:id="colTurno" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Turno" />
-            <TableColumn fx:id="colClassRoom" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Aula" />
+            <TableColumn fx:id="colClassRoom" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Ambiente de apredizaje" />
             <TableColumn fx:id="colTeacher" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Docente" />
             <TableColumn fx:id="colPeriod" editable="false" minWidth="-Infinity" prefWidth="166.66" sortable="false" text="Periodo" />
         </columns>

@@ -25,8 +25,8 @@
             <Separator layoutX="497.0" layoutY="2.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="5.0" />
             <Label layoutX="534.0" layoutY="24.0" text="Periodo" />
             <ComboBox fx:id="cboPeriod" layoutX="607.0" layoutY="20.0" prefWidth="150.0" />
-            <Label layoutX="543.0" layoutY="164.0" text="Aula" />
-            <ComboBox fx:id="cboClassRoom" layoutX="607.0" layoutY="160.0" prefWidth="150.0" />
+            <Label alignment="CENTER" layoutX="607.0" layoutY="164.0" prefHeight="17.0" prefWidth="149.0" text="Ambiente de aprendizaje" />
+            <ComboBox fx:id="cboClassRoom" layoutX="610.0" layoutY="186.0" prefWidth="150.0" />
             <Label layoutX="534.0" layoutY="94.0" text="Seccion" />
             <ComboBox fx:id="cboSection" layoutX="607.0" layoutY="90.0" prefWidth="150.0" />
             <Label layoutX="538.0" layoutY="59.0" text="Grado" />

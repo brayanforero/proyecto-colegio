@@ -141,7 +141,7 @@
                   <String fx:value="text-dark" />
                </styleClass>
             </MenuButton>
-            <Label fx:id="itemClassRooms" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openListClassRooms" prefHeight="37.0" stylesheets="@../css/main.css" text="Centros de Estudios">
+            <Label fx:id="itemClassRooms" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openListClassRooms" prefHeight="37.0" stylesheets="@../css/main.css" text="Ambientes de aprendizajes">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -162,7 +162,7 @@
                </cursor>
                <items>
                   <MenuItem fx:id="itemListDegress" mnemonicParsing="false" onAction="#openListDegress" text="Listado" />
-                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar Nuevo" />
+                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar grado" />
                </items>
                <styleClass>
                   <String fx:value="nav-item" />
