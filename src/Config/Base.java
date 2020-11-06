@@ -45,7 +45,7 @@ public class Base {
                 message = ex.getMessage();
                 break;
             case 1062:
-                message = "Error: Ingresaste datos que estan registrados";
+                message = "Error: Los datos ingresados ya se encuentran registrados";
                 break;
             case 0:
                 message = "Error: Servidor no disponible";
