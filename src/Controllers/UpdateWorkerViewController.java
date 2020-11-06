@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 public class UpdateWorkerViewController implements Initializable {
 
@@ -36,20 +37,28 @@ public class UpdateWorkerViewController implements Initializable {
     private TextField txtPhoneWorker;
     @FXML
     private TextField txtEmailWorker;
-    @FXML
     private TextField txtCargoWorker;
     @FXML
     private Button btnSave;
+    @FXML
+    private ComboBox<String> cboCargo;
+    private ObservableList<String> itemsCargo = FXCollections.observableArrayList();
+    @FXML
+    private Pane paneData;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setCombox();
+        this.paneData.setVisible(false);
     }
 
     public void setCombox() {
         this.itemsCbo.addAll("V-", "E-");
         this.cboDocWorker.setItems(this.itemsCbo);
         this.cboSearchWorker.setItems(this.itemsCbo);
+        
+        this.itemsCargo.addAll("DOCENTE","DIRECTOR", "OBRERO", "SECRETARIA");
+        this.cboCargo.setItems(this.itemsCargo);
     }
 
     @FXML
@@ -71,19 +80,19 @@ public class UpdateWorkerViewController implements Initializable {
         this.txtLastNameWorker.setText(worker.getLastNames());
         this.txtPhoneWorker.setText(worker.getPhone());
         this.txtEmailWorker.setText(worker.getEmail());
-        this.txtCargoWorker.setText(worker.getCargo());
+        this.cboCargo.getSelectionModel().select(worker.getCargo());
+        this.paneData.setVisible(true);
     }
 
     @FXML
     private void saveData(ActionEvent event) {
         int id = Integer.parseInt(this.txtIdWorker.getText());
-        String doc = this.txtDocWorker.getText().toUpperCase();
+        String doc = this.cboDocWorker.getValue() + this.txtDocWorker.getText().toUpperCase();
         String name = this.txtNameWorker.getText().toUpperCase();
         String lastName = this.txtLastNameWorker.getText().toUpperCase();
         String email = this.txtEmailWorker.getText().toUpperCase();
-        String cargo = this.txtCargoWorker.getText().toUpperCase();
         String phone = this.txtPhoneWorker.getText();
-        
+        String cargo = this.cboCargo.getValue();
         Workers worker = new Workers(id, cargo, email, phone, name, lastName, doc);
         Alert msg = worker.UpdateWorker();
         msg.showAndWait();
