@@ -27,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class ListDegressViewController implements Initializable {
 
@@ -71,11 +72,14 @@ public class ListDegressViewController implements Initializable {
     @FXML
     private ComboBox<ClassRoom> cboClassrooms;
     private ObservableList<ClassRoom> itemsClassRooms = FXCollections.observableArrayList();
+    @FXML
+    private TextField txtIdDegress;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setTableDegress();
         this.setCombos();
+        this.btnUpdateDegress.setVisible(false);
     }
 
     public void setPeriod(int id, String period) {
@@ -89,10 +93,10 @@ public class ListDegressViewController implements Initializable {
 
         this.colIdDegress.setCellValueFactory(new PropertyValueFactory("id"));
         this.colDegress.setCellValueFactory(new PropertyValueFactory("level"));
-        this.colSection.setCellValueFactory(new PropertyValueFactory("sectionString"));
+        this.colSection.setCellValueFactory(new PropertyValueFactory("section"));
         this.colTurno.setCellValueFactory(new PropertyValueFactory("turn"));
-        this.colTeacher.setCellValueFactory(new PropertyValueFactory("workerString"));
-        this.colClassRoom.setCellValueFactory(new PropertyValueFactory("classRoomString"));
+        this.colTeacher.setCellValueFactory(new PropertyValueFactory("worker"));
+        this.colClassRoom.setCellValueFactory(new PropertyValueFactory("classRoom"));
         this.colPeriod.setCellValueFactory(new PropertyValueFactory("periodCode"));
         Degress.getDegressForTable(this.itemsDegress);
         this.tblDegress.setItems(this.itemsDegress);
@@ -143,6 +147,20 @@ public class ListDegressViewController implements Initializable {
         Alert msg = newDegress.degressAsigned();
         msg.showAndWait();
         this.setTableDegress();
+    }
+
+    @FXML
+    private void selectDegress(MouseEvent event) {
+        
+        Degress degress = this.tblDegress.getSelectionModel().getSelectedItem();
+        this.txtIdDegress.setText(degress.getId() + "");
+        this.txtNameDegress.setText(degress.getLevel());
+        this.cboWorker.getSelectionModel().select(degress.getWorker());
+        this.cboSection.getSelectionModel().select(degress.getSection());
+        this.cboTurno.getSelectionModel().select(degress.getTurn());
+        this.cboClassrooms.getSelectionModel().select(degress.getClassRoom());
+        this.btnUpdateDegress.setVisible(true);
+        this.btnAddDegress.setVisible(false);
     }
 
 }

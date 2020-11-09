@@ -17,10 +17,10 @@ public class Degress extends Base {
     private int idSection;
     private String level;
     private String turn;
-    private String classRoomString;
-    private String workerString;
     private String periodCode;
-    private String sectionString;
+    private ClassRoom classRoom;
+    private Workers worker;
+    private Sections section;
 
     public Degress(int id, int idEnrollmnet, int idWorkers, int idClassroom, int idSection, String level, String turn) {
         this.id = id;
@@ -41,17 +41,6 @@ public class Degress extends Base {
         this.turn = turn;
     }
 
-    public Degress(int id, String level, String section,String turn,String workerString, String classRoomString,  String periodCode) {
-        this.id = id;
-        this.level = level;
-        this.turn = turn;
-        this.classRoomString = classRoomString;
-        this.workerString = workerString;
-        this.periodCode = periodCode;
-        this.sectionString = section;
-    }
-    
-    
     public Degress() {
     }
 
@@ -59,8 +48,7 @@ public class Degress extends Base {
         Alert msg;
         try {
             Connection con = this.getConnection();
-            PreparedStatement ps = (PreparedStatement) 
-                    con.prepareCall("INSERT INTO grados (id_periodo, id_personal, id_aula,id_seccion, nivel,turno)"
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("INSERT INTO grados (id_periodo, id_personal, id_aula,id_seccion, nivel,turno)"
                     + "VALUES (?,?,?,?,?,?)");
             ps.setInt(1, this.getIdEnrollmnet());
             ps.setInt(2, this.getIdWorkers());
@@ -83,19 +71,25 @@ public class Degress extends Base {
 
         return msg;
     }
-    
-    public static void getDegressForTable(ObservableList<Degress> list){
-        
+
+    public static void getDegressForTable(ObservableList<Degress> list) {
+
         try {
             Connection con = Base.getConnectionStatic();
             PreparedStatement ps = (PreparedStatement) con.prepareCall("CALL sp_consulta_grados()");
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {                
-                list.add(
-                    new Degress(rs.getInt("id_grado"), rs.getString("nivel"), rs.getString("letra"),
-                            rs.getString("turno"), rs.getString("docente"), rs.getString("aula"),
-                            rs.getString("periodo"))
-                );
+            while (rs.next()) {
+                Degress degress = new Degress();
+                
+                degress.setId(rs.getInt("id_grado"));
+                degress.setLevel(rs.getString("nivel"));
+                degress.setPeriodCode(rs.getString("periodo"));
+                degress.setTurn(rs.getString("turno"));
+                degress.setSection(new Sections(rs.getInt("id_seccion"), rs.getString("letra")));
+                degress.setClassRoom(new ClassRoom(rs.getInt("id_aula"), rs.getString("aula")));
+                degress.setWorker(new Workers(rs.getInt("id_personal"), rs.getString("nombre"), rs.getString("apellido"), ""));
+                
+                list.add(degress);
             }
             con.close();
         } catch (SQLException e) {
@@ -159,22 +153,6 @@ public class Degress extends Base {
         this.turn = turn;
     }
 
-    public String getClassRoomString() {
-        return classRoomString;
-    }
-
-    public void setClassRoomString(String classRoomString) {
-        this.classRoomString = classRoomString;
-    }
-
-    public String getWorkerString() {
-        return workerString;
-    }
-
-    public void setWorkerString(String workerString) {
-        this.workerString = workerString;
-    }
-
     public String getPeriodCode() {
         return periodCode;
     }
@@ -183,14 +161,34 @@ public class Degress extends Base {
         this.periodCode = periodCode;
     }
 
-    public String getSectionString() {
-        return sectionString;
+    public ClassRoom getClassRoom() {
+        return classRoom;
     }
 
-    public void setSectionString(String sectionString) {
-        this.sectionString = sectionString;
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
     }
-    
+
+    public Workers getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Workers worker) {
+        this.worker = worker;
+    }
+
+    public Sections getSection() {
+        return section;
+    }
+
+    public void setSection(Sections section) {
+        this.section = section;
+    }
+
+    @Override
+    public String toString() {
+        return "Degress{" + "id=" + id + ", level=" + level + ", turn=" + turn + ", periodCode=" + periodCode + ", classRoom=" + classRoom + ", worker=" + worker + ", section=" + section + '}';
+    }
     
     
 }
