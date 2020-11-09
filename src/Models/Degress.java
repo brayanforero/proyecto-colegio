@@ -71,7 +71,33 @@ public class Degress extends Base {
 
         return msg;
     }
+    
+    public Alert degressUpdate() {
+        Alert msg;
+        try {
+            Connection con = this.getConnection();
+            PreparedStatement ps = (PreparedStatement) con.prepareCall("UPDATE grados SET id_personal = ?, id_aula = ?, id_seccion = ?, nivel = ?, turno = ? WHERE id_grado = ? LIMIT 1");
+            ps.setInt(1, this.getIdWorkers());
+            ps.setInt(2, this.getIdClassroom());
+            ps.setInt(3, this.getIdSection());
+            ps.setString(4, this.getLevel());
+            ps.setString(5, this.getTurn());
+            ps.setInt(6, this.getId());
+            ps.executeUpdate();
 
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setHeaderText(null);
+            msg.setContentText("Grado actualizado con exito");
+            con.close();
+        } catch (SQLException e) {
+            msg = new Alert(Alert.AlertType.ERROR);
+            System.err.println("Error al aculizar el grado: " + e);
+            msg.setHeaderText(null);
+            msg.setContentText(Base.getMessage(e));
+        }
+
+        return msg;
+    }
     public static void getDegressForTable(ObservableList<Degress> list) {
 
         try {

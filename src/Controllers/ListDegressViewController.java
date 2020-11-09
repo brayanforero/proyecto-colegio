@@ -151,7 +151,7 @@ public class ListDegressViewController implements Initializable {
 
     @FXML
     private void selectDegress(MouseEvent event) {
-        
+
         Degress degress = this.tblDegress.getSelectionModel().getSelectedItem();
         this.txtIdDegress.setText(degress.getId() + "");
         this.txtNameDegress.setText(degress.getLevel());
@@ -161,6 +161,30 @@ public class ListDegressViewController implements Initializable {
         this.cboClassrooms.getSelectionModel().select(degress.getClassRoom());
         this.btnUpdateDegress.setVisible(true);
         this.btnAddDegress.setVisible(false);
+    }
+
+    @FXML
+    private void updateDegress(ActionEvent event) {
+
+        int id = Integer.parseInt(this.txtIdDegress.getText());
+        Workers worker = this.cboWorker.getValue();
+        ClassRoom aula = this.cboClassrooms.getValue();
+        Sections section = this.cboSection.getValue();
+        String name = this.txtNameDegress.getText().toUpperCase();
+        String turno = this.cboTurno.getValue();
+
+        Degress newDegress = new Degress();
+        
+        
+        newDegress.setId(id);
+        newDegress.setIdWorkers(worker.getId());
+        newDegress.setIdClassroom(aula.getId());
+        newDegress.setIdSection(section.getId());
+        newDegress.setLevel(name);
+        newDegress.setTurn(turno);
+        Alert msg = newDegress.degressUpdate();
+        msg.showAndWait();
+        this.setTableDegress();
     }
 
 }

@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListDegressViewController">
    <children>
       <Label fx:id="lblCodPeriod" alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1024.0" style="-fx-font-size: 16;" text="Grados en curso | Periodo Academico" />
-      <TableView fx:id="tblDegress" layoutX="498.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectDegress" prefHeight="290.0" prefWidth="502.0">
+      <TableView fx:id="tblDegress" layoutX="498.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectDegress" prefHeight="290.0" prefWidth="502.0">
         <columns>
           <TableColumn fx:id="colIdDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="ID" visible="false" />
           <TableColumn fx:id="colDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="Grado" />
@@ -22,20 +22,20 @@
             <TableColumn fx:id="colPeriod" editable="false" minWidth="-Infinity" prefWidth="113.0" sortable="false" text="Periodo" />
         </columns>
       </TableView>
-      <TextField fx:id="txtIdDegress" editable="false" layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="21.0" />
-      <TextField fx:id="txtIdPeriod" editable="false" layoutX="42.0" layoutY="10.0" prefHeight="25.0" prefWidth="21.0" />
-      <Label layoutX="25.0" layoutY="50.0" prefHeight="20.0" prefWidth="75.0" text="Nombre:" />
-      <TextField fx:id="txtNameDegress" layoutX="86.0" layoutY="46.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
-      <Label layoutX="25.0" layoutY="90.0" prefHeight="20.0" prefWidth="55.0" text="Docente:" />
-      <ComboBox fx:id="cboWorker" layoutX="86.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
-      <Label layoutX="25.0" layoutY="141.0" prefHeight="20.0" prefWidth="49.0" text="Seccion:" />
-      <ComboBox fx:id="cboSection" layoutX="86.0" layoutY="137.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
-      <Label layoutX="25.0" layoutY="191.0" prefHeight="20.0" prefWidth="49.0" text="Turno:" />
-      <ComboBox fx:id="cboTurno" layoutX="86.0" layoutY="187.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
-      <Label alignment="CENTER" layoutX="270.0" layoutY="50.0" prefHeight="20.0" prefWidth="232.0" text="Ambiente de Aprendizaje" />
-      <ComboBox fx:id="cboClassrooms" layoutX="308.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="156.0" />
-      <Button fx:id="btnExportsInfo" layoutX="286.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exportsDegress" text="Exportar Informacion" />
-      <Button fx:id="btnAddDegress" layoutX="10.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPeriod" prefHeight="25.0" prefWidth="128.0" text="Agregar" />
-      <Button fx:id="btnUpdateDegress" layoutX="148.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Actualizar" />
+      <TextField fx:id="txtIdDegress" editable="false" layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="21.0" visible="false" />
+      <TextField fx:id="txtIdPeriod" editable="false" layoutX="42.0" layoutY="10.0" prefHeight="25.0" prefWidth="21.0" visible="false" />
+      <Label layoutX="25.0" layoutY="70.0" prefHeight="20.0" prefWidth="75.0" text="Nombre:" />
+      <TextField fx:id="txtNameDegress" layoutX="86.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
+      <Label layoutX="25.0" layoutY="110.0" prefHeight="20.0" prefWidth="55.0" text="Docente:" />
+      <ComboBox fx:id="cboWorker" layoutX="86.0" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
+      <Label layoutX="25.0" layoutY="161.0" prefHeight="20.0" prefWidth="49.0" text="Seccion:" />
+      <ComboBox fx:id="cboSection" layoutX="86.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
+      <Label layoutX="25.0" layoutY="211.0" prefHeight="20.0" prefWidth="49.0" text="Turno:" />
+      <ComboBox fx:id="cboTurno" layoutX="86.0" layoutY="207.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" />
+      <Label alignment="CENTER" layoutX="270.0" layoutY="70.0" prefHeight="20.0" prefWidth="221.0" text="Ambiente de Aprendizaje" />
+      <ComboBox fx:id="cboClassrooms" layoutX="308.0" layoutY="106.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="156.0" />
+      <Button fx:id="btnExportsInfo" layoutX="872.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exportsDegress" text="Exportar Informacion" />
+      <Button fx:id="btnAddDegress" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPeriod" prefHeight="25.0" prefWidth="128.0" text="Agregar" />
+      <Button fx:id="btnUpdateDegress" layoutX="148.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateDegress" prefHeight="25.0" prefWidth="128.0" text="Actualizar" />
    </children>
 </AnchorPane>
