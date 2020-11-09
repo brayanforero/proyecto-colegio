@@ -59,8 +59,6 @@ public class AdminViewController implements Initializable {
     @FXML
     private MenuItem itemUpdateWorker;
     @FXML
-    private MenuItem itemListDegress;
-    @FXML
     private MenuItem itemListUser;
     @FXML
     private MenuItem itemListUserDesactived;
@@ -68,6 +66,8 @@ public class AdminViewController implements Initializable {
     private Label itemClassRooms;
     @FXML
     private MenuItem itemOpenClosePeriod;
+    @FXML
+    private MenuItem itemListDegress1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -188,7 +188,7 @@ public class AdminViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ListDegressView.fxml"));
             Node module = loader.load();
             ListDegressViewController controller = loader.getController();
-            controller.setPeriod(this.lblPeriodo.getText());
+            controller.setPeriod(this.idPeriod,this.lblPeriodo.getText());
             this.container.getChildren().add(module);
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -225,4 +225,5 @@ public class AdminViewController implements Initializable {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

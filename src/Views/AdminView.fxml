@@ -161,8 +161,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <items>
-                  <MenuItem fx:id="itemListDegress" mnemonicParsing="false" onAction="#openListDegress" text="Listado" />
-                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar grado" />
+                  <MenuItem fx:id="itemListDegress1" mnemonicParsing="false" onAction="#openListDegress" text="Lista de grados" />
+                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar a Docente" />
                </items>
                <styleClass>
                   <String fx:value="nav-item" />
