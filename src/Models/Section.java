@@ -5,7 +5,10 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class Section {
     private int id;
@@ -13,6 +16,10 @@ public class Section {
 
     public Section(int id, String letter) {
         this.id = id;
+        this.letter = letter;
+    }
+
+    public Section(String letter) {
         this.letter = letter;
     }
     
@@ -33,6 +40,8 @@ public class Section {
             System.err.println("Error al llenar las secciones: " + e);
         }
     }
+    
+   
 
     public int getId() {
         return id;

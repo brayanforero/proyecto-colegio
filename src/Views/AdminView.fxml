@@ -116,53 +116,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <items>
-                  <MenuItem fx:id="itemOpenNewPeriod" mnemonicParsing="false" onAction="#newPeriod" style="-fx-font-weight: bold;" text="Nuevo Periodo" />
-                  <MenuItem fx:id="itemOpenClosePeriod" mnemonicParsing="false" onAction="#closePeriod" style="-fx-font-weight: bold;" text="Cerrar Periodo" />
-               </items>
-               <styleClass>
-                  <String fx:value="nav-item" />
-                  <String fx:value="text-dark" />
-               </styleClass>
-            </MenuButton>
-            <MenuButton layoutX="18.0" layoutY="23.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Sistema" textFill="#434141">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <items>
-                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar Usuario" />
-                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Usuarios Autorizados" />
-                  <MenuItem fx:id="itemListUserDesactived" mnemonicParsing="false" onAction="#openListUsersNotHabilited" text="Usuarios Desactivados" />
-               </items>
-               <styleClass>
-                  <String fx:value="nav-item" />
-                  <String fx:value="text-dark" />
-               </styleClass>
-            </MenuButton>
-            <Label fx:id="itemClassRooms" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openListClassRooms" prefHeight="37.0" stylesheets="@../css/main.css" text="Ambientes de aprendizajes">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </opaqueInsets>
-               <styleClass>
-                  <String fx:value="nav-item" />
-                  <String fx:value="text-dark" />
-               </styleClass>
-            </Label>
-            <MenuButton mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Grados" textFill="#434141">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <items>
-                  <MenuItem fx:id="itemListDegress1" mnemonicParsing="false" onAction="#openListDegress" text="Lista de grados" />
-                  <MenuItem fx:id="itemNewDegress" mnemonicParsing="false" onAction="#openNewDegress" text="Asignar a Docente" />
+                  <MenuItem fx:id="itemOpenNewPeriod" mnemonicParsing="false" onAction="#newPeriod" text="Nuevo Periodo" />
+                  <MenuItem fx:id="itemOpenClosePeriod" mnemonicParsing="false" onAction="#closePeriod" text="Cerrar Periodo" />
                </items>
                <styleClass>
                   <String fx:value="nav-item" />
@@ -186,6 +141,22 @@
                   <String fx:value="text-dark" />
                </styleClass>
             </MenuButton>
+            <MenuButton mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Grados" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <items>
+                  <MenuItem fx:id="itemListDegress1" mnemonicParsing="false" onAction="#openListDegress" text="Lista de grados" />
+                  <MenuItem fx:id="itemSections" mnemonicParsing="false" onAction="#openListSections" text="Secciones" />
+               </items>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-dark" />
+               </styleClass>
+            </MenuButton>
             <MenuButton layoutX="191.0" layoutY="23.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Estudiantes" textFill="#434141">
                <font>
                   <Font size="16.0" />
@@ -193,6 +164,35 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-dark" />
+               </styleClass>
+            </MenuButton>
+            <Label fx:id="itemClassRooms" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openListClassRooms" prefHeight="37.0" stylesheets="@../css/main.css" text="Ambientes de aprendizajes">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </opaqueInsets>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-dark" />
+               </styleClass>
+            </Label>
+            <MenuButton layoutX="18.0" layoutY="23.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Sistema" textFill="#434141">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <items>
+                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar Usuario" />
+                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Usuarios Autorizados" />
+                  <MenuItem fx:id="itemListUserDesactived" mnemonicParsing="false" onAction="#openListUsersNotHabilited" text="Usuarios Desactivados" />
+               </items>
                <styleClass>
                   <String fx:value="nav-item" />
                   <String fx:value="text-dark" />

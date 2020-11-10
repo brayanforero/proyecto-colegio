@@ -53,8 +53,6 @@ public class AdminViewController implements Initializable {
     @FXML
     private MenuItem itemNewUser;
     @FXML
-    private MenuItem itemNewDegress;
-    @FXML
     private MenuItem itemListWorkers;
     @FXML
     private MenuItem itemUpdateWorker;
@@ -68,6 +66,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemOpenClosePeriod;
     @FXML
     private MenuItem itemListDegress1;
+    @FXML
+    private MenuItem itemSections;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -153,7 +153,6 @@ public class AdminViewController implements Initializable {
         openModuleContainer("NewUserView");
     }
 
-    @FXML
     private void openNewDegress(ActionEvent event) {
         openModuleContainer("NewDegressView");
     }
@@ -224,6 +223,12 @@ public class AdminViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void openListSections(ActionEvent event) {
+        
+        this.openModuleContainer("ListSectionsView");
     }
 
 }
