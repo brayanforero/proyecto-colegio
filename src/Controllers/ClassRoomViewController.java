@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class ClassRoomViewController implements Initializable {
 
@@ -71,10 +72,34 @@ public class ClassRoomViewController implements Initializable {
 
     @FXML
     private void updateClassRoom(ActionEvent event) {
+        
+        String name = this.txtName.getText().toUpperCase();
+        int capacity = Integer.parseInt(this.txtCapacity.getText());
+        int id = Integer.parseInt(this.txtIdClassRoom.getText());
+        
+        ClassRoom room = new ClassRoom(id, name, capacity);
+        
+        Alert msg = room.updateClassRoom();
+        msg.showAndWait();
+        
+        this.setTableClassRooms();
     }
 
     @FXML
     private void resest(ActionEvent event) {
+    }
+
+    @FXML
+    private void selectedItem(MouseEvent event) {
+        
+        ClassRoom room = this.tableClassRooms.getSelectionModel().getSelectedItem();
+        
+        this.txtIdClassRoom.setText(room.getId() + "");
+        this.txtName.setText(room.getName());
+        this.txtCapacity.setText(room.getCapacidad() + "");
+        
+        this.btnUpdateClass.setVisible(true);
+        this.btnAddClass.setVisible(false);
     }
 
 }

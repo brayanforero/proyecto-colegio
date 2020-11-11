@@ -69,6 +69,29 @@ public class ClassRoom {
             System.err.println("Error al llenar las aulas: " + e);
         }
     }
+    
+    public Alert updateClassRoom() {
+        Alert msg = null;
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("UPDATE aulas SET nombre = ?, capacidad = ? WHERE id_aula = ? LIMIT 1");
+            ps.setString(1, this.getName());
+            ps.setInt(2, this.getCapacidad());
+            ps.setInt(3, this.capacidad);
+            ps.executeUpdate();
+
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setHeaderText(null);
+            msg.setContentText("Ambiente de apredizaje actualizado");
+            con.close();
+        } catch (SQLException ex) {
+            System.err.println("Error al registrar la aula: " + ex);
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setHeaderText(null);
+            msg.setContentText(Base.getMessage(ex));
+        }
+        return msg;
+    }
 
     public static void getClassRoomTable(ObservableList<ClassRoom> list) {
 
