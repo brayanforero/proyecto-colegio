@@ -6,6 +6,7 @@ import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class ClassRoom {
 
@@ -22,6 +23,34 @@ public class ClassRoom {
         this.id = id;
         this.name = name;
         this.capacidad = capacidad;
+    }
+    
+    public ClassRoom( String name, int capacidad) {
+        
+        this.name = name;
+        this.capacidad = capacidad;
+    }
+
+    public Alert addClassRoom() {
+        Alert msg = null;
+        try {
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("INSERT INTO aulas (nombre, capacidad) VALUES(?,?)");
+            ps.setString(1, this.getName());
+            ps.setInt(2, this.getCapacidad());
+            ps.executeUpdate();
+
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setHeaderText(null);
+            msg.setContentText("Ambiente de apredizaje agregado");
+            con.close();
+        } catch (SQLException ex) {
+            System.err.println("Error al registrar la aula: " + ex);
+            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg.setHeaderText(null);
+            msg.setContentText(Base.getMessage(ex));
+        }
+        return msg;
     }
 
     public static void getClassRoomCombo(ObservableList<ClassRoom> list) {
@@ -50,7 +79,7 @@ public class ClassRoom {
 
             while (rs.next()) {
                 list.add(
-                        new ClassRoom(rs.getInt("id_aula"), rs.getString("nombre"),rs.getInt("capacidad"))
+                        new ClassRoom(rs.getInt("id_aula"), rs.getString("nombre"), rs.getInt("capacidad"))
                 );
             }
         } catch (SQLException e) {

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClassRoomViewController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1024.0" style="-fx-font-size: 16;" text="Centros de Clases" />
-      <TableView fx:id="tableClassRooms" layoutX="10.0" layoutY="50.0" prefHeight="300.0" prefWidth="1000.0">
+      <TableView fx:id="tableClassRooms" layoutX="449.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="560.0">
         <columns>
           <TableColumn fx:id="colIdClassRoom" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="ID" visible="false" />
-          <TableColumn fx:id="colNameClassRoom" editable="false" minWidth="-Infinity" prefWidth="333.33" resizable="false" sortable="false" text="Centro" />
-            <TableColumn fx:id="colCountClassRoom" editable="false" minWidth="-Infinity" prefWidth="333.33" resizable="false" sortable="false" text="Capacidad" />
-            <TableColumn fx:id="colIsOcuped" editable="false" minWidth="-Infinity" prefWidth="333.33" resizable="false" sortable="false" text="Ocupado" />
+          <TableColumn fx:id="colNameClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Centro" />
+            <TableColumn fx:id="colCountClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Capacidad" />
+            <TableColumn fx:id="colIsOcuped" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Ocupado" />
         </columns>
       </TableView>
+      <Label alignment="CENTER" layoutX="36.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="392.0" text="Agrega o actualiza un mbiente de estudio" />
+      <Label layoutX="42.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Nombre:" />
+      <TextField fx:id="txtCapacity" layoutX="103.0" layoutY="168.0" prefHeight="30.0" prefWidth="244.0" />
+      <Label layoutX="38.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Capacidad:" />
+      <TextField fx:id="txtName" layoutX="103.0" layoutY="113.0" prefHeight="30.0" prefWidth="244.0" />
+      <TextField fx:id="txtIdClassRoom" editable="false" layoutX="14.0" layoutY="23.0" prefHeight="25.0" prefWidth="27.0" />
+      <Button fx:id="btnAddClass" layoutX="36.0" layoutY="320.0" mnemonicParsing="false" onAction="#addClassRoom" prefHeight="30.0" prefWidth="120.0" text="Agregar" />
+      <Button fx:id="btnUpdateClass" layoutX="165.0" layoutY="320.0" mnemonicParsing="false" onAction="#updateClassRoom" prefHeight="30.0" prefWidth="120.0" text="Actualizar" />
+      <Button fx:id="btnReset" layoutX="300.0" layoutY="320.0" mnemonicParsing="false" onAction="#resest" prefHeight="30.0" prefWidth="120.0" text="Cancelar" />
    </children>
 </AnchorPane>
