@@ -39,20 +39,38 @@ public class NewUserViewController implements Initializable {
         this.option.addAll("ADMINSTRADOR", "DOCENTE");
         this.cboRolUser.setItems(this.option);
         this.setWorkersCombo();
+        
+        this.cboRolUser.getSelectionModel().select(0);
+        this.cboWorkers.getSelectionModel().select(0);
     }    
     
     @FXML
     private void newUser(ActionEvent event) {
+        
+        
         Workers worker = this.cboWorkers.getValue();
         String userName = this.txtNameUser.getText().toUpperCase();
         String userPass = this.txtPassUser.getText().toUpperCase();
         String userRol = this.cboRolUser.getValue();
+        
+        if(userName.isEmpty() || userPass.isEmpty() ){
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Debe rellenar los campos vacios");
+            alert.setTitle("ERROR");
+            alert.showAndWait();
+            
+            return;
+        }
         
         Users user = new Users(worker.getId(), userName, userPass, userRol);
         
         Alert msg = user.newUser();
         
         msg.showAndWait();
+        
+        
     }
     
     public void setWorkersCombo(){
