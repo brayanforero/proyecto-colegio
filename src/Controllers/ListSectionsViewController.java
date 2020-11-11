@@ -38,6 +38,8 @@ public class ListSectionsViewController implements Initializable {
     private Button btnUpdateSection;
     @FXML
     private TextField txtIdSection;
+    @FXML
+    private Button btnReset;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.initTable();
@@ -85,6 +87,11 @@ public class ListSectionsViewController implements Initializable {
         Alert msg = section.updateSection();
         msg.showAndWait();
         this.initTable();
+    }
+
+    @FXML
+    private void resetFields(ActionEvent event) {
+     
     }
     
 }
