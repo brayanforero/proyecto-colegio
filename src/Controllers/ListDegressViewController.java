@@ -111,7 +111,7 @@ public class ListDegressViewController implements Initializable {
         this.cboSection.setItems(this.itemsSections);
         this.cboSection.getSelectionModel().select(0);
 
-        this.itemsTurno.addAll("MATUTINO", "DESPERTINO", "DIURNO");
+        this.itemsTurno.addAll("MATUTINO", "DESPERTINO", "NOCTURNO");
         this.cboTurno.setItems(this.itemsTurno);
         this.cboTurno.getSelectionModel().select(0);
 
