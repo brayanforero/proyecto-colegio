@@ -91,7 +91,8 @@ public class ListSectionsViewController implements Initializable {
 
     @FXML
     private void resetFields(ActionEvent event) {
-     
+        this.txtNameSection.clear();
+        this.btnUpdateSection.setVisible(false);
     }
     
 }
