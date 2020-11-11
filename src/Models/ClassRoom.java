@@ -77,7 +77,7 @@ public class ClassRoom {
             PreparedStatement ps = (PreparedStatement) con.prepareStatement("UPDATE aulas SET nombre = ?, capacidad = ? WHERE id_aula = ? LIMIT 1");
             ps.setString(1, this.getName());
             ps.setInt(2, this.getCapacidad());
-            ps.setInt(3, this.capacidad);
+            ps.setInt(3, this.getId());
             ps.executeUpdate();
 
             msg = new Alert(Alert.AlertType.INFORMATION);
@@ -86,7 +86,7 @@ public class ClassRoom {
             con.close();
         } catch (SQLException ex) {
             System.err.println("Error al registrar la aula: " + ex);
-            msg = new Alert(Alert.AlertType.INFORMATION);
+            msg = new Alert(Alert.AlertType.ERROR);
             msg.setHeaderText(null);
             msg.setContentText(Base.getMessage(ex));
         }
