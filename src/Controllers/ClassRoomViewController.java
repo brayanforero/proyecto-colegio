@@ -46,6 +46,7 @@ public class ClassRoomViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         this.setTableClassRooms();
+        this.btnUpdateClass.setVisible(false);
     }
 
     public void setTableClassRooms() {
@@ -87,6 +88,11 @@ public class ClassRoomViewController implements Initializable {
 
     @FXML
     private void resest(ActionEvent event) {
+        this.btnUpdateClass.setVisible(false);
+        this.txtIdClassRoom.setText(null);
+        this.btnAddClass.setVisible(true);
+        this.txtName.setText(null);
+        this.txtCapacity.setText(null);
     }
 
     @FXML

@@ -23,7 +23,7 @@
       <TextField fx:id="txtCapacity" layoutX="103.0" layoutY="168.0" prefHeight="30.0" prefWidth="244.0" />
       <Label layoutX="38.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Capacidad:" />
       <TextField fx:id="txtName" layoutX="103.0" layoutY="113.0" prefHeight="30.0" prefWidth="244.0" />
-      <TextField fx:id="txtIdClassRoom" editable="false" layoutX="14.0" layoutY="23.0" prefHeight="25.0" prefWidth="27.0" />
+      <TextField fx:id="txtIdClassRoom" editable="false" layoutX="14.0" layoutY="23.0" prefHeight="25.0" prefWidth="27.0" visible="false" />
       <Button fx:id="btnAddClass" layoutX="36.0" layoutY="320.0" mnemonicParsing="false" onAction="#addClassRoom" prefHeight="30.0" prefWidth="120.0" text="Agregar" />
       <Button fx:id="btnUpdateClass" layoutX="165.0" layoutY="320.0" mnemonicParsing="false" onAction="#updateClassRoom" prefHeight="30.0" prefWidth="120.0" text="Actualizar" />
       <Button fx:id="btnReset" layoutX="300.0" layoutY="320.0" mnemonicParsing="false" onAction="#resest" prefHeight="30.0" prefWidth="120.0" text="Cancelar" />
