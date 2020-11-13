@@ -189,9 +189,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <items>
-                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar Usuario" />
-                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Usuarios Autorizados" />
-                  <MenuItem fx:id="itemListUserDesactived" mnemonicParsing="false" onAction="#openListUsersNotHabilited" text="Usuarios Desactivados" />
+                  <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar a una Persona" />
+                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Lista de Usuarios" />
                </items>
                <styleClass>
                   <String fx:value="nav-item" />
