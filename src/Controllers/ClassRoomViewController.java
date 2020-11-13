@@ -60,34 +60,48 @@ public class ClassRoomViewController implements Initializable {
 
     @FXML
     private void addClassRoom(ActionEvent event) {
-        
+        if (!this.fieldsFormat()) {
+            return;
+        }
         String name = this.txtName.getText().toUpperCase();
         int capacity = Integer.parseInt(this.txtCapacity.getText());
-        
         ClassRoom room = new ClassRoom(name, capacity);
         Alert msg = room.addClassRoom();
         msg.showAndWait();
         this.setTableClassRooms();
-        
+        this.resest();
     }
 
     @FXML
     private void updateClassRoom(ActionEvent event) {
-        
+        if (!this.fieldsFormat()) {
+            return;
+        }
+
         String name = this.txtName.getText().toUpperCase();
         int capacity = Integer.parseInt(this.txtCapacity.getText());
         int id = Integer.parseInt(this.txtIdClassRoom.getText());
-        
+
         ClassRoom room = new ClassRoom(id, name, capacity);
-        
+
         Alert msg = room.updateClassRoom();
         msg.showAndWait();
-        
+
         this.setTableClassRooms();
+        this.resest();
     }
 
     @FXML
+
     private void resest(ActionEvent event) {
+        this.btnUpdateClass.setVisible(false);
+        this.txtIdClassRoom.setText(null);
+        this.btnAddClass.setVisible(true);
+        this.txtName.setText(null);
+        this.txtCapacity.setText(null);
+    }
+
+    private void resest() {
         this.btnUpdateClass.setVisible(false);
         this.txtIdClassRoom.setText(null);
         this.btnAddClass.setVisible(true);
@@ -97,15 +111,39 @@ public class ClassRoomViewController implements Initializable {
 
     @FXML
     private void selectedItem(MouseEvent event) {
-        
+
         ClassRoom room = this.tableClassRooms.getSelectionModel().getSelectedItem();
-        
+
         this.txtIdClassRoom.setText(room.getId() + "");
         this.txtName.setText(room.getName());
         this.txtCapacity.setText(room.getCapacidad() + "");
-        
+
         this.btnUpdateClass.setVisible(true);
         this.btnAddClass.setVisible(false);
     }
 
+    public boolean fieldsFormat() {
+        if (this.txtName.getText().isEmpty() || this.txtCapacity.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Llena todo los campos");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            System.out.println("Errores en los campo");
+            return false;
+        }
+
+        String name = this.txtName.getText().toUpperCase();
+        int capacity = Integer.parseInt(this.txtCapacity.getText());
+
+        if (capacity <= 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingrese una catidad valida");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+    }
 }
