@@ -82,7 +82,26 @@ public class Workers extends Person {
 
         try {
             Connection link = Base.getConnectionStatic();
-            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT * FROM personal");
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT id_personal,cedula, nombre, apellido,email,cargo ,telefono FROM personal");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(
+                    new Workers(rs.getInt("id_personal"), rs.getString("cargo"), rs.getString("email"), rs.getString("telefono"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("cedula"))
+                );
+            }
+
+            link.close();
+        } catch (SQLException e) {
+            System.err.println("Error al setear la tabla de personal: " + e);
+        }
+    }
+    
+    public static void getWorkerAll(ObservableList<Workers> list, String key) {
+
+        try {
+            Connection link = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT id_personal,cedula, nombre, apellido,email,cargo ,telefono FROM personal WHERE nombre LIKE ?");
+            ps.setString(1, key + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(
@@ -100,7 +119,7 @@ public class Workers extends Person {
         Workers worker = null;
         try {
             Connection link = Base.getConnectionStatic();
-            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT * FROM personal WHERE cedula = ? LIMIT 1");
+            PreparedStatement ps = (PreparedStatement) link.prepareStatement("SELECT id_personal,cedula, nombre, apellido,email,cargo ,telefono FROM personal WHERE cedula = ? LIMIT 1");
             ps.setString(1, doc);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

@@ -11,7 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 public class UpdateWorkerViewController implements Initializable {
@@ -45,20 +50,47 @@ public class UpdateWorkerViewController implements Initializable {
     private ObservableList<String> itemsCargo = FXCollections.observableArrayList();
     @FXML
     private Pane paneData;
+    @FXML
+    private TableView<Workers> tblWorkersFilters;
+    ObservableList<Workers> listFilter = FXCollections.observableArrayList();
+    private TableColumn colId;
+    @FXML
+    private TableColumn colName;
+    @FXML
+    private TableColumn colLastName;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setCombox();
         this.paneData.setVisible(false);
+        this.setTable();
     }
 
     public void setCombox() {
         this.itemsCbo.addAll("V-", "E-");
         this.cboDocWorker.setItems(this.itemsCbo);
         this.cboSearchWorker.setItems(this.itemsCbo);
-        
-        this.itemsCargo.addAll("DOCENTE","DIRECTOR", "OBRERO", "SECRETARIA");
+
+        this.itemsCargo.addAll("DOCENTE", "DIRECTOR", "OBRERO", "SECRETARIA");
         this.cboCargo.setItems(this.itemsCargo);
+    }
+
+    public void setTable() {
+        this.listFilter.clear();
+
+        if (this.txtSearchWorker.getText().isEmpty()) {
+            this.listFilter.clear();
+            this.colName.setCellValueFactory(new PropertyValueFactory("names"));
+            this.colLastName.setCellValueFactory(new PropertyValueFactory("lastNames"));
+            Workers.getWorkerAll(this.listFilter);
+            this.tblWorkersFilters.setItems(this.listFilter);
+            return;
+        }
+        
+        this.colName.setCellValueFactory(new PropertyValueFactory("names"));
+        this.colLastName.setCellValueFactory(new PropertyValueFactory("lastNames"));
+        Workers.getWorkerAll(this.listFilter, this.txtSearchWorker.getText().toUpperCase());
+        this.tblWorkersFilters.setItems(this.listFilter);
     }
 
     @FXML
@@ -101,6 +133,19 @@ public class UpdateWorkerViewController implements Initializable {
     @FXML
     private void setNewValueCombo(ActionEvent event) {
         this.cboDocWorker.getSelectionModel().select(this.cboSearchWorker.getSelectionModel().getSelectedIndex());
+    }
+
+    @FXML
+    private void selectItem(MouseEvent event) {
+
+        Workers worker = this.tblWorkersFilters.getSelectionModel().getSelectedItem();
+        this.txtIdWorker.setText(worker.getId() + "");
+    }
+
+
+    @FXML
+    private void searchWorkerFilter(KeyEvent event) {
+        setTable();
     }
 
 }
