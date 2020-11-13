@@ -17,9 +17,7 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="20.0" prefHeight="17.0" prefWidth="320.0" style="-fx-font-size: 14;" text="Ingresa el N° de Cedula" />
             <TextField fx:id="txtSearchWorker" layoutX="32.0" layoutY="61.0" onKeyTyped="#searchWorkerFilter" prefHeight="30.0" prefWidth="261.0" />
-            <ComboBox fx:id="cboSearchWorker" layoutX="11.0" layoutY="15.0" onAction="#setNewValueCombo" prefHeight="30.0" prefWidth="64.0" visible="false" />
-            <Button fx:id="btnSearch" layoutX="148.0" layoutY="40.0" mnemonicParsing="false" onAction="#searchWorker" prefHeight="30.0" prefWidth="158.0" text="Buscar" visible="false" />
-            <TextField fx:id="txtIdWorker" layoutX="264.0" layoutY="15.0" prefHeight="30.0" prefWidth="23.0" />
+            <TextField fx:id="txtIdWorker" editable="false" layoutX="264.0" layoutY="15.0" prefHeight="30.0" prefWidth="23.0" visible="false" />
             <TableView fx:id="tblWorkersFilters" layoutX="32.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectItem" prefHeight="180.0" prefWidth="261.0">
               <columns>
                 <TableColumn fx:id="colName" editable="false" prefWidth="130.0" resizable="false" text="Nombre" />

@@ -23,11 +23,8 @@ public class UpdateWorkerViewController implements Initializable {
 
     @FXML
     private TextField txtSearchWorker;
-    @FXML
     private ComboBox<String> cboSearchWorker;
     private ObservableList<String> itemsCbo = FXCollections.observableArrayList();
-    @FXML
-    private Button btnSearch;
     @FXML
     private TextField txtIdWorker;
     @FXML
@@ -69,7 +66,6 @@ public class UpdateWorkerViewController implements Initializable {
     public void setCombox() {
         this.itemsCbo.addAll("V-", "E-");
         this.cboDocWorker.setItems(this.itemsCbo);
-        this.cboSearchWorker.setItems(this.itemsCbo);
 
         this.itemsCargo.addAll("DOCENTE", "DIRECTOR", "OBRERO", "SECRETARIA");
         this.cboCargo.setItems(this.itemsCargo);
@@ -94,29 +90,6 @@ public class UpdateWorkerViewController implements Initializable {
     }
 
     @FXML
-    private void searchWorker(ActionEvent event) {
-        String doc = this.cboSearchWorker.getValue() + this.txtSearchWorker.getText();
-        Workers worker = Workers.getWorkerByDoc(doc);
-
-        if (worker == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Persona no encontrada");
-            alert.showAndWait();
-            return;
-        }
-
-        this.txtIdWorker.setText(worker.getId() + "");
-        this.txtDocWorker.setText(worker.getIdentification());
-        this.txtNameWorker.setText(worker.getNames());
-        this.txtLastNameWorker.setText(worker.getLastNames());
-        this.txtPhoneWorker.setText(worker.getPhone());
-        this.txtEmailWorker.setText(worker.getEmail());
-        this.cboCargo.getSelectionModel().select(worker.getCargo());
-        this.paneData.setVisible(true);
-    }
-
-    @FXML
     private void saveData(ActionEvent event) {
         int id = Integer.parseInt(this.txtIdWorker.getText());
         String doc = this.cboDocWorker.getValue() + this.txtDocWorker.getText().toUpperCase();
@@ -128,18 +101,25 @@ public class UpdateWorkerViewController implements Initializable {
         Workers worker = new Workers(id, cargo, email, phone, name, lastName, doc);
         Alert msg = worker.UpdateWorker();
         msg.showAndWait();
+        this.paneData.setVisible(false);
+        this.setTable();
     }
 
-    @FXML
-    private void setNewValueCombo(ActionEvent event) {
-        this.cboDocWorker.getSelectionModel().select(this.cboSearchWorker.getSelectionModel().getSelectedIndex());
-    }
-
+   
     @FXML
     private void selectItem(MouseEvent event) {
 
-        Workers worker = this.tblWorkersFilters.getSelectionModel().getSelectedItem();
+       Workers worker = this.tblWorkersFilters.getSelectionModel().getSelectedItem();
+        
         this.txtIdWorker.setText(worker.getId() + "");
+        this.txtDocWorker.setText(worker.getIdentification().substring(2));
+        this.txtNameWorker.setText(worker.getNames());
+        this.txtLastNameWorker.setText(worker.getLastNames());
+        this.txtPhoneWorker.setText(worker.getPhone());
+        this.txtEmailWorker.setText(worker.getEmail());
+        this.cboDocWorker.getSelectionModel().select(worker.getIdentification().substring(0, 2));
+        this.cboCargo.getSelectionModel().select(worker.getCargo());
+        this.paneData.setVisible(true);
     }
 
 
