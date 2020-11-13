@@ -3,7 +3,7 @@
 
 /* HELPERS*/
 .shadow {
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 9,0,0,1 );
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 );
 }
 
 .text-dark {
@@ -12,6 +12,10 @@
 
 .text-info {
     -fx-text-fill:  #214282;
+}
+
+.text-white {
+    -fx-text-fill: #F7F3F5;
 }
 
 .bold {
@@ -33,24 +37,41 @@
     -fx-font-weight: bold;
     -fx-text-fill: #F7F3F5;
 }
+.button-md {
+    -fx-background-radius: 4;
+    -fx-padding: 6.5;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F7F3F5;
+}
 
 .button-primary {
     -fx-background-color:  #214282;
     -fx-text-fill: #F7F3F5;
 }
 
+.button-secondary {
+    -fx-background-color:  #0D77E7;
+    -fx-text-fill: #F7F3F5;
+}
+
 .button-primary:hover {
     -fx-background-color:  #14274E;
+}
+.button-secondary:hover {
+    -fx-background-color:  #51A0F5;
 }
 
 /*FORMS*/
 .form-control {
     -fx-border-color: #51A0F5;
-    -fx-border-width: 1.5px;
+    -fx-border-width: 1px;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
 }
 
 .form-control:focused {
-    -fx-border-width: 2px;
+    -fx-border-width: 1.2px;
 }
 
 /*ALERTS*/
@@ -87,6 +108,13 @@
     -fx-border-color: transparent transparent #51A0F5 transparent;
 }
 
+.panes {
+    -fx-background-color: #F7F3F5;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 );
+}
 
-
+.link {
+    -fx-text-fill: #14274E;
+}
 

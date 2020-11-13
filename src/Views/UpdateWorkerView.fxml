@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -10,13 +12,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UpdateWorkerViewController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1024.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UpdateWorkerViewController">
    <children>
-      <Label alignment="CENTER" layoutX="393.0" layoutY="14.0" style="-fx-font-size: 16;" text="Personal 1 Actualizacion de Datos" />
-      <Pane layoutX="5.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="320.0" style="-fx-background-radius: 8; -fx-background-color: #f2f2f2;">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1024.0" style="-fx-font-size: 16;" stylesheets="@../css/main.css" text="Actualizacion de Datos">
+         <styleClass>
+            <String fx:value="bold" />
+            <String fx:value="text-dark" />
+         </styleClass></Label>
+      <Pane layoutX="15.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="320.0" style="-fx-background-radius: 8;" styleClass="panes" stylesheets="@../css/main.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="20.0" prefHeight="17.0" prefWidth="320.0" style="-fx-font-size: 14;" text="Ingresa el N° de Cedula" />
-            <TextField fx:id="txtSearchWorker" layoutX="32.0" layoutY="61.0" onKeyTyped="#searchWorkerFilter" prefHeight="30.0" prefWidth="261.0" />
+            <TextField fx:id="txtSearchWorker" layoutX="32.0" layoutY="61.0" onKeyTyped="#searchWorkerFilter" prefHeight="30.0" prefWidth="261.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <TextField fx:id="txtIdWorker" editable="false" layoutX="264.0" layoutY="15.0" prefHeight="30.0" prefWidth="23.0" visible="false" />
             <TableView fx:id="tblWorkersFilters" layoutX="32.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectItem" prefHeight="180.0" prefWidth="261.0">
               <columns>
@@ -25,7 +31,7 @@
               </columns>
             </TableView>
          </children></Pane>
-      <Pane fx:id="paneData" layoutX="351.0" layoutY="39.0" prefHeight="300.0" prefWidth="667.0" style="-fx-background-radius: 8; -fx-background-color: #f2f2f2;">
+      <Pane fx:id="paneData" layoutX="351.0" layoutY="50.0" prefHeight="300.0" prefWidth="667.0" style="-fx-background-radius: 8;" styleClass="panes" stylesheets="@../css/main.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="20.0" prefHeight="17.0" prefWidth="667.0" text="Ingresa los nuevos Datos">
                <font>
@@ -38,38 +44,46 @@
                </font>
             </Label>
             <ComboBox fx:id="cboDocWorker" layoutX="131.0" layoutY="74.0" prefHeight="30.0" prefWidth="64.0" />
-            <TextField fx:id="txtDocWorker" layoutX="204.0" layoutY="74.0" prefHeight="30.0" prefWidth="110.0" />
+            <TextField fx:id="txtDocWorker" layoutX="204.0" layoutY="74.0" prefHeight="30.0" prefWidth="110.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <Label layoutX="67.0" layoutY="132.0" text="Nombre:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNameWorker" layoutX="131.0" layoutY="127.0" prefHeight="30.0" prefWidth="180.0" />
+            <TextField fx:id="txtNameWorker" layoutX="131.0" layoutY="127.0" prefHeight="30.0" prefWidth="180.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <Label layoutX="69.0" layoutY="184.0" text="Apellido:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtLastNameWorker" layoutX="133.0" layoutY="179.0" prefHeight="30.0" prefWidth="180.0" />
+            <TextField fx:id="txtLastNameWorker" layoutX="133.0" layoutY="179.0" prefHeight="30.0" prefWidth="180.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <Label layoutX="355.0" layoutY="79.0" text="Telefono:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPhoneWorker" layoutX="419.0" layoutY="74.0" prefHeight="30.0" prefWidth="180.0" />
+            <TextField fx:id="txtPhoneWorker" layoutX="419.0" layoutY="74.0" prefHeight="30.0" prefWidth="180.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <Label layoutX="355.0" layoutY="132.0" text="Correo:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmailWorker" layoutX="421.0" layoutY="127.0" prefHeight="30.0" prefWidth="180.0" />
+            <TextField fx:id="txtEmailWorker" layoutX="421.0" layoutY="127.0" prefHeight="30.0" prefWidth="180.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <Label layoutX="355.0" layoutY="185.0" text="Cargo:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
             <ComboBox fx:id="cboCargo" layoutX="421.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" />
-            <Button fx:id="btnSave" layoutX="234.0" layoutY="240.0" mnemonicParsing="false" onAction="#saveData" prefHeight="30.0" prefWidth="200.0" text="Guardar" />
+            <Button fx:id="btnSave" layoutX="234.0" layoutY="240.0" mnemonicParsing="false" onAction="#saveData" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Guardar">
+               <styleClass>
+                  <String fx:value="button-md" />
+                  <String fx:value="button-primary" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children></Pane>
    </children>
 </AnchorPane>

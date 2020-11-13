@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -7,11 +8,19 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ViewNewPeriodController">
    <children>
-      <Label layoutX="286.0" layoutY="29.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Agregar Periodo Academico" />
-      <Label layoutX="190.0" layoutY="141.0" style="-fx-font-size: 14;" text="Fecha de Inicio" />
-      <DatePicker fx:id="txtDateGo" editable="false" focusTraversable="false" layoutX="322.0" layoutY="131.0" prefHeight="30.0" />
-      <Label layoutX="190.0" layoutY="187.0" style="-fx-font-size: 14;" text="Fecha de Cierre" />
-      <DatePicker fx:id="txtDateClose" editable="false" focusTraversable="false" layoutX="322.0" layoutY="177.0" prefHeight="30.0" />
-      <Button fx:id="btnAddPeriod" alignment="CENTER" layoutX="323.0" layoutY="231.0" mnemonicParsing="false" onAction="#addPeriod" prefHeight="25.0" prefWidth="174.0" text="Agregar" />
+      <Label alignment="CENTER" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1024.0" style="-fx-font-size: 16;" stylesheets="@../css/main.css" text="Agregar Periodo Academico">
+         <styleClass>
+            <String fx:value="text-dark" />
+            <String fx:value="bold" />
+         </styleClass></Label>
+      <Label layoutX="206.0" layoutY="131.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" style="-fx-font-size: 14;" styleClass="text-dark" stylesheets="@../css/main.css" text="Fecha de Inicio" />
+      <DatePicker fx:id="txtDateGo" editable="false" focusTraversable="false" layoutX="322.0" layoutY="131.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" showWeekNumbers="true" styleClass="form-control" stylesheets="@../css/main.css" />
+      <Label layoutX="205.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" style="-fx-font-size: 14;" styleClass="text-dark" stylesheets="@../css/main.css" text="Fecha de Cierre" />
+      <DatePicker fx:id="txtDateClose" editable="false" focusTraversable="false" layoutX="323.0" layoutY="201.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" showWeekNumbers="true" styleClass="form-control" stylesheets="@../css/main.css" />
+      <Button fx:id="btnAddPeriod" alignment="CENTER" layoutX="323.0" layoutY="301.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPeriod" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Agregar">
+         <styleClass>
+            <String fx:value="button-primary" />
+            <String fx:value="button-big" />
+         </styleClass></Button>
    </children>
 </AnchorPane>
