@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ListStudentViewController">
    <children>
-      <ScrollPane prefHeight="370.0" prefWidth="1020.0">
+      <ScrollPane focusTraversable="false" prefHeight="370.0" prefWidth="1020.0">
          <content>
             <Pane prefHeight="437.0" prefWidth="1260.0">
                <children>
@@ -20,7 +20,7 @@
                         <String fx:value="title" />
                         <String fx:value="bold" />
                      </styleClass></Label>
-                  <TableView fx:id="tblListStudent" layoutX="5.0" layoutY="40.0" prefHeight="390.0" prefWidth="1248.0">
+                  <TableView fx:id="tblListStudent" focusTraversable="false" layoutX="5.0" layoutY="40.0" prefHeight="390.0" prefWidth="1248.0" styleClass="panes" stylesheets="@../css/main.css">
                     <columns>
                       <TableColumn fx:id="colIdUser" editable="false" minWidth="-Infinity" prefWidth="100.0" text="id_estudiante" visible="false" />
                       <TableColumn fx:id="colDocBoy" editable="false" minWidth="70.0" prefWidth="70.0" text="Cedula" />

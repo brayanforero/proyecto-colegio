@@ -25,7 +25,7 @@
          </styleClass></Label>
       <TextField fx:id="txtNameSection" layoutX="276.0" layoutY="87.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="260.0" styleClass="form-control" stylesheets="@../css/main.css" />
       <TextField fx:id="txtIdSection" editable="false" layoutX="22.0" layoutY="8.0" prefHeight="25.0" prefWidth="47.0" visible="false" />
-      <TableView fx:id="tblSections" layoutX="600.0" layoutY="50.0" onMouseClicked="#selectedItem" prefHeight="300.0" prefWidth="218.0" stylesheets="@../css/main.css">
+      <TableView fx:id="tblSections" focusTraversable="false" layoutX="600.0" layoutY="50.0" onMouseClicked="#selectedItem" prefHeight="300.0" prefWidth="218.0" stylesheets="@../css/main.css">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="Id" visible="false" />
           <TableColumn fx:id="colName" prefWidth="218.0" resizable="false" text="Seccion" />

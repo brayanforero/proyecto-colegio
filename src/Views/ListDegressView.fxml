@@ -17,15 +17,15 @@
             <String fx:value="title" />
             <String fx:value="bold" />
          </styleClass></Label>
-      <TableView fx:id="tblDegress" layoutX="498.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectDegress" prefHeight="290.0" prefWidth="502.0" styleClass="panes" stylesheets="@../css/main.css">
+      <TableView fx:id="tblDegress" focusTraversable="false" layoutX="498.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectDegress" prefHeight="290.0" prefWidth="502.0" styleClass="panes" stylesheets="@../css/main.css">
         <columns>
-          <TableColumn fx:id="colIdDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="ID" visible="false" />
-          <TableColumn fx:id="colDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Grado" />
-            <TableColumn fx:id="colSection" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Seccion" />
-            <TableColumn fx:id="colTurno" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Turno" />
-            <TableColumn fx:id="colClassRoom" editable="false" minWidth="-Infinity" prefWidth="94.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Ambiente de apredizaje" />
-            <TableColumn fx:id="colTeacher" editable="false" minWidth="-Infinity" prefWidth="99.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Docente" />
-            <TableColumn fx:id="colPeriod" editable="false" minWidth="-Infinity" prefWidth="113.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Periodo" />
+          <TableColumn fx:id="colIdDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="ID" visible="false" />
+          <TableColumn fx:id="colDegress" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="Grado" />
+            <TableColumn fx:id="colSection" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="Seccion" />
+            <TableColumn fx:id="colTurno" editable="false" minWidth="-Infinity" prefWidth="65.0" sortable="false" text="Turno" />
+            <TableColumn fx:id="colClassRoom" editable="false" minWidth="-Infinity" prefWidth="94.0" sortable="false" text="Ambiente de apredizaje" />
+            <TableColumn fx:id="colTeacher" editable="false" minWidth="-Infinity" prefWidth="99.0" sortable="false" text="Docente" />
+            <TableColumn fx:id="colPeriod" editable="false" minWidth="-Infinity" prefWidth="113.0" sortable="false" text="Periodo" />
         </columns>
       </TableView>
       <TextField fx:id="txtIdDegress" editable="false" layoutX="15.0" layoutY="10.0" prefHeight="25.0" prefWidth="21.0" visible="false" />

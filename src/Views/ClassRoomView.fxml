@@ -16,12 +16,12 @@
             <String fx:value="title" />
             <String fx:value="bold" />
          </styleClass></Label>
-      <TableView fx:id="tableClassRooms" layoutX="449.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectedItem" prefHeight="300.0" prefWidth="560.0" styleClass="panes" stylesheets="@../css/main.css">
+      <TableView fx:id="tableClassRooms" focusTraversable="false" layoutX="449.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectedItem" prefHeight="300.0" prefWidth="560.0" styleClass="panes" stylesheets="@../css/main.css">
         <columns>
-          <TableColumn fx:id="colIdClassRoom" editable="false" prefWidth="75.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="ID" visible="false" />
-          <TableColumn fx:id="colNameClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Centro" />
-            <TableColumn fx:id="colCountClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Capacidad" />
-            <TableColumn fx:id="colIsOcuped" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Ocupado" />
+          <TableColumn fx:id="colIdClassRoom" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="ID" visible="false" />
+          <TableColumn fx:id="colNameClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Centro" />
+            <TableColumn fx:id="colCountClassRoom" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Capacidad" />
+            <TableColumn fx:id="colIsOcuped" editable="false" minWidth="-Infinity" prefWidth="186.66" resizable="false" sortable="false" text="Ocupado" />
         </columns>
       </TableView>
       <Label alignment="CENTER" layoutX="36.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="392.0" stylesheets="@../css/main.css" text="Agrega o actualiza un mbiente de estudio">

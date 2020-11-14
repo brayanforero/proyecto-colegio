@@ -18,13 +18,13 @@
          </styleClass></Label>
       <TableView fx:id="tableWorkers" focusTraversable="false" layoutX="10.0" layoutY="50.0" prefHeight="290.0" prefWidth="996.0" styleClass="panes" stylesheets="@../css/main.css">
         <columns>
-          <TableColumn fx:id="colIdWorker" editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="ID" visible="false" />
-          <TableColumn fx:id="colDocWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Cedula" />
-            <TableColumn fx:id="colNameWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Nombre" />
-            <TableColumn fx:id="colLastNameWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Apellido" />
-            <TableColumn fx:id="colEmailWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Correo" />
-            <TableColumn fx:id="colCargoWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Cargo" />
-            <TableColumn fx:id="colPhoneWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5#F7F3F5;" text="Telefono" />
+          <TableColumn fx:id="colIdWorker" editable="false" prefWidth="75.0" sortable="false" text="ID" visible="false" />
+          <TableColumn fx:id="colDocWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Cedula" />
+            <TableColumn fx:id="colNameWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Nombre" />
+            <TableColumn fx:id="colLastNameWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Apellido" />
+            <TableColumn fx:id="colEmailWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Correo" />
+            <TableColumn fx:id="colCargoWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Cargo" />
+            <TableColumn fx:id="colPhoneWorker" editable="false" minWidth="0.0" prefWidth="166.0" resizable="false" sortable="false" text="Telefono" />
         </columns>
       </TableView>
       <Button fx:id="btnExportsWorkers" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#generatePdf" prefHeight="25.0" prefWidth="83.0" stylesheets="@../css/main.css" text="Exportar">
