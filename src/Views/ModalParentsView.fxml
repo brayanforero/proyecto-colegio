@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,26 +8,41 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ModalParentsViewController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="17.0" prefWidth="400.0" style="-fx-font-size: 14;" text="Representates" />
-      <TableView fx:id="tableParents" focusTraversable="false" layoutX="20.0" layoutY="40.0" prefHeight="200.0" prefWidth="400.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="10.0" prefHeight="17.0" prefWidth="400.0" stylesheets="@../css/main.css" text="Representates">
+         <styleClass>
+            <String fx:value="text-info" />
+            <String fx:value="title-2" />
+            <String fx:value="bold" />
+         </styleClass></Label>
+      <TableView fx:id="tableParents" focusTraversable="false" layoutX="20.0" layoutY="40.0" prefHeight="200.0" prefWidth="400.0" styleClass="panes" stylesheets="@../css/main.css">
         <columns>
-          <TableColumn fx:id="tblDocParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Cedula" />
-          <TableColumn fx:id="tblNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Nombres" />
-            <TableColumn fx:id="tblLasNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" text="Apelllidos" />
+          <TableColumn fx:id="tblDocParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" style="-fx-background-color: #F7F3F5;" text="Cedula" />
+          <TableColumn fx:id="tblNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" style="-fx-background-color: #F7F3F5;" text="Nombres" />
+            <TableColumn fx:id="tblLasNameParents" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" sortable="false" style="-fx-background-color: #F7F3F5;" text="Apelllidos" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" layoutY="10.0" prefHeight="17.0" prefWidth="400.0" style="-fx-font-size: 14;" text="Historial Academico" />
-      <TableView fx:id="tableHistory" focusTraversable="false" layoutX="481.0" layoutY="40.0" prefHeight="200.0" prefWidth="400.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" layoutY="10.0" prefHeight="17.0" prefWidth="400.0" stylesheets="@../css/main.css" text="Historial Academico">
+         <styleClass>
+            <String fx:value="text-info" />
+            <String fx:value="title-2" />
+            <String fx:value="bold" />
+         </styleClass></Label>
+      <TableView fx:id="tableHistory" focusTraversable="false" layoutX="481.0" layoutY="40.0" prefHeight="200.0" prefWidth="400.0" styleClass="panes" stylesheets="@../css/main.css">
          <columns>
-            <TableColumn fx:id="tblPeriod" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" text="Periodo" />
-            <TableColumn fx:id="tblDegress" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" text="Grado" />
-            <TableColumn fx:id="tblSection" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" text="Seccion" />
+            <TableColumn fx:id="tblPeriod" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Periodo" />
+            <TableColumn fx:id="tblDegress" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Grado" />
+            <TableColumn fx:id="tblSection" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="133.33" resizable="false" sortable="false" style="-fx-background-color: #F7F3F5;" text="Seccion" />
          </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="250.0" prefHeight="17.0" prefWidth="400.0" style="-fx-font-size: 14;" text="Telefonos de Contacto" />
-      <TableView fx:id="tablePhone" focusTraversable="false" layoutX="20.0" layoutY="277.0" prefHeight="200.0" prefWidth="400.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="250.0" prefHeight="17.0" prefWidth="400.0" stylesheets="@../css/main.css" text="Telefonos de Contacto">
+         <styleClass>
+            <String fx:value="text-info" />
+            <String fx:value="title-2" />
+            <String fx:value="bold" />
+         </styleClass></Label>
+      <TableView fx:id="tablePhone" focusTraversable="false" layoutX="20.0" layoutY="277.0" prefHeight="200.0" prefWidth="400.0" styleClass="panes" stylesheets="@../css/main.css">
          <columns>
-            <TableColumn fx:id="tblPhone" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="400.0" sortable="false" text="Telefonos" />
+            <TableColumn fx:id="tblPhone" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="400.0" sortable="false" style="-fx-background-color: #F7F3F5;" text="Telefonos" />
          </columns>
       </TableView>
    </children>

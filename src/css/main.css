@@ -65,6 +65,10 @@
     -fx-background-color:  #0D77E7;
     -fx-text-fill: #F7F3F5;
 }
+.button-third {
+    -fx-background-color:  #C98518;
+    
+}
 
 .button-alert {
     -fx-background-color:  #C91818;
@@ -79,6 +83,11 @@
 }
 .button-alert:hover {
     -fx-background-color:  #C92818;
+
+}
+
+.button-third:hover {
+    -fx-background-color:  #C95618;
 }
 
 /*FORMS*/

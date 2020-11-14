@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,7 +14,12 @@
          <content>
             <Pane prefHeight="437.0" prefWidth="1260.0">
                <children>
-                  <Label layoutX="560.0" layoutY="10.0" style="-fx-font-size: 16;" text="Lista de estudiantes" />
+                  <Label alignment="CENTER" layoutY="10.0" prefWidth="1024.0" stylesheets="@../css/main.css" text="Lista de estudiantes">
+                     <styleClass>
+                        <String fx:value="text-info" />
+                        <String fx:value="title" />
+                        <String fx:value="bold" />
+                     </styleClass></Label>
                   <TableView fx:id="tblListStudent" layoutX="5.0" layoutY="40.0" prefHeight="390.0" prefWidth="1248.0">
                     <columns>
                       <TableColumn fx:id="colIdUser" editable="false" minWidth="-Infinity" prefWidth="100.0" text="id_estudiante" visible="false" />
