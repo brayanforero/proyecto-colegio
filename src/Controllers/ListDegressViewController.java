@@ -1,6 +1,7 @@
 package Controllers;
 
 import Config.Base;
+import Config.Utilities;
 import Files.Pdf;
 import Models.ClassRoom;
 import Models.Degress;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ListDegressViewController implements Initializable {
@@ -82,6 +84,7 @@ public class ListDegressViewController implements Initializable {
         this.setTableDegress();
         this.setCombos();
         this.btnUpdateDegress.setVisible(false);
+        this.initEvent();
     }
 
     public void setPeriod(int id, String period) {
@@ -137,7 +140,7 @@ public class ListDegressViewController implements Initializable {
 
     @FXML
     private void addPeriod(ActionEvent event) {
-        if(this.txtNameDegress.getText().isEmpty()){
+        if (this.txtNameDegress.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Completas los campos");
             alert.setHeaderText(null);
@@ -182,8 +185,7 @@ public class ListDegressViewController implements Initializable {
         String turno = this.cboTurno.getValue();
 
         Degress newDegress = new Degress();
-        
-        
+
         newDegress.setId(id);
         newDegress.setIdWorkers(worker.getId());
         newDegress.setIdClassroom(aula.getId());
@@ -197,15 +199,18 @@ public class ListDegressViewController implements Initializable {
 
     @FXML
     private void reset(ActionEvent event) {
-        
+
         this.txtNameDegress.setText("");
         this.btnUpdateDegress.setVisible(false);
         this.btnAddDegress.setVisible(true);
-        
+
         this.cboClassrooms.getSelectionModel().select(0);
         this.cboSection.getSelectionModel().select(0);
         this.cboTurno.getSelectionModel().select(0);
         this.cboWorker.getSelectionModel().select(0);
     }
 
+    public void initEvent() {
+        this.txtNameDegress.setOnKeyTyped(e-> Utilities.onlyLetter(e));
+    }
 }
