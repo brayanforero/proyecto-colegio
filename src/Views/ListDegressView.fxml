@@ -78,7 +78,7 @@
             <String fx:value="button-third" />
             <String fx:value="shadow" />
          </styleClass></Button>
-      <Button fx:id="btnUpdateDegress1" layoutX="286.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateDegress" prefWidth="128.0" stylesheets="@../css/main.css" text="Cancelar">
+      <Button fx:id="btnReset" layoutX="286.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reset" prefWidth="128.0" stylesheets="@../css/main.css" text="Cancelar">
          <styleClass>
             <String fx:value="button-md" />
             <String fx:value="button-alert" />

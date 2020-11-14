@@ -74,6 +74,8 @@ public class ListDegressViewController implements Initializable {
     private ObservableList<ClassRoom> itemsClassRooms = FXCollections.observableArrayList();
     @FXML
     private TextField txtIdDegress;
+    @FXML
+    private Button btnReset;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -135,7 +137,13 @@ public class ListDegressViewController implements Initializable {
 
     @FXML
     private void addPeriod(ActionEvent event) {
-
+        if(this.txtNameDegress.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completas los campos");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
         int idPeriod = Integer.parseInt(this.txtIdPeriod.getText());
         Workers worker = this.cboWorker.getValue();
         ClassRoom aula = this.cboClassrooms.getValue();
@@ -185,6 +193,19 @@ public class ListDegressViewController implements Initializable {
         Alert msg = newDegress.degressUpdate();
         msg.showAndWait();
         this.setTableDegress();
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        
+        this.txtNameDegress.setText("");
+        this.btnUpdateDegress.setVisible(false);
+        this.btnAddDegress.setVisible(true);
+        
+        this.cboClassrooms.getSelectionModel().select(0);
+        this.cboSection.getSelectionModel().select(0);
+        this.cboTurno.getSelectionModel().select(0);
+        this.cboWorker.getSelectionModel().select(0);
     }
 
 }
