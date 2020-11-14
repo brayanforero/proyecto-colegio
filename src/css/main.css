@@ -18,6 +18,17 @@
     -fx-text-fill: #F7F3F5;
 }
 
+.title {
+    -fx-font-size: 16;
+}
+.title-2 {
+    -fx-font-size: 14;
+}
+
+.title-3 {
+    -fx-font-size: 12;
+}
+
 .bold {
     -fx-font-weight: bold;
 }
@@ -64,14 +75,16 @@
 
 /*FORMS*/
 .form-control {
-    -fx-border-color: #51A0F5;
-    -fx-border-width: 1px;
+    -fx-border: none;
+    -fx-border-color: #CCC;
+    -fx-border-width: 1.2px;
     -fx-background-radius: 4;
     -fx-border-radius: 4;
 }
 
 .form-control:focused {
     -fx-border-width: 1.2px;
+    -fx-border-color: #0D77E7;
 }
 
 /*ALERTS*/
@@ -109,7 +122,7 @@
 }
 
 .panes {
-    -fx-background-color: #F7F3F5;
+    -fx-background-color: #FEFDFE;
     -fx-background-radius: 8;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5,0,0,1 );
 }

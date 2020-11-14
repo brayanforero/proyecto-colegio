@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -15,47 +17,120 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterStudentViewController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1020.0" style="-fx-background-color: #F7F3F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterStudentViewController">
    <children>
       <ScrollPane focusTraversable="false" hbarPolicy="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="1020.0" vbarPolicy="ALWAYS">
         <content>
-          <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1020.0">
+          <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1020.0" style="-fx-background-color: #FEFDFE;">
                <children>
-                  <Label layoutX="452.0" layoutY="16.0" style="-fx-text-fill: #434141; -fx-font-size: 18; -fx-font-weight: bold;" text="Inscripción | Nuevo Ingreso" />
-                  <TabPane layoutY="56.0" prefHeight="334.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
+                  <Label alignment="CENTER" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1020.0" stylesheets="@../css/main.css" text="Nuevo Ingreso">
+                     <styleClass>
+                        <String fx:value="text-info" />
+                        <String fx:value="bold" />
+                        <String fx:value="title" />
+                     </styleClass></Label>
+                  <TabPane layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="1020.0" style="-fx-background-color: #FEFDFE;" stylesheets="@../css/main.css" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Datos del Niño(a)">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label layoutX="129.0" layoutY="21.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Personales" />
-                                    <Label layoutX="24.0" layoutY="80.0" style="-fx-font-size: 16;" text="Nombres:" />
-                                    <TextField fx:id="txtNames" layoutX="106.0" layoutY="74.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="24.0" layoutY="123.0" style="-fx-font-size: 16;" text="Apellidos:" />
-                                    <TextField fx:id="txtLastNames" layoutX="106.0" layoutY="119.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="24.0" layoutY="169.0" prefHeight="20.0" prefWidth="55.0" style="-fx-font-size: 16;" text="Cedula:" />
-                                    <TextField fx:id="txtDocument" layoutX="106.0" layoutY="165.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="25.0" layoutY="219.0" prefHeight="25.0" prefWidth="163.0" style="-fx-font-size: 16;" text="Fecha de Nacimiento:" />
-                                    <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="217.0" prefHeight="25.0" prefWidth="140.0" style="-fx-background-radius: 4; -fx-padding: 2;" />
+                                    <Label alignment="CENTER" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="351.0" stylesheets="@../css/main.css" text="Datos Personales">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <Label layoutX="25.0" layoutY="53.0" stylesheets="@../css/main.css" text="Nombres:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtNames" layoutX="107.0" layoutY="47.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="25.0" layoutY="91.0" stylesheets="@../css/main.css" text="Apellidos:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtLastNames" layoutX="107.0" layoutY="87.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="25.0" layoutY="133.0" prefHeight="20.0" prefWidth="55.0" stylesheets="@../css/main.css" text="Cedula:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtDocument" layoutX="107.0" layoutY="129.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="26.0" layoutY="174.0" prefHeight="25.0" prefWidth="126.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="156.0" layoutY="172.0" prefHeight="27.0" prefWidth="170.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="380.0" layoutY="78.0" prefHeight="20.0" prefWidth="63.0" style="-fx-font-size: 16;" text="Estado:" />
-                                    <Label layoutX="375.0" layoutY="124.0" style="-fx-font-size: 16;" text="Municipio:" />
-                                    <Label layoutX="376.0" layoutY="169.0" style="-fx-font-size: 16;" text="Localidad:" />
-                                    <Label layoutX="395.0" layoutY="218.0" style="-fx-font-size: 18;" text="¿Posee algunos de estos Beneficios?" />
-                                    <CheckBox fx:id="checkHaveCanaima" layoutX="432.0" layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" style="-fx-font-size: 16;" text="Canaima" />
-                                    <CheckBox fx:id="checkHaveBeca" layoutX="563.0" layoutY="256.0" mnemonicParsing="false" style="-fx-font-size: 16;" text="Beca" />
-                                    <Label layoutX="455.0" layoutY="21.0" prefHeight="27.0" prefWidth="182.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos de Nacimiento" />
+                                    <Label layoutX="368.0" layoutY="49.0" prefHeight="20.0" prefWidth="63.0" stylesheets="@../css/main.css" text="Estado:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label layoutX="368.0" layoutY="89.0" stylesheets="@../css/main.css" text="Municipio:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label layoutX="369.0" layoutY="126.0" stylesheets="@../css/main.css" text="Localidad:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label alignment="CENTER" layoutX="351.0" layoutY="167.0" prefHeight="17.0" prefWidth="344.0" stylesheets="@../css/main.css" text="¿Posee algunos de estos Beneficios?">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <CheckBox fx:id="checkHaveCanaima" layoutX="413.0" layoutY="211.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" stylesheets="@../css/main.css" text="Canaima">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></CheckBox>
+                                    <CheckBox fx:id="checkHaveBeca" layoutX="528.0" layoutY="215.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="110.0" stylesheets="@../css/main.css" text="Beca">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></CheckBox>
+                                    <Label alignment="CENTER" layoutX="351.0" layoutY="10.0" prefHeight="27.0" prefWidth="344.0" stylesheets="@../css/main.css" text="Datos de Nacimiento">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
                                     <Separator layoutX="693.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="196.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Telefonos de Contacto" />
-                                    <Label layoutX="713.0" layoutY="82.0" style="-fx-font-size: 16;" text="Telefono de Mamá" />
-                                    <TextField fx:id="txtPhoneMon" layoutX="857.0" layoutY="78.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="712.0" layoutY="136.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Telefono de Papá" />
-                                    <TextField fx:id="txtPhoneDad" layoutX="856.0" layoutY="132.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="24.0" layoutY="254.0" prefHeight="20.0" prefWidth="55.0" style="-fx-font-size: 16;" text="Genero" />
-                                    <ComboBox fx:id="cboSelectGender" layoutX="106.0" layoutY="256.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 4;" />
-                                    <ComboBox fx:id="txtSelectState" layoutX="456.0" layoutY="78.0" onAction="#getMunById" prefWidth="150.0" style="-fx-background-radius: 4;" />
-                                    <ComboBox fx:id="txtSelectMun" layoutX="456.0" layoutY="123.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
-                                    <ComboBox fx:id="txtSelecLocale" layoutX="456.0" layoutY="169.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <Label alignment="CENTER" layoutX="695.0" layoutY="10.0" prefHeight="27.0" prefWidth="322.0" stylesheets="@../css/main.css" text="Telefonos de Contacto">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <Label layoutX="709.0" layoutY="52.0" stylesheets="@../css/main.css" text="Telefono de Mamá">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtPhoneMon" layoutX="826.0" layoutY="47.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="709.0" layoutY="92.0" prefWidth="104.0" stylesheets="@../css/main.css" text="Telefono de Papá">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtPhoneDad" layoutX="826.0" layoutY="86.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="30.0" layoutY="222.0" prefHeight="20.0" prefWidth="55.0" stylesheets="@../css/main.css" text="Genero">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <ComboBox fx:id="cboSelectGender" layoutX="107.0" layoutY="223.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelectState" layoutX="453.0" layoutY="47.0" onAction="#getMunById" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelectMun" layoutX="453.0" layoutY="87.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="txtSelecLocale" layoutX="453.0" layoutY="124.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                  </children>
                               </Pane>
                            </content></Tab>
@@ -63,11 +138,24 @@
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label alignment="CENTER" layoutX="228.0" layoutY="24.0" prefHeight="17.0" prefWidth="150.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Mi Salud" />
-                                    <TextField fx:id="txtHealth" layoutX="238.0" layoutY="68.0" prefHeight="33.0" prefWidth="255.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="18.0" layoutY="72.0" prefHeight="25.0" prefWidth="210.0" style="-fx-font-size: 16;" text="Describa alguna Enfermedad:" />
-                                    <Label layoutX="18.0" layoutY="121.0" prefHeight="25.0" prefWidth="210.0" style="-fx-font-size: 16;" text="Recomendaciones de Mamá:" />
-                                    <TextArea fx:id="txtRecomendations" layoutX="238.0" layoutY="121.0" prefHeight="176.0" prefWidth="255.0" style="-fx-background-radius: 4;" />
+                                    <Label alignment="CENTER" layoutY="10.0" prefHeight="25.0" prefWidth="517.0" stylesheets="@../css/main.css" text="Informacion de Salud">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtHealth" layoutX="210.0" layoutY="48.0" prefHeight="33.0" prefWidth="283.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="10.0" layoutY="52.0" prefHeight="25.0" prefWidth="185.0" stylesheets="@../css/main.css" text="Describa alguna Enfermedad:">
+                                       <styleClass>
+                                          <String fx:value="bold" />
+                                          <String fx:value="text-dark" />
+                                       </styleClass></Label>
+                                    <Label layoutX="10.0" layoutY="101.0" prefHeight="25.0" prefWidth="165.0" stylesheets="@../css/main.css" text="Recomendaciones de Mamá:">
+                                       <styleClass>
+                                          <String fx:value="bold" />
+                                          <String fx:value="text-dark" />
+                                       </styleClass></Label>
+                                    <TextArea fx:id="txtRecomendations" layoutX="212.0" layoutY="101.0" prefHeight="176.0" prefWidth="281.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="516.0" maxWidth="400.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="4.0" />
                                  </children>
                               </Pane>
@@ -76,33 +164,81 @@
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label layoutX="129.0" layoutY="21.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Personales" />
-                                    <Label layoutX="24.0" layoutY="80.0" style="-fx-font-size: 16;" text="Nombres:" />
-                                    <TextField fx:id="txtMonNames" layoutX="106.0" layoutY="74.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="24.0" layoutY="123.0" style="-fx-font-size: 16;" text="Apellidos:" />
-                                    <TextField fx:id="txtMonLastNames" layoutX="106.0" layoutY="119.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="24.0" layoutY="169.0" prefHeight="20.0" prefWidth="55.0" style="-fx-font-size: 16;" text="Cedula:" />
-                                    <TextField fx:id="txtMonDocument" layoutX="106.0" layoutY="165.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="25.0" layoutY="219.0" prefHeight="25.0" prefWidth="163.0" style="-fx-font-size: 16;" text="Fecha de Nacimiento:" />
-                                    <DatePicker fx:id="txtMonDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="217.0" prefHeight="25.0" prefWidth="140.0" style="-fx-background-radius: 4; -fx-padding: 2;" />
+                                    <Label layoutX="129.0" layoutY="10.0" stylesheets="@../css/main.css" text="Datos Personales">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="title-2" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label layoutX="24.0" layoutY="50.0" stylesheets="@../css/main.css" text="Nombres:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtMonNames" layoutX="106.0" layoutY="44.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="24.0" layoutY="93.0" stylesheets="@../css/main.css" text="Apellidos:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtMonLastNames" layoutX="106.0" layoutY="89.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="24.0" layoutY="139.0" prefHeight="20.0" prefWidth="55.0" stylesheets="@../css/main.css" text="Cedula:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtMonDocument" layoutX="106.0" layoutY="135.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="25.0" layoutY="189.0" prefHeight="25.0" prefWidth="163.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <DatePicker fx:id="txtMonDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="373.0" layoutY="60.0" style="-fx-font-size: 16;" text="¿Vive con el Niño(a)?" />
-                                    <Label layoutX="469.0" layoutY="21.0" prefHeight="27.0" prefWidth="120.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos del Hogar" />
+                                    <Label alignment="CENTER" layoutX="352.0" layoutY="50.0" prefHeight="20.0" prefWidth="302.0" stylesheets="@../css/main.css" text="¿Vive con el Niño(a)?">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label layoutX="469.0" layoutY="10.0" prefHeight="27.0" prefWidth="120.0" stylesheets="@../css/main.css" text="Datos del Hogar">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="title-2" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
                                     <Separator layoutX="653.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="196.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Adicionales" />
-                                    <Label layoutX="673.0" layoutY="82.0" style="-fx-font-size: 16;" text="Profesión u Oficio:" />
-                                    <TextField fx:id="txtOcupationMon" layoutX="817.0" layoutY="78.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label alignment="CENTER" layoutX="672.0" layoutY="136.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Religión:" />
-                                    <TextField fx:id="txtReligemMon" layoutX="816.0" layoutY="132.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <RadioButton fx:id="rdbYes" layoutX="376.0" layoutY="93.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
-                                    <RadioButton fx:id="rdbNo" layoutX="432.0" layoutY="93.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
-                                    <Label layoutX="373.0" layoutY="125.0" style="-fx-font-size: 16;" text="Tipo de Vivienda" />
-                                    <ComboBox fx:id="cboMonHouse" layoutX="365.0" layoutY="160.0" prefHeight="30.0" prefWidth="163.0" promptText="Seleccione el tipo" style="-fx-font-size: 14;" />
-                                    <Label layoutX="672.0" layoutY="189.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Correo Electrónico:" />
-                                    <TextField fx:id="txtEmailMon" layoutX="816.0" layoutY="185.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="672.0" layoutY="232.0" prefHeight="25.0" prefWidth="305.0" style="-fx-font-size: 16;" text="¿Desea Agregar como Persona Autorizada?" />
-                                    <RadioButton fx:id="isAutorized" layoutX="688.0" layoutY="266.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
-                                    <RadioButton fx:id="isNotAutoraized" layoutX="744.0" layoutY="266.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
+                                    <Label layoutX="771.0" layoutY="10.0" prefHeight="27.0" prefWidth="196.0" stylesheets="@../css/main.css" text="Datos Adicionales">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="title-2" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label layoutX="663.0" layoutY="50.0" stylesheets="@../css/main.css" text="Profesión u Oficio:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtOcupationMon" layoutX="806.0" layoutY="46.0" prefHeight="33.0" prefWidth="170.0" stylesheets="@../css/main.css" />
+                                    <Label alignment="CENTER" layoutX="657.0" layoutY="95.0" prefHeight="25.0" prefWidth="134.0" stylesheets="@../css/main.css" text="Religión:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtReligemMon" layoutX="806.0" layoutY="91.0" prefHeight="33.0" prefWidth="170.0" stylesheets="@../css/main.css" />
+                                    <RadioButton fx:id="rdbYes" layoutX="435.0" layoutY="98.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
+                                    <RadioButton fx:id="rdbNo" layoutX="524.0" layoutY="98.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
+                                    <Label alignment="CENTER" layoutX="353.0" layoutY="144.0" prefHeight="20.0" prefWidth="301.0" stylesheets="@../css/main.css" text="Tipo de Vivienda">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <ComboBox fx:id="cboMonHouse" layoutX="429.0" layoutY="187.0" prefHeight="30.0" prefWidth="163.0" promptText="Seleccione el tipo" style="-fx-font-size: 14;" />
+                                    <Label layoutX="663.0" layoutY="141.0" prefHeight="25.0" prefWidth="134.0" stylesheets="@../css/main.css" text="Correo Electrónico:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtEmailMon" layoutX="806.0" layoutY="137.0" prefHeight="33.0" prefWidth="170.0" stylesheets="@../css/main.css" />
                                  </children>
                               </Pane>
                            </content></Tab>
@@ -110,33 +246,81 @@
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label layoutX="129.0" layoutY="21.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Personales" />
-                                    <Label layoutX="24.0" layoutY="80.0" style="-fx-font-size: 16;" text="Nombres:" />
-                                    <TextField fx:id="txtDadNames" layoutX="106.0" layoutY="74.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="24.0" layoutY="123.0" style="-fx-font-size: 16;" text="Apellidos:" />
-                                    <TextField fx:id="txtDadLastNames" layoutX="106.0" layoutY="119.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="24.0" layoutY="169.0" prefHeight="20.0" prefWidth="55.0" style="-fx-font-size: 16;" text="Cedula:" />
-                                    <TextField fx:id="txtDadDocument" layoutX="106.0" layoutY="165.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" />
-                                    <Label layoutX="25.0" layoutY="219.0" prefHeight="25.0" prefWidth="163.0" style="-fx-font-size: 16;" text="Fecha de Nacimiento:" />
-                                    <DatePicker fx:id="txtDadDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="217.0" prefHeight="25.0" prefWidth="140.0" style="-fx-background-radius: 4; -fx-padding: 2;" />
+                                    <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="351.0" stylesheets="@../css/main.css" text="Datos Personales">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <Label layoutX="24.0" layoutY="50.0" stylesheets="@../css/main.css" text="Nombres:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtDadNames" layoutX="106.0" layoutY="44.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="24.0" layoutY="93.0" stylesheets="@../css/main.css" text="Apellidos:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtDadLastNames" layoutX="106.0" layoutY="89.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="24.0" layoutY="139.0" prefHeight="20.0" prefWidth="55.0" stylesheets="@../css/main.css" text="Cedula:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtDadDocument" layoutX="106.0" layoutY="135.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <Label layoutX="25.0" layoutY="189.0" prefHeight="25.0" prefWidth="163.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <DatePicker fx:id="txtDadDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="373.0" layoutY="60.0" style="-fx-font-size: 16;" text="¿Vive con el Niño(a)?" />
-                                    <Label layoutX="469.0" layoutY="21.0" prefHeight="27.0" prefWidth="120.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos del Hogar" />
+                                    <Label alignment="CENTER" layoutX="353.0" layoutY="50.0" prefHeight="25.0" prefWidth="301.0" stylesheets="@../css/main.css" text="¿Vive con el Niño(a)?">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <Label alignment="CENTER" layoutX="353.0" layoutY="10.0" prefWidth="301.0" stylesheets="@../css/main.css" text="Datos del Hogar">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
                                     <Separator layoutX="653.0" orientation="VERTICAL" prefHeight="350.0" />
-                                    <Label layoutX="771.0" layoutY="21.0" prefHeight="27.0" prefWidth="196.0" style="-fx-font-size: 16; -fx-text-fill: #434141;" text="Datos Adicionales" />
-                                    <Label layoutX="673.0" layoutY="82.0" style="-fx-font-size: 16;" text="Profesión u Oficio:" />
-                                    <TextField fx:id="txtOcupationDad" layoutX="817.0" layoutY="78.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label alignment="CENTER" layoutX="672.0" layoutY="136.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Religión:" />
-                                    <TextField fx:id="txtReligeDad" layoutX="816.0" layoutY="132.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <RadioButton fx:id="rdbYes1" layoutX="376.0" layoutY="93.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
-                                    <RadioButton fx:id="rdbNo1" layoutX="432.0" layoutY="93.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
-                                    <Label layoutX="373.0" layoutY="125.0" style="-fx-font-size: 16;" text="Tipo de Vivienda" />
-                                    <ComboBox fx:id="cboDadHouse" layoutX="365.0" layoutY="160.0" prefHeight="30.0" prefWidth="163.0" promptText="Seleccione el tipo" style="-fx-font-size: 14;" />
-                                    <Label layoutX="672.0" layoutY="189.0" prefHeight="25.0" prefWidth="134.0" style="-fx-font-size: 16;" text="Correo Electrónico:" />
-                                    <TextField fx:id="txtEmailDad" layoutX="816.0" layoutY="185.0" prefHeight="33.0" prefWidth="170.0" style="-fx-background-radius: 4; -fx-padding: 8;" />
-                                    <Label layoutX="672.0" layoutY="232.0" prefHeight="25.0" prefWidth="305.0" style="-fx-font-size: 16;" text="¿Desea Agregar como Persona Autorizada?" />
-                                    <RadioButton fx:id="isAutorized1" layoutX="688.0" layoutY="266.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
-                                    <RadioButton fx:id="isNotAutoraized1" layoutX="744.0" layoutY="266.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
+                                    <Label layoutX="771.0" layoutY="10.0" prefHeight="27.0" prefWidth="196.0" stylesheets="@../css/main.css" text="Datos Adicionales">
+                                       <styleClass>
+                                          <String fx:value="text-info" />
+                                          <String fx:value="bold" />
+                                          <String fx:value="title-2" />
+                                       </styleClass></Label>
+                                    <Label layoutX="674.0" layoutY="54.0" stylesheets="@../css/main.css" text="Profesión u Oficio:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtOcupationDad" layoutX="806.0" layoutY="46.0" prefHeight="33.0" prefWidth="170.0" styleClass="form-control" />
+                                    <Label alignment="CENTER" layoutX="659.0" layoutY="98.0" prefHeight="25.0" prefWidth="134.0" stylesheets="@../css/main.css" text="Religión:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtReligeDad" layoutX="806.0" layoutY="96.0" prefHeight="33.0" prefWidth="170.0" styleClass="form-control" />
+                                    <RadioButton fx:id="rdbYes1" layoutX="452.0" layoutY="100.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="SI" />
+                                    <RadioButton fx:id="rdbNo1" layoutX="508.0" layoutY="100.0" mnemonicParsing="false" style="-fx-font-size: 14;" text="NO" />
+                                    <Label alignment="CENTER" layoutX="351.0" layoutY="141.0" prefHeight="25.0" prefWidth="304.0" stylesheets="@../css/main.css" text="Tipo de Vivienda">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <ComboBox fx:id="cboDadHouse" layoutX="422.0" layoutY="187.0" prefHeight="30.0" prefWidth="163.0" promptText="Seleccione el tipo" style="-fx-font-size: 14;" />
+                                    <Label layoutX="672.0" layoutY="147.0" prefHeight="25.0" prefWidth="134.0" stylesheets="@../css/main.css" text="Correo Electrónico:">
+                                       <styleClass>
+                                          <String fx:value="text-dark" />
+                                          <String fx:value="bold" />
+                                       </styleClass></Label>
+                                    <TextField fx:id="txtEmailDad" layoutX="806.0" layoutY="143.0" prefHeight="33.0" prefWidth="170.0" styleClass="form-control" />
                                  </children>
                               </Pane>
                            </content></Tab>
@@ -144,8 +328,15 @@
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>
-                                    <Label layoutX="286.0" layoutY="40.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #434141;" text="He confirmado las informacion y deseo guardar" />
-                                    <Button fx:id="btnSaveData" layoutX="410.0" layoutY="96.0" mnemonicParsing="false" onAction="#saveData" prefWidth="200.0" style="-fx-background-radius: 4; -fx-padding: 8; -fx-font-size: 14;" text="Guardar" />
+                                    <Label alignment="CENTER" layoutY="10.0" prefWidth="1020.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #434141;" text="He confirmado las informacion y deseo guardar" />
+                                    <Button fx:id="btnSaveData" layoutX="404.0" layoutY="207.0" mnemonicParsing="false" onAction="#saveData" prefWidth="200.0" stylesheets="@../css/main.css" text="Guardar">
+                                       <styleClass>
+                                          <String fx:value="button-big" />
+                                          <String fx:value="button-primary" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                  </children>
                               </Pane>
                            </content>
