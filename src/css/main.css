@@ -66,11 +66,19 @@
     -fx-text-fill: #F7F3F5;
 }
 
+.button-alert {
+    -fx-background-color:  #C91818;
+    -fx-text-fill: #F7F3F5;
+}
+
 .button-primary:hover {
     -fx-background-color:  #14274E;
 }
 .button-secondary:hover {
-    -fx-background-color:  #51A0F5;
+    -fx-background-color:  #5196F5;
+}
+.button-alert:hover {
+    -fx-background-color:  #C92818;
 }
 
 /*FORMS*/
