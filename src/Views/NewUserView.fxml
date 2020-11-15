@@ -54,7 +54,7 @@
             <String fx:value="button-big" />
             <String fx:value="button-primary" />
          </styleClass></Button>
-      <Button fx:id="btnNewUser1" layoutX="522.0" layoutY="306.0" mnemonicParsing="false" onAction="#newUser" prefHeight="35.0" prefWidth="207.0" stylesheets="@../css/main.css" text="Cancelar">
+      <Button fx:id="btnReset" layoutX="522.0" layoutY="306.0" mnemonicParsing="false" onAction="#reset" prefHeight="35.0" prefWidth="207.0" stylesheets="@../css/main.css" text="Cancelar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

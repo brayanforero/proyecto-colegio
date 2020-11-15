@@ -61,8 +61,6 @@ public class ClassRoomViewController implements Initializable {
     }
 
     public void initEvent() {
-
-        this.txtName.setOnKeyTyped(e -> Utilities.onlyLetter(e));
         this.txtCapacity.setOnKeyTyped(e -> Utilities.onlyDigit(e));
     }
 
@@ -137,7 +135,6 @@ public class ClassRoomViewController implements Initializable {
             alert.setContentText("Llena todo los campos");
             alert.setHeaderText(null);
             alert.showAndWait();
-            System.out.println("Errores en los campo");
             return false;
         }
 

@@ -30,6 +30,8 @@ public class NewUserViewController implements Initializable {
     @FXML
     private ComboBox<Workers> cboWorkers;
     private ObservableList<Workers> itemsWorkers = FXCollections.observableArrayList();
+    @FXML
+    private Button btnReset;
 
     
     @Override
@@ -77,6 +79,15 @@ public class NewUserViewController implements Initializable {
         
         Workers.setWorkerCombo(this.itemsWorkers);
         this.cboWorkers.setItems(this.itemsWorkers);
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        
+        this.txtNameUser.setText("");
+        this.txtPassUser.setText("");
+        this.cboRolUser.getSelectionModel().select(0);
+        this.cboWorkers.getSelectionModel().select(0);
     }
     
 }
