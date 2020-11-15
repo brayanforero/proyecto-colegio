@@ -1,5 +1,6 @@
 package Controllers;
 
+import Config.Utilities;
 import Models.Localidad;
 import Models.Municipio;
 import Models.Parents;
@@ -122,6 +123,7 @@ public class RegisterStudentViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.setStaticCombox();
         this.setDataCombox();
+        this.initEvet();
     }
 
     @FXML
@@ -212,9 +214,34 @@ public class RegisterStudentViewController implements Initializable {
     private void getLocaleById(ActionEvent event) {
         this.itemsLocales.removeAll(itemsLocales);
         ComboBox target = (ComboBox) event.getTarget();
-        this.mun =  (Municipio) target.getValue();
+        this.mun = (Municipio) target.getValue();
         Localidad.getLocales(this.itemsLocales, this.mun.getId());
         this.txtSelecLocale.setItems(this.itemsLocales);
+    }
+
+    public void initEvet() {
+
+        /*FIELDS NUMBERS*/
+        this.txtDocument.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+        this.txtPhoneDad.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+        this.txtPhoneMon.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+        this.txtDadDocument.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+        this.txtMonDocument.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+        this.txtDadDocument.setOnKeyTyped(e -> Utilities.onlyDigit(e));
+
+        /*FIELDS TEXT*/
+        this.txtNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtLastNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+
+        this.txtDadNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtDadLastNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtOcupationDad.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtReligeDad.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtMonNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtMonLastNames.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtOcupationMon.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtReligemMon.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+
     }
 
 }
