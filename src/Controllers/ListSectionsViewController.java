@@ -60,7 +60,13 @@ public class ListSectionsViewController implements Initializable {
     @FXML
     private void addSection(ActionEvent event) {
         
-        
+        if(this.txtNameSection.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Completa los campos");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
         String name = this.txtNameSection.getText().toUpperCase();
         
         Sections section = new Sections(name);
@@ -84,6 +90,13 @@ public class ListSectionsViewController implements Initializable {
 
     @FXML
     private void updateSection(ActionEvent event) {
+        if(this.txtNameSection.getText().isEmpty()){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Completa los campos");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
         String name = this.txtNameSection.getText().toUpperCase();
         int id = Integer.parseInt(this.txtIdSection.getText());
         Sections section = new Sections(id, name);

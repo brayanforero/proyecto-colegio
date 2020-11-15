@@ -123,6 +123,27 @@ public class ListDegressViewController implements Initializable {
         ClassRoom.getClassRoomCombo(this.itemsClassRooms);
         this.cboClassrooms.setItems(this.itemsClassRooms);
         this.cboClassrooms.getSelectionModel().select(0);
+
+        if (this.itemsSections.isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("Estimado usuario no existen secciones registradas");
+            a.setHeaderText(null);
+            a.showAndWait();
+        }
+
+        if (this.itemsClassRooms.isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("Estimado usuario no existen aulas registradas");
+            a.setHeaderText(null);
+            a.showAndWait();
+        }
+
+        if (this.itemsWorkers.isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("Estimado usuario existen personal registrado");
+            a.setHeaderText(null);
+            a.showAndWait();
+        }
     }
 
     @FXML
@@ -211,6 +232,7 @@ public class ListDegressViewController implements Initializable {
         this.cboTurno.getSelectionModel().select(0);
         this.cboWorker.getSelectionModel().select(0);
     }
+
     private void reset() {
 
         this.txtNameDegress.setText("");
@@ -224,6 +246,6 @@ public class ListDegressViewController implements Initializable {
     }
 
     public void initEvent() {
-        this.txtNameDegress.setOnKeyTyped(e-> Utilities.onlyLetterAndDigit(e));
+        this.txtNameDegress.setOnKeyTyped(e -> Utilities.onlyLetterAndDigit(e));
     }
 }
