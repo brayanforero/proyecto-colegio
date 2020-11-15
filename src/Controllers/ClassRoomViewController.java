@@ -1,5 +1,6 @@
 package Controllers;
 
+import Config.Utilities;
 import Models.ClassRoom;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,6 +48,7 @@ public class ClassRoomViewController implements Initializable {
 
         this.setTableClassRooms();
         this.btnUpdateClass.setVisible(false);
+        this.initEvent();
     }
 
     public void setTableClassRooms() {
@@ -56,6 +58,12 @@ public class ClassRoomViewController implements Initializable {
         this.colCountClassRoom.setCellValueFactory(new PropertyValueFactory("capacidad"));
         ClassRoom.getClassRoomTable(this.itesClassRoom);
         this.tableClassRooms.setItems(this.itesClassRoom);
+    }
+
+    public void initEvent() {
+
+        this.txtName.setOnKeyTyped(e -> Utilities.onlyLetter(e));
+        this.txtCapacity.setOnKeyTyped(e -> Utilities.onlyDigit(e));
     }
 
     @FXML
