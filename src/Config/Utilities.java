@@ -36,4 +36,10 @@ public class Utilities {
         }
         e.consume();
     }
+    
+    public static boolean validEmail(String string){
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        
+        return string.matches(regex);
+    }
 }

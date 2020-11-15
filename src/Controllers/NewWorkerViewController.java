@@ -63,8 +63,36 @@ public class NewWorkerViewController implements Initializable {
     }
     @FXML
     private void savedWorker(ActionEvent event) {
+        if (this.txtDocWorker.getText().length() < 8) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Formato no valido para una cédula");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
+        if (this.txtPhoneTelefono.getText().length() < 7) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Formato no valido para un número telefonico");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
         
-       
+        if (!Utilities.validEmail(this.txtEmailWorker.getText())) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Formato de email no valido");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
+        if (this.txtNameWorker.getText().isEmpty() || this.txtNameWorker.getText().isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Completa los campos");
+            a.setHeaderText(null);
+            a.showAndWait();
+            return;
+        }
+        
         String doc = this.cboTypeDoc.getValue() + this.txtDocWorker.getText().toUpperCase();
         String name = this.txtNameWorker.getText().toUpperCase();
         String lastName = this.txtLastNameWorker.getText().toUpperCase();
@@ -90,7 +118,8 @@ public class NewWorkerViewController implements Initializable {
         this.txtLastNameWorker.setText("");
         this.txtPhoneTelefono.setText("");
         this.txtDocWorker.setText("");
-        this.txtEmailWorker.setText(""); 
+        this.txtEmailWorker.setText("");
+
     }
     
     public void initEvent(){
