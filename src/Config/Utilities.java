@@ -20,4 +20,12 @@ public class Utilities {
         }
         e.consume();
     }
+    public static void onlyLetterAndDigit(KeyEvent e) {
+
+        char k = e.getCharacter().charAt(0);
+        if (Character.isLetterOrDigit(k)) {
+            return;
+        }
+        e.consume();
+    }
 }

@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Config.Utilities;
 import Models.Sections;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,6 +45,7 @@ public class ListSectionsViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.initTable();
         this.btnUpdateSection.setVisible(false);
+        this.txtNameSection.setOnKeyTyped(e->Utilities.onlyLetterAndDigit(e));
     }    
     
     
@@ -66,6 +68,7 @@ public class ListSectionsViewController implements Initializable {
         
         msg.showAndWait();
         this.initTable();
+        this.resetFields();
     }
 
     @FXML
@@ -87,11 +90,18 @@ public class ListSectionsViewController implements Initializable {
         Alert msg = section.updateSection();
         msg.showAndWait();
         this.initTable();
+        this.resetFields();
     }
 
     @FXML
     private void resetFields(ActionEvent event) {
-        this.txtNameSection.clear();
+        this.txtNameSection.setText("");
+        this.btnAddSection.setVisible(true);
+        this.btnUpdateSection.setVisible(false);
+    }
+    private void resetFields() {
+        this.txtNameSection.setText("");
+        this.btnAddSection.setVisible(true);
         this.btnUpdateSection.setVisible(false);
     }
     

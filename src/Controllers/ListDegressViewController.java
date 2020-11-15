@@ -158,6 +158,7 @@ public class ListDegressViewController implements Initializable {
         Alert msg = newDegress.degressAsigned();
         msg.showAndWait();
         this.setTableDegress();
+        this.reset();
     }
 
     @FXML
@@ -195,6 +196,7 @@ public class ListDegressViewController implements Initializable {
         Alert msg = newDegress.degressUpdate();
         msg.showAndWait();
         this.setTableDegress();
+        this.reset();
     }
 
     @FXML
@@ -209,8 +211,19 @@ public class ListDegressViewController implements Initializable {
         this.cboTurno.getSelectionModel().select(0);
         this.cboWorker.getSelectionModel().select(0);
     }
+    private void reset() {
+
+        this.txtNameDegress.setText("");
+        this.btnUpdateDegress.setVisible(false);
+        this.btnAddDegress.setVisible(true);
+
+        this.cboClassrooms.getSelectionModel().select(0);
+        this.cboSection.getSelectionModel().select(0);
+        this.cboTurno.getSelectionModel().select(0);
+        this.cboWorker.getSelectionModel().select(0);
+    }
 
     public void initEvent() {
-        this.txtNameDegress.setOnKeyTyped(e-> Utilities.onlyLetter(e));
+        this.txtNameDegress.setOnKeyTyped(e-> Utilities.onlyLetterAndDigit(e));
     }
 }
