@@ -190,7 +190,7 @@
                </cursor>
                <items>
                   <MenuItem fx:id="itemNewUser" mnemonicParsing="false" onAction="#openNewUser" text="Asignar a una Persona" />
-                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Lista de Usuarios" />
+                  <MenuItem fx:id="itemListUser" mnemonicParsing="false" onAction="#openListUsersHabilited" text="Lista de Usuarios" visible="false" />
                </items>
                <styleClass>
                   <String fx:value="nav-item" />
