@@ -18,6 +18,8 @@ public class ViewNewPeriodController implements Initializable {
     private DatePicker txtDateClose;
     @FXML
     private Button btnAddPeriod;
+    @FXML
+    private Button btnReset;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -35,6 +37,13 @@ public class ViewNewPeriodController implements Initializable {
         period.setEndDate(dateEnd);
         Alert msg = period.addPeriod();
         msg.showAndWait();
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        
+        this.txtDateGo.setValue(null);
+        this.txtDateClose.setValue(null);
     }
 
 }

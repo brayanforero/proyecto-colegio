@@ -17,10 +17,16 @@
       <DatePicker fx:id="txtDateGo" editable="false" focusTraversable="false" layoutX="322.0" layoutY="131.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" showWeekNumbers="true" styleClass="form-control" stylesheets="@../css/main.css" />
       <Label layoutX="205.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" style="-fx-font-size: 14;" styleClass="text-dark" stylesheets="@../css/main.css" text="Fecha de Cierre" />
       <DatePicker fx:id="txtDateClose" editable="false" focusTraversable="false" layoutX="323.0" layoutY="201.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" showWeekNumbers="true" styleClass="form-control" stylesheets="@../css/main.css" />
-      <Button fx:id="btnAddPeriod" alignment="CENTER" layoutX="323.0" layoutY="301.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPeriod" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Agregar">
+      <Button fx:id="btnAddPeriod" alignment="CENTER" layoutX="201.0" layoutY="301.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPeriod" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Agregar">
          <styleClass>
             <String fx:value="button-primary" />
             <String fx:value="button-big" />
          </styleClass></Button>
+      <Button fx:id="btnReset" alignment="CENTER" layoutX="435.0" layoutY="301.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Cancelar">
+         <styleClass>
+            <String fx:value="button-alert" />
+            <String fx:value="button-big" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

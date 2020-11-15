@@ -28,4 +28,12 @@ public class Utilities {
         }
         e.consume();
     }
+    public static void onlyDigit(KeyEvent e) {
+
+        char k = e.getCharacter().charAt(0);
+        if (Character.isDigit(k)) {
+            return;
+        }
+        e.consume();
+    }
 }

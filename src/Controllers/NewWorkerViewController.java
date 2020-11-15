@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Config.Utilities;
 import Models.Workers;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,10 +40,13 @@ public class NewWorkerViewController implements Initializable {
     @FXML
     private ComboBox<String> cboPosition;
     ObservableList<String> itemsPositions = FXCollections.observableArrayList();
+    @FXML
+    private Button btnReset;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        initCombo();
+       initEvent();
     }    
     
     public void initCombo (){
@@ -55,7 +59,7 @@ public class NewWorkerViewController implements Initializable {
         this.itemsPositions.addAll("DIRECTOR", "COORDINADOR", "DOCENTE", "OBRERO", "SECRETARIA");
         this.cboPosition.setItems(this.itemsPositions);
         
-        this.cboPosition.getSelectionModel().select(1);
+        this.cboPosition.getSelectionModel().select(0);
     }
     @FXML
     private void savedWorker(ActionEvent event) {
@@ -74,6 +78,28 @@ public class NewWorkerViewController implements Initializable {
         worker.setPhone(phone);
         Alert msg  = worker.saveWorker();
         msg.showAndWait();
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        this.cboTypeDoc.getSelectionModel().select(0);
+        this.cboPosition.getSelectionModel().select(0);
+        
+        this.txtDocWorker.setText("");
+        this.txtNameWorker.setText("");
+        this.txtLastNameWorker.setText("");
+        this.txtPhoneTelefono.setText("");
+        this.txtDocWorker.setText("");
+        this.txtEmailWorker.setText(""); 
+    }
+    
+    public void initEvent(){
+        
+        this.txtNameWorker.setOnKeyTyped(e->Utilities.onlyLetter(e));
+        this.txtLastNameWorker.setOnKeyTyped(e->Utilities.onlyLetter(e));
+        this.txtPhoneTelefono.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        this.txtDocWorker.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        
     }
     
 }

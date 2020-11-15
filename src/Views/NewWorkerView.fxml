@@ -68,7 +68,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnSaveWorker11" layoutX="540.0" layoutY="275.0" mnemonicParsing="false" onAction="#savedWorker" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Cancelar">
+      <Button fx:id="btnReset" layoutX="540.0" layoutY="275.0" mnemonicParsing="false" onAction="#reset" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Cancelar">
          <styleClass>
             <String fx:value="button-big" />
             <String fx:value="button-alert" />
