@@ -22,7 +22,7 @@
       <Pane layoutX="15.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="320.0" style="-fx-background-radius: 8;" styleClass="panes" stylesheets="@../css/main.css">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="20.0" prefHeight="17.0" prefWidth="320.0" style="-fx-font-size: 14;" text="Ingresa el N° de Cedula" />
-            <TextField fx:id="txtSearchWorker" layoutX="32.0" layoutY="61.0" onKeyTyped="#searchWorkerFilter" prefHeight="30.0" prefWidth="261.0" styleClass="form-control" stylesheets="@../css/main.css" />
+            <TextField fx:id="txtSearchWorker" layoutX="32.0" layoutY="61.0" prefHeight="30.0" prefWidth="261.0" styleClass="form-control" stylesheets="@../css/main.css" />
             <TextField fx:id="txtIdWorker" editable="false" layoutX="264.0" layoutY="15.0" prefHeight="30.0" prefWidth="23.0" visible="false" />
             <TableView fx:id="tblWorkersFilters" layoutX="32.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#selectItem" prefHeight="180.0" prefWidth="261.0">
               <columns>
@@ -75,7 +75,7 @@
                </font>
             </Label>
             <ComboBox fx:id="cboCargo" layoutX="421.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" />
-            <Button fx:id="btnSave" layoutX="234.0" layoutY="240.0" mnemonicParsing="false" onAction="#saveData" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Guardar">
+            <Button fx:id="btnSave" layoutX="123.0" layoutY="240.0" mnemonicParsing="false" onAction="#saveData" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Guardar">
                <styleClass>
                   <String fx:value="button-md" />
                   <String fx:value="button-primary" />
@@ -84,6 +84,16 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Button fx:id="btnReset" layoutX="334.0" layoutY="240.0" mnemonicParsing="false" onAction="#reset" prefHeight="30.0" prefWidth="200.0" stylesheets="@../css/main.css" text="Cancelar">
+               <styleClass>
+                  <String fx:value="button-md" />
+                  <String fx:value="button-alert" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children></Pane>
    </children>
 </AnchorPane>
