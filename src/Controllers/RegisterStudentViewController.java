@@ -127,19 +127,24 @@ public class RegisterStudentViewController implements Initializable {
     private Button btnToMom;
     @FXML
     private Button btnToDad;
+    @FXML
+    private Button btnToRegsiter;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setStaticCombox();
         this.setDataCombox();
         this.initEvet();
-        //this.disabledTabs();
+        this.disabledTabs();
         this.eventsToTabs();
     }
 
     @FXML
     private void saveData(ActionEvent event) throws SQLException {
-
+        
+        if(!this.validPaneBoy()) return;
+        if(!this.validaPaneMom()) return;
+        if(!this.validaPaneDad()) return;
         Students boy;
         Parents mom, dad;
         this.loc = txtSelecLocale.getValue();
@@ -283,8 +288,21 @@ public class RegisterStudentViewController implements Initializable {
         /*DESDE EL MODULO DE LA MAMÁ HACIA MODULO DEL PAPÁ*/
         this.btnToDad.setOnMouseClicked(e -> {
 
-            if(!validaPaneMom()) return;
-            
+            if (!validaPaneMom()) {
+                return;
+            }
+
+            this.tabDad.setDisable(false);
+            this.tabDad.getTabPane().getSelectionModel().selectNext();
+        });
+
+        /* DESDE EL MODULO DE PAPA HACIAS EL REGISTRO*/
+        this.btnToRegsiter.setOnMouseClicked(e -> {
+
+            if (!validaPaneDad()) {
+                return;
+            }
+
             this.tabDad.setDisable(false);
             this.tabDad.getTabPane().getSelectionModel().selectNext();
         });
@@ -335,15 +353,52 @@ public class RegisterStudentViewController implements Initializable {
 
     public boolean validaPaneMom() {
         if (this.txtMonNames.getText().isEmpty() || this.txtMonLastNames.getText().isEmpty() || this.txtReligemMon.getText().isEmpty()
-                || this.txtOcupationMon.getText().isEmpty()){
+                || this.txtOcupationMon.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Llena todo los campos");
             alert.setHeaderText(null);
             alert.showAndWait();
             return false;
         }
+
+        if (this.txtMonDocument.getText().length() < 5) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa una cédula valida");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (this.txtMonDateOfBirth.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa la fecha de nacimiento");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (this.cboMonHouse.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa los campos de seleccion");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (!Utilities.validEmail(this.txtEmailMon.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa un email valido");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean validaPaneDad() {
         
-        if(this.txtMonDocument.getText().length() < 5) {
+        if (this.txtDadDocument.getText().length() < 5) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Ingresa una cédula valida");
             alert.setHeaderText(null);
@@ -351,31 +406,30 @@ public class RegisterStudentViewController implements Initializable {
             return false;
         }
         
+        if (this.txtDadNames.getText().isEmpty() || this.txtDadLastNames.getText().isEmpty() || this.txtReligeDad.getText().isEmpty()
+                || this.txtOcupationDad.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Llena todo los campos");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
         
-        if(this.txtMonDateOfBirth.getValue() == null){
+        
+        if (this.txtDadDateOfBirth.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Completa la fecha de nacimiento");
             alert.setHeaderText(null);
             alert.showAndWait();
             return false;
         }
-        
-        if(this.cboMonHouse.getValue() == null){
+        if (this.cboDadHouse.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Completa los campos de seleccion");
             alert.setHeaderText(null);
             alert.showAndWait();
             return false;
         }
-        
-        if(!Utilities.validEmail(this.txtEmailMon.getText())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Ingresa un email valido");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return false;
-        }
-   
         return true;
     }
 
