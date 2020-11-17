@@ -129,6 +129,13 @@ public class RegisterStudentViewController implements Initializable {
     private Button btnToDad;
     @FXML
     private Button btnToRegsiter;
+    @FXML
+    private ComboBox<String> cboDocMom;
+    @FXML
+    private ComboBox<String> cboDocDad;
+    private ObservableList<String> itemsDoc = FXCollections.observableArrayList();
+    @FXML
+    private ComboBox<String> cboDocBoy;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -150,7 +157,7 @@ public class RegisterStudentViewController implements Initializable {
         this.loc = txtSelecLocale.getValue();
 
         // CAPTURANDO DATOS DEL NIÑO DE LA VISTA
-        String doc = this.txtDocument.getText().toUpperCase();
+        String doc = this.cboDocBoy.getValue() + this.txtDocument.getText().toUpperCase();
         String name = this.txtNames.getText().toUpperCase();
         String last_names = this.txtLastNames.getText().toUpperCase();
         String dateOfBith = this.txtDateOfBirth.getValue().toString();
@@ -168,7 +175,7 @@ public class RegisterStudentViewController implements Initializable {
                 id_state, id_mun, id_loc, have_Canaima, have_Beca, health, des_health);
 
         // CAPTURANDO DATOS DE La MAMÁ DE LA VISTA
-        String doc_mom = this.txtMonDocument.getText().toUpperCase();
+        String doc_mom = this.cboDocMom.getValue() + this.txtMonDocument.getText().toUpperCase();
         String name_mom = this.txtMonNames.getText().toUpperCase();
         String last_names_mom = this.txtMonLastNames.getText().toUpperCase();
         String dateOfBith_mom = this.txtMonDateOfBirth.getValue().toString();
@@ -182,7 +189,7 @@ public class RegisterStudentViewController implements Initializable {
                 ifLiveBoy_mom, type_house_mom, type_family_mom, ocp_mom, rel_mom, email_mom);
 
         // CAPTURANDO DATOS DE La MAMÁ DE LA VISTA
-        String doc_dad = this.txtDadDocument.getText().toUpperCase();
+        String doc_dad = this.cboDocDad.getValue() + this.txtDadDocument.getText().toUpperCase();
         String name_dad = this.txtDadNames.getText().toUpperCase();
         String last_names_dad = this.txtDadLastNames.getText().toUpperCase();
         String dateOfBith_dad = this.txtDadDateOfBirth.getValue().toString();
@@ -215,6 +222,15 @@ public class RegisterStudentViewController implements Initializable {
         this.itemsHouse.addAll("RANCHO", "CASA", "QUINTA");
         this.cboMonHouse.setItems(itemsHouse);
         this.cboDadHouse.setItems(itemsHouse);
+        
+        this.itemsDoc.addAll("V-", "E-");
+        this.cboDocMom.setItems(this.itemsDoc);
+        this.cboDocDad.setItems(this.itemsDoc);
+        this.cboDocBoy.setItems(this.itemsDoc);
+        
+        this.cboDocDad.getSelectionModel().select(0);
+        this.cboDocMom.getSelectionModel().select(0);
+        this.cboDocBoy.getSelectionModel().select(0);
     }
 
     public void disabledTabs() {
@@ -303,7 +319,7 @@ public class RegisterStudentViewController implements Initializable {
                 return;
             }
 
-            this.tabDad.setDisable(false);
+            this.tabRegister.setDisable(false);
             this.tabDad.getTabPane().getSelectionModel().selectNext();
         });
     }
@@ -341,7 +357,7 @@ public class RegisterStudentViewController implements Initializable {
             alert.showAndWait();
             return false;
         }
-        if (this.txtDadDateOfBirth.getValue() == null) {
+        if (this.txtDateOfBirth.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Completa la fecha de nacimiento");
             alert.setHeaderText(null);

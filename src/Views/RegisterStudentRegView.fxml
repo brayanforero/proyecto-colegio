@@ -30,7 +30,7 @@
                      </styleClass></Label>
                   <TabPane layoutY="50.0" prefHeight="334.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab text="Datos de Mamá">
+                        <Tab text="Datos de los Padres">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -52,13 +52,13 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtMonNames" layoutX="106.0" layoutY="124.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtMonNames" editable="false" layoutX="106.0" layoutY="124.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
                                     <Label layoutX="24.0" layoutY="193.0" stylesheets="@../css/main.css" text="Apellidos:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtMonLastNames" layoutX="106.0" layoutY="179.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtMonLastNames" editable="false" layoutX="106.0" layoutY="179.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
                                     <Button fx:id="btnSearchMom" layoutX="110.0" layoutY="233.0" mnemonicParsing="false" onAction="#searchMon" prefHeight="41.0" prefWidth="216.0" stylesheets="@../css/main.css" text="Buscar">
                                        <styleClass>
                                           <String fx:value="button-big" />
@@ -88,13 +88,13 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtDadNames" layoutX="448.0" layoutY="124.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtDadNames" editable="false" layoutX="448.0" layoutY="124.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
                                     <Label layoutX="366.0" layoutY="193.0" stylesheets="@../css/main.css" text="Apellidos:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtDadLastNames" layoutX="448.0" layoutY="180.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtDadLastNames" editable="false" layoutX="448.0" layoutY="180.0" prefHeight="36.0" prefWidth="220.0" stylesheets="@../css/main.css" />
                                     <Button fx:id="btnSearchDad" layoutX="445.0" layoutY="233.0" mnemonicParsing="false" onAction="#searchDad" prefHeight="41.0" prefWidth="216.0" stylesheets="@../css/main.css" text="Buscar">
                                        <styleClass>
                                           <String fx:value="button-big" />
@@ -135,13 +135,13 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtDocument" layoutX="106.0" layoutY="145.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtDocument" layoutX="178.0" layoutY="145.0" prefHeight="29.0" prefWidth="148.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Label layoutX="25.0" layoutY="185.0" prefHeight="25.0" prefWidth="137.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="178.0" layoutY="185.0" prefHeight="25.0" prefWidth="140.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <DatePicker fx:id="txtDateOfBirth" editable="false" focusTraversable="false" layoutX="178.0" layoutY="185.0" prefHeight="25.0" prefWidth="140.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label layoutX="374.0" layoutY="59.0" prefHeight="20.0" prefWidth="63.0" stylesheets="@../css/main.css" text="Estado:">
                                        <styleClass>
@@ -199,6 +199,7 @@
                                     <ComboBox fx:id="txtSelectState" layoutX="456.0" layoutY="57.0" onAction="#getMunById" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="txtSelectMun" layoutX="456.0" layoutY="99.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="txtSelecLocale" layoutX="456.0" layoutY="145.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <ComboBox fx:id="cboDocBoy" layoutX="106.0" layoutY="147.0" prefHeight="25.0" prefWidth="62.0" />
                                  </children>
                               </Pane>
                            </content>

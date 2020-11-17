@@ -158,7 +158,24 @@
                   <String fx:value="text-dark" />
                </styleClass>
             </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" stylesheets="@../css/main.css" text="Planillas" textFill="#434141">
+            <MenuButton mnemonicParsing="false" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Inscripción" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <items>
+                  <MenuItem fx:id="openRegisterStudent" mnemonicParsing="false" onAction="#openModuleNewStudent" text="¡Nuevo Ingreso!" />
+                  <MenuItem fx:id="openRegisterRegStudent" mnemonicParsing="false" onAction="#openModuleRegStudent" text="Con padres Registrados" />
+               </items>
+               <styleClass>
+                  <String fx:value="nav-item" />
+                  <String fx:value="text-info" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent; -fx-font-size: 12;" stylesheets="@../css/main.css" text="Planillas" textFill="#434141" visible="false">
                <font>
                   <Font size="16.0" />
                </font>
@@ -173,23 +190,6 @@
                <styleClass>
                   <String fx:value="nav-item" />
                   <String fx:value="text-dark" />
-               </styleClass>
-            </MenuButton>
-            <MenuButton mnemonicParsing="false" style="-fx-font-size: 12;" stylesheets="@../css/main.css" text="Inscripción" textFill="WHITE">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <items>
-                  <MenuItem fx:id="openRegisterStudent" mnemonicParsing="false" onAction="#openModuleNewStudent" text="¡Nuevo Ingreso!" />
-                  <MenuItem fx:id="openRegisterRegStudent" mnemonicParsing="false" onAction="#openModuleRegStudent" text="Regular" />
-               </items>
-               <styleClass>
-                  <String fx:value="nav-item" />
-                  <String fx:value="text-info" />
-                  <String fx:value="bold" />
                </styleClass>
             </MenuButton>
          </children>

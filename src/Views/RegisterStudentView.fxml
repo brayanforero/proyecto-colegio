@@ -60,7 +60,7 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtDocument" layoutX="107.0" layoutY="129.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtDocument" layoutX="179.0" layoutY="129.0" prefHeight="29.0" prefWidth="148.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Label layoutX="26.0" layoutY="174.0" prefHeight="25.0" prefWidth="126.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
@@ -150,6 +150,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
+                                    <ComboBox fx:id="cboDocBoy" layoutX="107.0" layoutY="131.0" prefHeight="25.0" prefWidth="61.0" />
                                  </children>
                               </Pane>
                            </content></Tab>
@@ -223,13 +224,13 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtMonDocument" layoutX="106.0" layoutY="135.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtMonDocument" layoutX="184.0" layoutY="135.0" prefHeight="29.0" prefWidth="142.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Label layoutX="25.0" layoutY="189.0" prefHeight="25.0" prefWidth="163.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <DatePicker fx:id="txtMonDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" stylesheets="@../css/main.css" />
+                                    <DatePicker fx:id="txtMonDateOfBirth" editable="false" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label alignment="CENTER" layoutX="352.0" layoutY="50.0" prefHeight="20.0" prefWidth="302.0" stylesheets="@../css/main.css" text="¿Vive con el Niño(a)?">
                                        <styleClass>
@@ -292,6 +293,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
+                                    <ComboBox fx:id="cboDocMom" layoutX="105.0" layoutY="138.0" prefHeight="25.0" prefWidth="59.0" />
                                  </children>
                               </Pane>
                            </content></Tab>
@@ -322,13 +324,13 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <TextField fx:id="txtDadDocument" layoutX="106.0" layoutY="135.0" prefHeight="25.0" prefWidth="220.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <TextField fx:id="txtDadDocument" layoutX="182.0" layoutY="135.0" prefHeight="29.0" prefWidth="144.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Label layoutX="25.0" layoutY="189.0" prefHeight="25.0" prefWidth="163.0" stylesheets="@../css/main.css" text="Fecha de Nacimiento:">
                                        <styleClass>
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <DatePicker fx:id="txtDadDateOfBirth" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <DatePicker fx:id="txtDadDateOfBirth" editable="false" focusTraversable="false" layoutX="185.0" layoutY="187.0" prefHeight="25.0" prefWidth="140.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label alignment="CENTER" layoutX="353.0" layoutY="50.0" prefHeight="25.0" prefWidth="301.0" stylesheets="@../css/main.css" text="¿Vive con el Niño(a)?">
                                        <styleClass>
@@ -391,6 +393,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
+                                    <ComboBox fx:id="cboDocDad" layoutX="107.0" layoutY="135.0" prefHeight="25.0" prefWidth="60.0" />
                                  </children>
                               </Pane>
                            </content></Tab>

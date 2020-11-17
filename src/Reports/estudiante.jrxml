@@ -26,7 +26,7 @@ INNER JOIN localidad.municipio AS mun
 	ON mun.id = est.dir_municipio
 INNER JOIN localidad.parroquia AS paq
 	ON paq.id = est.dir_parroquia
-WHERE cedula =  $P{cedula} ]]>
+WHERE cedula =  $P{cedula}]]>
 	</queryString>
 	<field name="cedula" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="cedula"/>
@@ -300,13 +300,6 @@ WHERE cedula =  $P{cedula} ]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{recomendaciones}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="183" y="90" width="144" height="30" uuid="40764b10-5ef4-41b6-8d8e-c8f8faa2aaeb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Telefonos de Contacto:]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>

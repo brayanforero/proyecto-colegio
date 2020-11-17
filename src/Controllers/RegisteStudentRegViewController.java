@@ -86,6 +86,10 @@ public class RegisteStudentRegViewController implements Initializable {
     private Localidad loc;
     private Municipio mun;
     private int idDegress = 0;
+    @FXML
+    private ComboBox<String> cboDocBoy;
+    private ObservableList<String> itemsDoc = FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,6 +101,7 @@ public class RegisteStudentRegViewController implements Initializable {
         this.itemDocDad.addAll("V-", "E-");
         this.itemDocMom.addAll("V-", "E-");
         this.itemsGender.addAll("M", "F");
+        this.itemsDoc.addAll("V-", "E-");
 
         this.cboDocDad.setItems(this.itemDocDad);
         this.cboDocDad.getSelectionModel().selectFirst();
@@ -104,7 +109,9 @@ public class RegisteStudentRegViewController implements Initializable {
         this.cboDocMom.getSelectionModel().selectFirst();
         
         this.cboSelectGender.setItems(this.itemsGender);
+        this.cboDocBoy.setItems(this.itemsDoc);
         this.cboSelectGender.getSelectionModel().selectFirst();
+        this.cboDocBoy.getSelectionModel().select(0);
     }
 
     public void setDataCombox() {
@@ -140,7 +147,7 @@ public class RegisteStudentRegViewController implements Initializable {
         this.loc = txtSelecLocale.getValue();
 
         // CAPTURANDO DATOS DEL NIÑO DE LA VISTA
-        String doc = this.txtDocument.getText().toUpperCase();
+        String doc = this.cboDocBoy.getValue() + this.txtDocument.getText().toUpperCase();
         String name = this.txtNames.getText().toUpperCase();
         String last_names = this.txtLastNames.getText().toUpperCase();
         String dateOfBith = this.txtDateOfBirth.getValue().toString();
