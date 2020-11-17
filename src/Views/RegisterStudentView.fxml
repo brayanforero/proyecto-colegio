@@ -14,6 +14,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
@@ -31,7 +33,7 @@
                      </styleClass></Label>
                   <TabPane layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="1020.0" style="-fx-background-color: #FEFDFE;" stylesheets="@../css/main.css" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="Datos del Niño(a)">
+                      <Tab fx:id="tabBoy" text="Datos del Niño(a)">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -64,7 +66,7 @@
                                           <String fx:value="text-dark" />
                                           <String fx:value="bold" />
                                        </styleClass></Label>
-                                    <DatePicker fx:id="txtDateOfBirth" focusTraversable="false" layoutX="156.0" layoutY="172.0" prefHeight="27.0" prefWidth="170.0" styleClass="form-control" stylesheets="@../css/main.css" />
+                                    <DatePicker fx:id="txtDateOfBirth" editable="false" focusTraversable="false" layoutX="156.0" layoutY="172.0" prefHeight="27.0" prefWidth="170.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="350.0" />
                                     <Label layoutX="368.0" layoutY="49.0" prefHeight="20.0" prefWidth="63.0" stylesheets="@../css/main.css" text="Estado:">
                                        <styleClass>
@@ -131,10 +133,27 @@
                                     <ComboBox fx:id="txtSelectState" layoutX="453.0" layoutY="47.0" onAction="#getMunById" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="txtSelectMun" layoutX="453.0" layoutY="87.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="txtSelecLocale" layoutX="453.0" layoutY="124.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                                    <Button fx:id="btnToHealth" alignment="CENTER" contentDisplay="RIGHT" layoutX="809.0" layoutY="184.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content></Tab>
-                      <Tab text="Informacion de Salud">
+                      <Tab fx:id="tabHealth" text="Informacion de Salud">
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -157,10 +176,27 @@
                                        </styleClass></Label>
                                     <TextArea fx:id="txtRecomendations" layoutX="212.0" layoutY="101.0" prefHeight="176.0" prefWidth="281.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="516.0" maxWidth="400.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="4.0" />
+                                    <Button fx:id="btnToMom" alignment="CENTER" contentDisplay="RIGHT" layoutX="689.0" layoutY="126.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content></Tab>
-                        <Tab text="Datos de Mamá">
+                        <Tab fx:id="tabMom" text="Datos de Mamá">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -239,10 +275,27 @@
                                           <String fx:value="bold" />
                                        </styleClass></Label>
                                     <TextField fx:id="txtEmailMon" layoutX="806.0" layoutY="137.0" prefHeight="33.0" prefWidth="170.0" stylesheets="@../css/main.css" />
+                                    <Button fx:id="btnToDad" alignment="CENTER" contentDisplay="RIGHT" layoutX="806.0" layoutY="212.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content></Tab>
-                        <Tab text="Datos de Papá">
+                        <Tab fx:id="tabDad" text="Datos de Papá">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -324,7 +377,7 @@
                                  </children>
                               </Pane>
                            </content></Tab>
-                        <Tab text="Registrar">
+                        <Tab fx:id="tabRegister" text="Registrar">
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>

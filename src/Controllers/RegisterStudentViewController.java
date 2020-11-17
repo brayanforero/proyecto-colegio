@@ -21,6 +21,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -81,10 +82,6 @@ public class RegisterStudentViewController implements Initializable {
     @FXML
     private TextField txtEmailMon;
     @FXML
-    private RadioButton isAutorized;
-    @FXML
-    private RadioButton isNotAutoraized;
-    @FXML
     private ComboBox<String> cboMonHouse;
     @FXML
     private TextField txtDadNames;
@@ -105,10 +102,6 @@ public class RegisterStudentViewController implements Initializable {
     @FXML
     private TextField txtOcupationDad;
     @FXML
-    private RadioButton isAutorized1;
-    @FXML
-    private RadioButton isNotAutoraized1;
-    @FXML
     private ComboBox<String> cboDadHouse;
     private int idDegress;
     @FXML
@@ -118,12 +111,30 @@ public class RegisterStudentViewController implements Initializable {
     private State state;
     private Localidad loc;
     private Municipio mun;
+    @FXML
+    private Tab tabBoy;
+    @FXML
+    private Tab tabHealth;
+    @FXML
+    private Tab tabMom;
+    @FXML
+    private Tab tabDad;
+    @FXML
+    private Tab tabRegister;
+    @FXML
+    private Button btnToHealth;
+    @FXML
+    private Button btnToMom;
+    @FXML
+    private Button btnToDad;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setStaticCombox();
         this.setDataCombox();
         this.initEvet();
+        //this.disabledTabs();
+        this.eventsToTabs();
     }
 
     @FXML
@@ -195,9 +206,18 @@ public class RegisterStudentViewController implements Initializable {
     public void setStaticCombox() {
         this.itemsGender.addAll("M", "F");
         this.cboSelectGender.setItems(itemsGender);
+        this.cboSelectGender.getSelectionModel().select(0);
         this.itemsHouse.addAll("RANCHO", "CASA", "QUINTA");
         this.cboMonHouse.setItems(itemsHouse);
         this.cboDadHouse.setItems(itemsHouse);
+    }
+
+    public void disabledTabs() {
+
+        this.tabHealth.setDisable(true);
+        this.tabMom.setDisable(true);
+        this.tabDad.setDisable(true);
+        this.tabRegister.setDisable(true);
     }
 
     @FXML
@@ -242,6 +262,121 @@ public class RegisterStudentViewController implements Initializable {
         this.txtOcupationMon.setOnKeyTyped(e -> Utilities.onlyLetter(e));
         this.txtReligemMon.setOnKeyTyped(e -> Utilities.onlyLetter(e));
 
+    }
+
+    public void eventsToTabs() {
+
+        this.btnToHealth.setOnMouseClicked(e -> {
+            /*DESDE EL ESTUDIANTE A LA SECCION DE SALUD*/
+            if (!this.validPaneBoy()) {
+                return;
+            }
+            this.tabHealth.setDisable(false);
+            this.tabHealth.getTabPane().getSelectionModel().selectNext();
+        });
+        /*DESDE EL MODULO DE SALUD HACIA MODULO DE LA MAMÁ*/
+        this.btnToMom.setOnMouseClicked(e -> {
+
+            this.tabMom.setDisable(false);
+            this.tabMom.getTabPane().getSelectionModel().selectNext();
+        });
+        /*DESDE EL MODULO DE LA MAMÁ HACIA MODULO DEL PAPÁ*/
+        this.btnToDad.setOnMouseClicked(e -> {
+
+            if(!validaPaneMom()) return;
+            
+            this.tabDad.setDisable(false);
+            this.tabDad.getTabPane().getSelectionModel().selectNext();
+        });
+    }
+
+    public boolean validPaneBoy() {
+
+        if (this.txtNames.getText().isEmpty() || this.txtLastNames.getText().isEmpty() || this.txtNames.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Llena todo los campos");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (this.txtDocument.getText().length() < 8) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa una cédula valida");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (this.txtPhoneDad.getText().length() < 7 || this.txtPhoneMon.getText().length() < 7) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa un teléfono válido");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+
+        if (this.txtSelectState.getValue() == null || this.txtSelectMun.getValue() == null || this.txtSelecLocale.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa los campos de seleccion");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        if (this.txtDadDateOfBirth.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa la fecha de nacimiento");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validaPaneMom() {
+        if (this.txtMonNames.getText().isEmpty() || this.txtMonLastNames.getText().isEmpty() || this.txtReligemMon.getText().isEmpty()
+                || this.txtOcupationMon.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Llena todo los campos");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        
+        if(this.txtMonDocument.getText().length() < 5) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa una cédula valida");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        
+        
+        if(this.txtMonDateOfBirth.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa la fecha de nacimiento");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        
+        if(this.cboMonHouse.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Completa los campos de seleccion");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+        
+        if(!Utilities.validEmail(this.txtEmailMon.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa un email valido");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
+   
+        return true;
     }
 
 }
