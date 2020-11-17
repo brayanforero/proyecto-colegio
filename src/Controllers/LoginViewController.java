@@ -4,6 +4,8 @@ import Models.Users;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoginViewController implements Initializable {
@@ -33,6 +37,8 @@ public class LoginViewController implements Initializable {
     Users user;
     @FXML
     private Label lblAlert;
+    @FXML
+    private Label btnRecovery;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -119,6 +125,23 @@ public class LoginViewController implements Initializable {
                 }
                 break;
 
+        }
+    }
+
+    @FXML
+    private void openRecovery(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/ForgotPasswordView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+        } catch (IOException e) {
+
+            System.err.println("Error al abrir las ventana: " + e);
         }
     }
 

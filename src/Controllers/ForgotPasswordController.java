@@ -11,7 +11,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -24,6 +27,14 @@ public class ForgotPasswordController implements Initializable {
     private TextField txtSearch;
     @FXML
     private Button btnSearch;
+    @FXML
+    private ComboBox<?> cboDocSearch;
+    @FXML
+    private Pane paneRecovery;
+    @FXML
+    private Label lblQuestion;
+    @FXML
+    private TextField txtResQuestion;
 
     /**
      * Initializes the controller class.
