@@ -28,6 +28,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -59,8 +60,6 @@ public class AdminViewController implements Initializable {
     @FXML
     private MenuItem itemListUser;
     @FXML
-    private MenuItem itemListUserDesactived;
-    @FXML
     private Label itemClassRooms;
     @FXML
     private MenuItem itemOpenClosePeriod;
@@ -68,6 +67,8 @@ public class AdminViewController implements Initializable {
     private MenuItem itemListDegress1;
     @FXML
     private MenuItem itemSections;
+    @FXML
+    private ImageView btnConfig;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -199,7 +200,6 @@ public class AdminViewController implements Initializable {
         this.openModuleContainer("ListUsersView");
     }
 
-    @FXML
     private void openListUsersNotHabilited(ActionEvent event) {
         this.openModuleContainer("ListUserNotHabilitedView");
     }
@@ -229,6 +229,26 @@ public class AdminViewController implements Initializable {
     private void openListSections(ActionEvent event) {
         
         this.openModuleContainer("ListSectionsView");
+    }
+
+    @FXML
+    private void openConfig(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/QuestionSecurityView.fxml"));
+            Parent root = loader.load();
+            
+            QuestionSecurityController controller = loader.getController();
+            controller.setIdUser(this.idUser);
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+        } catch (IOException e) {
+
+            System.err.println("Error al abrir las ventana: " + e);
+        }
     }
 
 }

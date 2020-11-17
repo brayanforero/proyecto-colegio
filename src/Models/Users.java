@@ -155,8 +155,8 @@ public class Users extends Base {
         }
         return u;
     }
-    
-    public Alert changePassword(){
+
+    public Alert changePassword() {
         Alert a = null;
         try {
 
@@ -170,7 +170,7 @@ public class Users extends Base {
             a.setHeaderText(null);
             con.close();
         } catch (SQLException ex) {
-            System.err.println("Error al actualizar la contraseña: " + ex);
+            System.err.println("Error al actualizar los datos de acceso: " + ex);
             a = new Alert(Alert.AlertType.ERROR);
             a.setContentText(Base.getMessage(ex));
             a.setHeaderText(null);
@@ -178,6 +178,33 @@ public class Users extends Base {
         return a;
     }
 
+    public Alert updateInfoToAccess() {
+
+        Alert a = null;
+
+        try {
+
+            Connection con = Base.getConnectionStatic();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement("UPDATE usuarios SET nombre = ?, pregunta = ?, respuesta = ? "
+                    + "WHERE id_usuario = ? LIMIT 1");
+            ps.setString(1, this.getName());
+            ps.setString(2, this.getQuestion());
+            ps.setString(3, this.getRequest());
+            ps.setInt(4, this.getId());
+            ps.executeUpdate();
+            a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Datos actualizados con exito");
+            a.setHeaderText(null);
+            con.close();
+        } catch (SQLException ex) {
+            System.err.println("Error al actualizar la contraseña: " + ex);
+            a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText(Base.getMessage(ex));
+            a.setHeaderText(null);
+        }
+        return a;
+    }
+    
     public int getId() {
         return id;
     }
