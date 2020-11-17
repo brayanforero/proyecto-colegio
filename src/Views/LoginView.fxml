@@ -6,23 +6,41 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginViewController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="571.0" style="-fx-background-color: #FEFDFE;" />
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="571.0" style="-fx-background-color: #fff;">
+         <children>
+            <ImageView fitHeight="307.0" fitWidth="244.0" layoutX="151.0" layoutY="122.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.jpg" />
+               </image>
+               <effect>
+                  <Reflection />
+               </effect>
+            </ImageView>
+         </children></Pane>
       <Pane layoutX="571.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="380.0" style="-fx-background-color: #F7F3F5;">
          <children>
-            <Label alignment="CENTER" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="380.0" style="-fx-font-size: 28; -fx-font-weight: bold;" styleClass="text-dark" stylesheets="@../css/main.css" text="Acceso al Sistema" />
-            <TextField fx:id="txtUsername" layoutX="40.0" layoutY="205.0" pickOnBounds="false" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Usuario" style="-fx-font-size: 16;" styleClass="form-control" stylesheets="@../css/main.css" />
-            <PasswordField fx:id="txtPassword" layoutX="40.0" layoutY="276.0" prefHeight="41.0" prefWidth="300.0" promptText="Ingresa tu Contraseña" style="-fx-font-size: 16;" styleClass="form-control" stylesheets="@../css/main.css" />
-            <Button fx:id="btnLogin" layoutX="80.0" layoutY="337.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="221.0" stylesheets="@../css/main.css" text="Acceder">
+            <Label alignment="CENTER" layoutX="1.0" layoutY="194.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="380.0" stylesheets="@../css/main.css" text="Inicio de Sesión">
+               <styleClass>
+                  <String fx:value="text-dark" />
+                  <String fx:value="bold" />
+                  <String fx:value="title" />
+               </styleClass></Label>
+            <TextField fx:id="txtUsername" layoutX="66.0" layoutY="239.0" pickOnBounds="false" prefHeight="40.0" prefWidth="250.0" promptText="Ingresa tu Usuario" style="-fx-font-size: 14;" styleClass="form-control" stylesheets="@../css/main.css" />
+            <PasswordField fx:id="txtPassword" layoutX="66.0" layoutY="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Ingresa tu Contraseña" style="-fx-font-size: 14;" styleClass="form-control" stylesheets="@../css/main.css" />
+            <Button fx:id="btnLogin" layoutX="80.0" layoutY="357.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="221.0" stylesheets="@../css/main.css" text="Acceder">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <styleClass>
-                  <String fx:value="button-big" />
+                  <String fx:value="button-md" />
                   <String fx:value="button-primary" />
                   <String fx:value="shadow" />
                </styleClass></Button>
@@ -36,7 +54,28 @@
                   <String fx:value="alert" />
                   <String fx:value="shadow" />
                </styleClass></Label>
+            <Label alignment="CENTER" layoutY="169.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="380.0" style="-fx-font-size: 20;" stylesheets="@../css/main.css" text="SINESR">
+               <styleClass>
+                  <String fx:value="text-dark" />
+                  <String fx:value="bold" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <ImageView fitHeight="80.0" fitWidth="85.0" layoutX="149.0" layoutY="83.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
+      <Label alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="950.0">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="950.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/logoEducacion.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
    </children>
 </AnchorPane>

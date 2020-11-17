@@ -105,14 +105,14 @@
                   <String fx:value="nav-lg" />
                </styleClass>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="20.0" stylesheets="@../css/main.css">
+            <HBox alignment="CENTER_RIGHT" layoutX="894.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="130.0" spacing="14.0" stylesheets="@../css/main.css">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <image>
-                        <Image url="@../images/social.png" />
+                        <Image url="@../images/user.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="6.0" />
@@ -126,7 +126,7 @@
                         <Insets top="6.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../images/signs.png" />
+                        <Image url="@../images/logout.png" />
                      </image>
                   </ImageView>
                </children>
