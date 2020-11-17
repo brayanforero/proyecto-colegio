@@ -374,6 +374,23 @@
                                           <String fx:value="bold" />
                                        </styleClass></Label>
                                     <TextField fx:id="txtEmailDad" layoutX="806.0" layoutY="143.0" prefHeight="33.0" prefWidth="170.0" styleClass="form-control" />
+                                    <Button fx:id="btnToRegsiter" alignment="CENTER" contentDisplay="RIGHT" layoutX="787.0" layoutY="214.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content></Tab>
