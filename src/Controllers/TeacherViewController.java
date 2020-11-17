@@ -27,6 +27,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class TeacherViewController implements Initializable {
@@ -57,6 +58,8 @@ public class TeacherViewController implements Initializable {
     private MenuItem itemSearchStudent;
     @FXML
     private MenuItem openRegisterRegStudent;
+    @FXML
+    private ImageView btnConfig;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -214,6 +217,26 @@ public class TeacherViewController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void openConfig(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/QuestionSecurityView.fxml"));
+            Parent root = loader.load();
+            
+            QuestionSecurityController controller = loader.getController();
+            controller.setIdUser(this.idUser);
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+        } catch (IOException e) {
+
+            System.err.println("Error al abrir las ventana: " + e);
         }
     }
 
