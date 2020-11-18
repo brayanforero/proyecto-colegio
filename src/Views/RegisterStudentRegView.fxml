@@ -13,6 +13,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
@@ -30,7 +32,7 @@
                      </styleClass></Label>
                   <TabPane layoutY="50.0" prefHeight="334.0" prefWidth="1020.0" tabClosingPolicy="UNAVAILABLE">
                      <tabs>
-                        <Tab text="Datos de los Padres">
+                        <Tab fx:id="tabParents" text="Datos de los Padres">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -104,11 +106,28 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></Button>
+                                    <Button fx:id="btnToBoy" alignment="CENTER" contentDisplay="RIGHT" layoutX="799.0" layoutY="218.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content>
                         </Tab>
-                        <Tab text="Datos del Niño(a)">
+                        <Tab fx:id="tabBoy" text="Datos del Niño(a)">
                            <content>
                               <Pane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -200,11 +219,28 @@
                                     <ComboBox fx:id="txtSelectMun" layoutX="456.0" layoutY="99.0" onAction="#getLocaleById" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="txtSelecLocale" layoutX="456.0" layoutY="145.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
                                     <ComboBox fx:id="cboDocBoy" layoutX="106.0" layoutY="147.0" prefHeight="25.0" prefWidth="62.0" />
+                                    <Button fx:id="btnToHealth" alignment="CENTER" contentDisplay="RIGHT" layoutX="812.0" layoutY="196.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content>
                         </Tab>
-                        <Tab text="Informacion de Salud">
+                        <Tab fx:id="tabHealth" text="Informacion de Salud">
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>
@@ -227,11 +263,28 @@
                                        </styleClass></Label>
                                     <TextArea fx:id="txtRecomendations" layoutX="197.0" layoutY="93.0" prefHeight="176.0" prefWidth="255.0" styleClass="form-control" stylesheets="@../css/main.css" />
                                     <Separator layoutX="516.0" maxWidth="400.0" orientation="VERTICAL" prefHeight="304.0" prefWidth="4.0" />
+                                    <Button fx:id="btnToRegister" alignment="CENTER" contentDisplay="RIGHT" layoutX="747.0" layoutY="137.0" mnemonicParsing="false" stylesheets="@../css/main.css" text="Continuar">
+                                       <styleClass>
+                                          <String fx:value="button-md" />
+                                          <String fx:value="button-secondary" />
+                                          <String fx:value="bold" />
+                                       </styleClass>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/right.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                               </Pane>
                            </content>
                         </Tab>
-                        <Tab text="Registrar">
+                        <Tab fx:id="tabRegister" text="Registrar">
                            <content>
                               <Pane prefHeight="300.0" prefWidth="1020.0">
                                  <children>

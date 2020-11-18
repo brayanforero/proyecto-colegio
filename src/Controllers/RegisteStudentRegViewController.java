@@ -1,5 +1,6 @@
 package Controllers;
 
+import Config.Utilities;
 import Models.Localidad;
 import Models.Municipio;
 import Models.Parents;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -89,12 +91,27 @@ public class RegisteStudentRegViewController implements Initializable {
     @FXML
     private ComboBox<String> cboDocBoy;
     private ObservableList<String> itemsDoc = FXCollections.observableArrayList();
-
+    @FXML
+    private Tab tabParents;
+    @FXML
+    private Button btnToBoy;
+    @FXML
+    private Tab tabBoy;
+    @FXML
+    private Button btnToHealth;
+    @FXML
+    private Tab tabHealth;
+    @FXML
+    private Button btnToRegister;
+    @FXML
+    private Tab tabRegister;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initCombox();
         setDataCombox();
+        //disabledTabs();
+        eventNavTabs();
     }
 
     public void initCombox() {
@@ -107,7 +124,7 @@ public class RegisteStudentRegViewController implements Initializable {
         this.cboDocDad.getSelectionModel().selectFirst();
         this.cboDocMom.setItems(this.itemDocMom);
         this.cboDocMom.getSelectionModel().selectFirst();
-        
+
         this.cboSelectGender.setItems(this.itemsGender);
         this.cboDocBoy.setItems(this.itemsDoc);
         this.cboSelectGender.getSelectionModel().selectFirst();
@@ -118,6 +135,7 @@ public class RegisteStudentRegViewController implements Initializable {
         State.getStates(this.itemsStates);
         this.txtSelectState.setItems(this.itemsStates);
     }
+
     public void setIdDegressForRegister(int idDegress) {
         this.idDegress = idDegress;
     }
@@ -206,6 +224,109 @@ public class RegisteStudentRegViewController implements Initializable {
         this.txtDadNames.setText(p.getNames());
         this.txtDadLastNames.setText(p.getLastNames());
         this.dad = p.getId();
+    }
+
+    public void disabledTabs() {
+        this.tabBoy.setDisable(true);
+        this.tabHealth.setDisable(true);
+        this.tabRegister.setDisable(true);
+    }
+
+    public void eventNavTabs() {
+        
+        this.txtMonDocument.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        this.txDadDocument.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        this.txtDocument.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        this.txtPhoneDad.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        this.txtPhoneMon.setOnKeyTyped(e->Utilities.onlyDigit(e));
+        
+        this.txtNames.setOnKeyTyped(e->Utilities.onlyLetter(e));
+        this.txtLastNames.setOnKeyTyped(e->Utilities.onlyLetter(e));
+        
+        this.btnToBoy.setOnMouseClicked(e -> {
+
+            if (this.txtMonDocument.getText().length() < 7 || this.txDadDocument.getText().length() < 7) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ingresa una cedula valida");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtMonNames.getText().isEmpty() || this.txDadDocument.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Completa los campos");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            this.tabBoy.setDisable(false);
+            this.tabBoy.getTabPane().getSelectionModel().selectNext();
+        });
+
+        this.btnToRegister.setOnMouseClicked(e -> {
+
+            this.tabRegister.setDisable(false);
+            this.tabRegister.getTabPane().getSelectionModel().selectNext();
+
+        });
+
+        this.btnToHealth.setOnMouseClicked(e -> {
+
+            if (this.txtNames.getText().isEmpty() || this.txtLastNames.getText().isEmpty() || this.txtNames.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Llena todo los campos");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtDocument.getText().length() < 8) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ingresa una cédula valida");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtPhoneDad.getText().length() < 7 || this.txtPhoneMon.getText().length() < 7) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ingresa un teléfono válido");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtPhoneDad.getText().equalsIgnoreCase(this.txtPhoneMon.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ingresa un teléfono diferente");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtSelectState.getValue() == null || this.txtSelectMun.getValue() == null || this.txtSelecLocale.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Completa los campos de seleccion");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            if (this.txtDateOfBirth.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Completa la fecha de nacimiento");
+                alert.setHeaderText(null);
+                alert.showAndWait();
+                return;
+            }
+
+            this.tabHealth.setDisable(false);
+            this.tabHealth.getTabPane().getSelectionModel().selectNext();
+
+        });
+
     }
 
 }
