@@ -349,6 +349,14 @@ public class RegisterStudentViewController implements Initializable {
             alert.showAndWait();
             return false;
         }
+        
+        if (this.txtPhoneDad.getText().equalsIgnoreCase(this.txtPhoneMon.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Ingresa un teléfono diferente");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return false;
+        }
 
         if (this.txtSelectState.getValue() == null || this.txtSelectMun.getValue() == null || this.txtSelecLocale.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
