@@ -54,7 +54,7 @@
                   <String fx:value="button-primary" />
                   <String fx:value="shadow" />
                </styleClass></Button>
-            <Label fx:id="btnRecovery" alignment="CENTER" contentDisplay="CENTER" layoutY="410.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openRecovery" prefHeight="17.0" prefWidth="380.0" style="-fx-font-size: 14; -fx-text-fill: #51A0F5;" text="¿Olvido su Contraseña?">
+            <Label fx:id="btnRecovery" alignment="CENTER" contentDisplay="CENTER" layoutY="401.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openRecovery" prefHeight="17.0" prefWidth="380.0" style="-fx-font-size: 14; -fx-text-fill: #51A0F5;" text="¿Olvido su Contraseña?">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -76,6 +76,15 @@
                   <Image url="@../images/user.png" />
                </image>
             </ImageView>
+            <Label fx:id="btnDevs" alignment="CENTER" contentDisplay="CENTER" layoutX="333.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openDevs" prefHeight="35.0" prefWidth="29.0" style="-fx-font-size: 20;" stylesheets="@../css/main.css" text="?">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="text-info" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
          </children>
       </Pane>
       <Label alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.0" prefWidth="950.0">

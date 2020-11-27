@@ -4,8 +4,6 @@ import Models.Users;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +41,8 @@ public class LoginViewController implements Initializable {
     private Label btnShowPassword;
     @FXML
     private TextField txtShowPassword;
+    @FXML
+    private Label btnDevs;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -173,6 +173,25 @@ public class LoginViewController implements Initializable {
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
             newStage.setScene(scene);
+            newStage.setResizable(false);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.showAndWait();
+        } catch (IOException e) {
+
+            System.err.println("Error al abrir las ventana: " + e);
+        }
+    }
+
+    @FXML
+    private void openDevs(MouseEvent event) {
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/TeamView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setTitle("Informacion del Sistema");
             newStage.setResizable(false);
             newStage.initModality(Modality.APPLICATION_MODAL);
             newStage.showAndWait();
