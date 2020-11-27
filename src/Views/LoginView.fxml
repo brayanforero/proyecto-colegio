@@ -35,6 +35,16 @@
                </styleClass></Label>
             <TextField fx:id="txtUsername" layoutX="66.0" layoutY="239.0" pickOnBounds="false" prefHeight="40.0" prefWidth="250.0" promptText="Ingresa tu Usuario" style="-fx-font-size: 14;" styleClass="form-control" stylesheets="@../css/main.css" />
             <PasswordField fx:id="txtPassword" layoutX="66.0" layoutY="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Ingresa tu Contraseña" style="-fx-font-size: 14;" styleClass="form-control" stylesheets="@../css/main.css" />
+            <Label fx:id="btnShowPassword" layoutX="328.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/main.css" text="Ver">
+               <styleClass>
+                  <String fx:value="text-info" />
+                  <String fx:value="bold" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <TextField fx:id="txtShowPassword" editable="false" focusTraversable="false" layoutX="67.0" layoutY="300.0" pickOnBounds="false" prefHeight="40.0" prefWidth="250.0" style="-fx-font-size: 14;" styleClass="form-control" stylesheets="@../css/main.css" />
             <Button fx:id="btnLogin" layoutX="80.0" layoutY="357.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="221.0" stylesheets="@../css/main.css" text="Acceder">
                <cursor>
                   <Cursor fx:constant="HAND" />

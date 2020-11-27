@@ -39,12 +39,49 @@ public class LoginViewController implements Initializable {
     private Label lblAlert;
     @FXML
     private Label btnRecovery;
+    @FXML
+    private Label btnShowPassword;
+    @FXML
+    private TextField txtShowPassword;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.lblAlert.setVisible(false);
+        this.txtShowPassword.setVisible(false);
+        this.btnShowPassword.setVisible(false);
+        this.handdlerShowPassword();
     }
-
+    
+    public void handdlerShowPassword(){
+        this.txtPassword.setOnKeyReleased(e->{
+            TextField target = (TextField) e.getTarget();
+            
+            if (this.txtPassword.getText().isEmpty()) this.btnShowPassword.setVisible(false);
+            if (!this.txtPassword.getText().isEmpty()) this.btnShowPassword.setVisible(true);
+            
+            if (!this.txtPassword.getText().isEmpty()) {
+                this.btnShowPassword.setVisible(true);
+            }
+            this.txtShowPassword.setText(target.getText());
+        });
+        
+        this.btnShowPassword.setOnMouseClicked(e->{
+            
+            if (this.txtShowPassword.isVisible()) {
+                this.btnShowPassword.setText("Ver");
+                this.txtShowPassword.setVisible(false);
+                this.txtPassword.setVisible(true);
+                return;
+            }
+            
+            if (!this.txtShowPassword.isVisible()) {
+                this.btnShowPassword.setText("Ocultar");
+                this.txtShowPassword.setVisible(true);
+                this.txtPassword.setVisible(false);
+                return;
+            }
+        });
+    }
     @FXML
     private void login(ActionEvent event) {
         String nameUser = this.txtUsername.getText().toUpperCase().trim();
